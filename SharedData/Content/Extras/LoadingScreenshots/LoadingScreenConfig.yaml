@@ -1,0 +1,39 @@
+# Example file for controlling loading image and overlay text display
+# To activate remove "_example" from filename
+# ---------------------------------------------------------------------------------------
+# Note: Specify filenames without extension (.jpg will be added internally)
+# ---------------------------------------------------------------------------------------
+
+# Overlay title
+Title: <b><#0077FF>Reforged Eden 1.10</color></b> <size=65%><#ffffff>(build 54)</color></size>
+
+# Overlay body (typically multi-line text)
+# If commented out, only the title will be displayed
+Body: |
+  <size=135%><#ffffff><b>August 3:</b></color></size>
+  <size=85%><#ffffff>A major update to the scenario is coming sometime in September:</color></size>
+  <size=85%>•<indent=3%>The upcoming update adds new bulk trading, wind and geothermal power, visuals for space, amd more.</indent>
+  •<indent=3%>A test scenario is currently available on the workshop along with preliminary update notes.</indent>
+  
+  <#ffff00>As with any major update please make sure you back up your blueprints and save games before the update.</color>
+  A new game start will be recommended but is not required.
+  A release date will be posted on the workshop as soon as it's available.</size>
+  
+# To show a certain image at the start of each loading image sequence, specify the respective file name
+# To use the default random image selection, comment out the following line
+# FirstPic: p05
+
+# To show the overlay text with certain images only, specify the respective file names
+# To show the text with every image, comment out the following line
+# ShowWith: [ p02, p03 ]
+
+# Show time for images - if not specified differently below
+# If commented out, the default is 10 seconds
+# Note: This time depends on the speed of the client computer as when loading a game a lot of work is done in parallel
+StandardShowTime: 15
+
+# To set a specific show time for certain images, specify "filename: time" lines
+# If not needed, comment out all lines of the following parameter
+ShowTimes:
+  # p05: 6
+  # p06: 8
