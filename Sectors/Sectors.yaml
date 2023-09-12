@@ -72,6 +72,7 @@ SolarSystems:
           - ['0, 0, 0', Akua, EdenStarterTemperateRE,'Human:1', '', '', '']
           - ['2403, 9037, -11729', Akua Moon, MoonStarterRE]
           - ['-8558, -4587, 11434', Akua Moon 1, MoonStarterRE]
+          - ['10000, -5000, 20000', Perdition's Descent, AlienKrielHome]
           - ['0,0,0', Akua Sector, EdenSpaceStarterBeginnerRE, '']
       - Coordinates: [-45, 0, 45]
       # - Coordinates: [-180, 0, 180]
