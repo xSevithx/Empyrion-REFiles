@@ -1374,7 +1374,6 @@ POIs:
             - Key: RegenAfter
               Value: 720
 
-# Black cult POIs
         - GroupName: Eden_NecroAuxT2
           Faction: Alien
           FactionTerritory: [Xenu]

@@ -549,6 +549,13 @@
 -Color=1,1,1,1
 -Asset=@eden_decalmodels/Eden_DecoGlowwormsYellow
 
+# Space glow strings
+[Fireflies]
+-Group=Group_3
+-Size=1,1,1
+-Color=1,1,1,1
+-Asset=@eden_decalmodels/Eden_DecoGlowstringSpaceOrange
+
 
 # ============================================================================================================================================================================
 # =================================================================================================================================================== Group 4 - Lights and Fog
@@ -868,6 +875,12 @@
 # ============================================================================================================================================================================
 # =================================================================================================================================================== Group 5 - Misc
 # ============================================================================================================================================================================
+
+[Flames]
+-Group=Group_5
+-Size=1,1,1
+-Color=1,1,1,1
+-Asset=@eden_decalmodels/Eden_KeypadDecalOrange
 
 [Flames]
 -Group=Group_5
@@ -2251,6 +2264,69 @@
 -Size=1,1,1
 -Color=1,1,1,1
 -Asset=@eden_decalmodels/Eden_HoloCyborg2
+
+[Advertisement]
+-Group=Group_9
+-ColliderMode=NoCollision
+-Size=1,1,1
+-Color=1,1,1,1
+-Asset=@eden_decalmodels/Eden_HoloCyborgRed
+
+[Advertisement]
+-Group=Group_9
+-ColliderMode=NoCollision
+-Size=1,1,1
+-Color=1,1,1,1
+-Asset=@eden_decalmodels/Eden_HoloCyborgBlue
+
+[Advertisement]
+-Group=Group_9
+-ColliderMode=NoCollision
+-Size=1,1,1
+-Color=1,1,1,1
+-Asset=@eden_decalmodels/Eden_HoloGame1
+
+[Advertisement]
+-Group=Group_9
+-ColliderMode=NoCollision
+-Size=1,1,1
+-Color=1,1,1,1
+-Asset=@eden_decalmodels/Eden_HoloGame2
+
+[Advertisement]
+-Group=Group_9
+-ColliderMode=NoCollision
+-Size=1,1,1
+-Color=1,1,1,1
+-Asset=@eden_decalmodels/Eden_HoloGame3
+
+[Advertisement]
+-Group=Group_9
+-ColliderMode=NoCollision
+-Size=1,1,1
+-Color=1,1,1,1
+-Asset=@eden_decalmodels/Eden_HoloGame4
+
+[Advertisement]
+-Group=Group_9
+-ColliderMode=NoCollision
+-Size=1,1,1
+-Color=1,1,1,1
+-Asset=@eden_decalmodels/Eden_HoloGame5
+
+[Advertisement]
+-Group=Group_9
+-ColliderMode=NoCollision
+-Size=1,1,1
+-Color=1,1,1,1
+-Asset=@eden_decalmodels/Eden_HoloGame6
+
+[Advertisement]
+-Group=Group_9
+-ColliderMode=NoCollision
+-Size=1,1,1
+-Color=1,1,1,1
+-Asset=@eden_decalmodels/Eden_HoloGame7
 
 [Advertisement]
 -Group=Group_9

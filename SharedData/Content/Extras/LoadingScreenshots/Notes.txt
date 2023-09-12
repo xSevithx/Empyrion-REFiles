@@ -47,3 +47,4 @@ Eden_LoadingTip45
 Eden_LoadingTip46
 Eden_LoadingTip47
 Eden_LoadingTip48
+Eden_LoadingTipUpdate

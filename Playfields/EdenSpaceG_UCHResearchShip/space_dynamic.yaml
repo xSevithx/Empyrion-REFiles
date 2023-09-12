@@ -62,7 +62,8 @@ POIs:
     - Type: BA_Admin
       Name: [Eden_BAO_UCHResearchShp]
       DisplayName: UCH Research Vessel
-      Faction: UCH
+      # Faction: UCH
+      Faction: Admin
       FactionTerritory: [All]
       Mode: Survival
       CountMinMax: [ 1, 1 ]

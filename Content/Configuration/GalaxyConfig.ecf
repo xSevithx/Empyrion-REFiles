@@ -241,6 +241,7 @@
     UseDefaultStarDef: false
     StarClass_1: N1a, param1: "SpawnAmount=25, ClusterProb=0"
     StarClass_2: S-S, param1: "Prob=0.05"
+    StarClass_3: L3, param1: "Prob=0.1"
     # NebulaSpawnCount: 5
     # NebulaColorIndex: 13
   }
@@ -257,6 +258,7 @@
     StarClass_2: K, param1: "Prob=0.4"
     StarClass_3: M, param1: "Prob=0.4"
     StarClass_4: S-S, param1: "Prob=0.05"
+    StarClass_5: L3, param1: "Prob=0.1"
     NebulaSpawnCount: 5
     NebulaColorIndex: 3
   }
@@ -277,6 +279,7 @@
     StarClass_6: Q23, param1: "SpawnAmount=5, Prob=0.5"
     StarClass_7: Q94, param1: "SpawnAmount=5, Prob=0.5"
     StarClass_8: Q95, param1: "SpawnAmount=5, Prob=0.5"
+    StarClass_9: L3, param1: "SpawnAmount=5, Prob=0.5"
     NebulaSpawnCount: 90
     NebulaColorIndex: 13
   }
@@ -402,7 +405,7 @@
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------ Trader Cluster
   { Child StarRegion_22
     Name: "Star Cluster Trader"
-    LabelName: "<align=center><voffset=12em><line-height=1em>Tranquility<br><size=75%>[Trader Guild]"
+    LabelName: "<align=center><voffset=12em><line-height=1em>Tranquility<br><size=75%>[Trade Federation]"
     LabelColor: "1, 1, 1, 0.8"
     LabelSize: 200
     Shape: Elliptical
@@ -1782,7 +1785,7 @@
   SolarSystemConfigSuffix: _MainHotT2
   # Model: SunBlueGiant
   Model: SunGeneric
-  Probability: 0.015
+  Probability: 0.012
   SizeClass: 12
   Color: "0.1, 0.1, 0.8"
   LightColor: "0.6, 0.6, 1"
@@ -1834,6 +1837,43 @@
   ColorName: Blue 
   Age: 0.25
   InnerSystem: "8, 92"
+  HabitableHot: "93, 102"
+  HabitableTemperate: "103, 122"
+  HabitableCold: "123, 142"
+  OuterSystem: "143, 254"
+  Description: "[c][ff0000]Hot system.[-][/c] A B-type main-sequence star (B V) is a main-sequence (hydrogen-burning) star of spectral type B and luminosity class V. These stars have from 2 to 16 times the mass of the Sun and surface temperatures between 10,000 and 30,000 K. B-type stars are extremely luminous and blue."
+}
+
+# Type B
+{ GalaxyConfig, Name: B Type Star
+  StarClass: B3
+  SolarSystemConfigSuffix: _MainHotT2
+  # Model: SunBlueGiant
+  Model: SunGeneric
+  Probability: 0.005
+  SizeClass: 13
+  Color: "0.1, 0.1, 0.65"
+  LightColor: "0.5, 0.5, 0.9"
+  # ModelColor: "0.0, 0.1, 0.4" # Backup
+  # ModelColor: "0.2, 0.4, 0.6" # Variation 1
+  ModelColor: "0.05, 0.2, 0.7" # Variation 3
+  # ModelColor2: "1, 1, 1.4" # Variation 3
+  # ModelColor: "0.2, 0.3, 0.5" # Variation 2
+  # ModelColor2: "0.8, 0.9, 1" # Variation 2
+  # ModelBrightness: 0.85 # (overall brightness)
+  ModelBrightness: 1 # (overall brightness)
+  ModelNoiseTiling: 25 # (default is 40, set to higher values for bigger stars)
+  # ModelCoronaSpikesSize: 0.65 # (default is 0.75, values < 0.6 will hide the spikes completely)
+  ModelCoronaSpikesSize: 0.7 # (default is 0.75, values < 0.6 will hide the spikes completely)
+  ModelPlasmaArcsSize: 0.40 # (default is 0.5)
+  ModelFlareBrightness: 3 # (values < 1 will make the flare smaller)
+  SurfaceTemperature: "10000, 30000" 
+  Mass: 18
+  Radius: 8 
+  Luminosity: 800 
+  ColorName: Blue 
+  Age: 0.25
+  InnerSystem: "24, 92"
   HabitableHot: "93, 102"
   HabitableTemperate: "103, 122"
   HabitableCold: "123, 142"
@@ -2159,11 +2199,11 @@
 # Type G
 { GalaxyConfig, Name: G Type Star
   StarClass: G5
-  SolarSystemConfigSuffix: _MainHabitableT2
+  SolarSystemConfigSuffix: _MainHabitableT1
   # Model: SunWhiteDwarf
   Model: SunGeneric
   # Probability: 0.04
-  Probability: 0.02
+  Probability: 0.015
   SizeClass: 11
   Color: "0.97,0.9,0.85"
   LightColor: "0.97,0.90,0.85"
@@ -2183,6 +2223,41 @@
   ColorName: Pink
   Age: 4
   InnerSystem: "5, 78"
+  HabitableHot: "79, 97"
+  HabitableTemperate: "98, 139"
+  HabitableCold: "140, 179"
+  OuterSystem: "180, 250"
+  Description: "[c][00ff00]Habitable system.[-][/c] G-type stars, including the Sun, have prominent spectral lines H and K of Ca II, which are most pronounced at G2. They have even weaker hydrogen lines than F, but along with the ionized metals, they have neutral metals. There is a prominent spike in the G band of CH molecules."
+}
+
+# Type G
+{ GalaxyConfig, Name: G Type Star
+  StarClass: G6
+  SolarSystemConfigSuffix: _MainHabitableT1
+  # Model: SunWhiteDwarf
+  Model: SunGeneric
+  # Probability: 0.04
+  Probability: 0.015
+  SizeClass: 12
+  Color: "0.97,0.85,0.75"
+  LightColor: "0.97,0.85,0.7"
+  # ModelColor: "1, 0.6, 0.55"
+  # ModelColor: "1, 0.55, 0.5"
+  # ModelColor: "0.75, 0.5, 0.45"
+  ModelColor: "0.75, 0.65, 0.45"
+  # ModelColor2: "0.8, 0.6, 0.3"
+  ModelBrightness: 0.75
+  ModelNoiseTiling: 55
+  ModelCoronaSpikesSize: 0.8 # (default is 0.75, values < 0.6 will hide the spikes completely)
+  ModelPlasmaArcsSize: 0.5 # (default is 0.5)
+  ModelFlareBrightness: 1.5 # (values < 1 will make the flare smaller)
+  SurfaceTemperature: "7500, 10000" 
+  Mass: 1.1
+  Radius: 1.1
+  Luminosity: 1.2
+  ColorName: Pink
+  Age: 4
+  InnerSystem: "25, 78"
   HabitableHot: "79, 97"
   HabitableTemperate: "98, 139"
   HabitableCold: "140, 179"
@@ -2905,132 +2980,132 @@
 # }
 
 
-# ------------------------------------------------------------------------------------------------- Default Story Solar Systems
-{ GalaxyConfig, Name: Sigma System    #Mission Story Part II - chapter 1: Sigma Fulcrum
-  StarClass: SigmaZero
-  Model: SunRedGiant  # better: yellow orange?
-  Probability: 0.4 
-  SizeClass: 10
-  Color: "1,0.85,0.44"
-  SurfaceTemperature: "4000, 5500" 
-  Mass: 0.7
-  Radius: 0.8 
-  Luminosity: 0.3 
-  ColorName: Yellow-Orange
-  Age: 30
-  InnerSystem: "5, 48" 
-  HabitableHot: "49, 53" 
-  HabitableTemperate: "54, 59" 
-  HabitableCold: "60, 64" 
-  OuterSystem: "65, 112"
-  GalaxySpawnAmount: 0
-  Description: "Sigma Zero is the nickname of a system, situated nearly exactly between the Zirax, Polaris and Trader Guild territories. Once a profitable claim of the Polaris Megacorp, the company suddenly and hastily retreated from this place. The infamous 'Sigma Fulcrum', one of the stations that were left behind fully operational, has become a central launchpad for basically any non-legal activity in this sector between the three territories."
-}
+# # ------------------------------------------------------------------------------------------------- Default Story Solar Systems
+# { GalaxyConfig, Name: Sigma System    #Mission Story Part II - chapter 1: Sigma Fulcrum
+  # StarClass: SigmaZero
+  # Model: SunRedGiant  # better: yellow orange?
+  # Probability: 0.4 
+  # SizeClass: 10
+  # Color: "1,0.85,0.44"
+  # SurfaceTemperature: "4000, 5500" 
+  # Mass: 0.7
+  # Radius: 0.8 
+  # Luminosity: 0.3 
+  # ColorName: Yellow-Orange
+  # Age: 30
+  # InnerSystem: "5, 48" 
+  # HabitableHot: "49, 53" 
+  # HabitableTemperate: "54, 59" 
+  # HabitableCold: "60, 64" 
+  # OuterSystem: "65, 112"
+  # GalaxySpawnAmount: 0
+  # Description: "Sigma Zero is the nickname of a system, situated nearly exactly between the Zirax, Polaris and Trader Guild territories. Once a profitable claim of the Polaris Megacorp, the company suddenly and hastily retreated from this place. The infamous 'Sigma Fulcrum', one of the stations that were left behind fully operational, has become a central launchpad for basically any non-legal activity in this sector between the three territories."
+# }
 
-{ GalaxyConfig, Name: Containment Area 13b-7   #Mission Story Part II - chapter 2: Hypernoise
-  StarClass: ContAr13b7
-  Model: BlackHole
-  Probability: 1
-  SizeClass: 10
-  Color: "0.60,0.02,1"
-  # SurfaceTemperature: "10000000, 100000000" 
-  Mass: 1000000
-  # Schwarzschildradius
-  Radius: 0.21 
-  ColorName: Black
-  #Luminosity: 0.002
-  Age: 900
-  InnerSystem: "4, 5" 
-  HabitableHot: "6, 120" 
-  HabitableTemperate: "121, 132" 
-  HabitableCold: "133, 144" 
-  OuterSystem: "145, 252"  
-  GalaxySpawnAmount: 0
-  Description: "Containment Area 13b-7 (Galactic Catalogue identifier U1B-01a3X) is a nearly empty star system with a massive black hole in its center. The energetic wavefronts frequently emitting from this system has lead to all galactic nations to agree on making this a no-travel zone. Enter at own risk!"
-}
+# { GalaxyConfig, Name: Containment Area 13b-7   #Mission Story Part II - chapter 2: Hypernoise
+  # StarClass: ContAr13b7
+  # Model: BlackHole
+  # Probability: 1
+  # SizeClass: 10
+  # Color: "0.60,0.02,1"
+  # # SurfaceTemperature: "10000000, 100000000" 
+  # Mass: 1000000
+  # # Schwarzschildradius
+  # Radius: 0.21 
+  # ColorName: Black
+  # #Luminosity: 0.002
+  # Age: 900
+  # InnerSystem: "4, 5" 
+  # HabitableHot: "6, 120" 
+  # HabitableTemperate: "121, 132" 
+  # HabitableCold: "133, 144" 
+  # OuterSystem: "145, 252"  
+  # GalaxySpawnAmount: 0
+  # Description: "Containment Area 13b-7 (Galactic Catalogue identifier U1B-01a3X) is a nearly empty star system with a massive black hole in its center. The energetic wavefronts frequently emitting from this system has lead to all galactic nations to agree on making this a no-travel zone. Enter at own risk!"
+# }
 
-{ GalaxyConfig, Name: Containment Area 1a-95 #Mission Story Part II: Deep Mine Progenitor
-  StarClass: ContAr1a95
-  Model: SunNeutron
-  Probability: 0.00625
-  SizeClass: 7
-  Color: "0.35,0.35,0.75"
-  SurfaceTemperature: "4000, 4000" 
-  ColorName: White
-  Mass: 2
-  Radius: 0.00004 
-  Description: "Containment Area 1a-95 (Galactic Catalogue identifier Jm32-Nb32x1) was defined as a non-travel zone, because of the activity of its irregular Neutron star is said to having lead to a total loss of several Zirax expedition fleets which were heading for the galactic center, using the star as a reststop. No incident reports about this area are available in the Galactic Catalogue. Enter at own risk!"
-  #Luminosity: 0.002
-  Age: 400
-  InnerSystem: "1, 2" 
-  HabitableHot: "3, 120" 
-  HabitableTemperate: "121, 132" 
-  HabitableCold: "133, 144" 
-  OuterSystem: "145, 252"  
-  GalaxySpawnAmount: 0
-}
+# { GalaxyConfig, Name: Containment Area 1a-95 #Mission Story Part II: Deep Mine Progenitor
+  # StarClass: ContAr1a95
+  # Model: SunNeutron
+  # Probability: 0.00625
+  # SizeClass: 7
+  # Color: "0.35,0.35,0.75"
+  # SurfaceTemperature: "4000, 4000" 
+  # ColorName: White
+  # Mass: 2
+  # Radius: 0.00004 
+  # Description: "Containment Area 1a-95 (Galactic Catalogue identifier Jm32-Nb32x1) was defined as a non-travel zone, because of the activity of its irregular Neutron star is said to having lead to a total loss of several Zirax expedition fleets which were heading for the galactic center, using the star as a reststop. No incident reports about this area are available in the Galactic Catalogue. Enter at own risk!"
+  # #Luminosity: 0.002
+  # Age: 400
+  # InnerSystem: "1, 2" 
+  # HabitableHot: "3, 120" 
+  # HabitableTemperate: "121, 132" 
+  # HabitableCold: "133, 144" 
+  # OuterSystem: "145, 252"  
+  # GalaxySpawnAmount: 0
+# }
 
-{ GalaxyConfig, Name: HighSecurity    #Mission Story Part II chapter 3: Welcome Back
-  StarClass: HighSecurity
-  Model: SunWhiteDwarf
-  Probability: 0.05 
-  SizeClass: 11
-  Color: "0.97,0.97,1"
-  SurfaceTemperature: "7500, 10000" 
-  Mass: 2.2
-  Radius: 2.4 
-  Luminosity: 25 
-  ColorName: White
-  Age: 0.5
-  InnerSystem: "5, 78" 
-  HabitableHot: "79, 87" 
-  HabitableTemperate: "88, 95" 
-  HabitableCold: "96, 104" 
-  OuterSystem: "105, 182"
-  Description: "One of many High Security areas in the Zirax Empire. Only enter with permission!"
-  GalaxySpawnAmount: 0
-}
+# { GalaxyConfig, Name: HighSecurity    #Mission Story Part II chapter 3: Welcome Back
+  # StarClass: HighSecurity
+  # Model: SunWhiteDwarf
+  # Probability: 0.05 
+  # SizeClass: 11
+  # Color: "0.97,0.97,1"
+  # SurfaceTemperature: "7500, 10000" 
+  # Mass: 2.2
+  # Radius: 2.4 
+  # Luminosity: 25 
+  # ColorName: White
+  # Age: 0.5
+  # InnerSystem: "5, 78" 
+  # HabitableHot: "79, 87" 
+  # HabitableTemperate: "88, 95" 
+  # HabitableCold: "96, 104" 
+  # OuterSystem: "105, 182"
+  # Description: "One of many High Security areas in the Zirax Empire. Only enter with permission!"
+  # GalaxySpawnAmount: 0
+# }
 
-{ GalaxyConfig, Name: UCH Hideout #Mission Story Part II  
-  StarClass: UCHHideout
-  Model: SunNeutron
-  Probability: 0.00625
-  SizeClass: 7
-  Color: "0.35,0.35,0.75"
-  SurfaceTemperature: "4000, 4000" 
-  ColorName: White
-  Mass: 2
-  Radius: 0.00004 
-  Description: "Safe harbour for remains of the UCH fleet"
-  #Luminosity: 0.002
-  Age: 400
-  InnerSystem: "1, 2" 
-  HabitableHot: "3, 120" 
-  HabitableTemperate: "121, 132" 
-  HabitableCold: "133, 144" 
-  OuterSystem: "145, 252"  
-  GalaxySpawnAmount: 0
-}
-{ GalaxyConfig, Name: Mining Operation  #Mission Story Part II
-  StarClass: MiningOperation
-  Model: SunYellowWhite
-  Probability: 0.1
-  SizeClass: 11
-  Color: "0.99,0.96,0.85"
-  SurfaceTemperature: "6000, 7500" 
-  Mass: 1.5
-  Radius: 1.8 
-  Luminosity: 4.4
-  ColorName: Yellow-White
-  Age: 1
-  InnerSystem: "5, 66" 
-  HabitableHot: "67, 74" 
-  HabitableTemperate: "75, 81" 
-  HabitableCold: "82, 88" 
-  OuterSystem: "89, 155"
-  Description: "Ten years ago, this solar system has been the setting of an overwhelmingly strong pirate attack. The pirates of the Salurian clan were defeated by local Zirax forces, but it remains unknown what has been the real target for this concerted attack."
-  GalaxySpawnAmount: 0
-}
+# { GalaxyConfig, Name: UCH Hideout #Mission Story Part II  
+  # StarClass: UCHHideout
+  # Model: SunNeutron
+  # Probability: 0.00625
+  # SizeClass: 7
+  # Color: "0.35,0.35,0.75"
+  # SurfaceTemperature: "4000, 4000" 
+  # ColorName: White
+  # Mass: 2
+  # Radius: 0.00004 
+  # Description: "Safe harbour for remains of the UCH fleet"
+  # #Luminosity: 0.002
+  # Age: 400
+  # InnerSystem: "1, 2" 
+  # HabitableHot: "3, 120" 
+  # HabitableTemperate: "121, 132" 
+  # HabitableCold: "133, 144" 
+  # OuterSystem: "145, 252"  
+  # GalaxySpawnAmount: 0
+# }
+# { GalaxyConfig, Name: Mining Operation  #Mission Story Part II
+  # StarClass: MiningOperation
+  # Model: SunYellowWhite
+  # Probability: 0.1
+  # SizeClass: 11
+  # Color: "0.99,0.96,0.85"
+  # SurfaceTemperature: "6000, 7500" 
+  # Mass: 1.5
+  # Radius: 1.8 
+  # Luminosity: 4.4
+  # ColorName: Yellow-White
+  # Age: 1
+  # InnerSystem: "5, 66" 
+  # HabitableHot: "67, 74" 
+  # HabitableTemperate: "75, 81" 
+  # HabitableCold: "82, 88" 
+  # OuterSystem: "89, 155"
+  # Description: "Ten years ago, this solar system has been the setting of an overwhelmingly strong pirate attack. The pirates of the Salurian clan were defeated by local Zirax forces, but it remains unknown what has been the real target for this concerted attack."
+  # GalaxySpawnAmount: 0
+# }
 
 # ===================================================================================================================================================
 # =========================================================================================================== Project Eden Star Systems
@@ -3457,7 +3532,7 @@
   StarClass: L
   SolarSystemConfigSuffix: _MainExoticT2
   Model: SunGeneric
-  Probability: 0.05
+  Probability: 0.035
   SizeClass: 8
   Color: "1,0.75,1"
   LightColor: "0.15,0.1,0.15"
@@ -3480,6 +3555,36 @@
   OuterSystem: "100, 150"
   Description: "[c][ff00ff]Exotic system.[-][/c] Brown Dwarfs are failed stars that never grew massive enough to initiate fusion."
   GalaxySpawnAmount: 0
+}
+
+# Bright pink brown dwarf
+{ GalaxyConfig, Name: L Brown Dwarf
+  StarClass: L2
+  SolarSystemConfigSuffix: _MainExoticT2
+  Model: SunGeneric
+  Probability: 0.002
+  SizeClass: 8
+  Color: "1,0.55,1"
+  LightColor: "0.15,0.1,0.15"
+  ModelColor: "1.5,0.7,0.9"
+  ModelBrightness: 0.25
+  ModelNoiseTiling: 5
+  ModelCoronaSpikesSize: 0
+  ModelPlasmaArcsSize: 0
+  ModelFlareBrightness: 0
+  SurfaceTemperature: "400, 800" 
+  Mass: 0.1
+  Radius: 0.3
+  Luminosity: 0.05
+  ColorName: Pink
+  Age: 30
+  InnerSystem: "15, 19"
+  HabitableHot: "20, 39"
+  HabitableTemperate: "40, 69"
+  HabitableCold: "70, 99"
+  OuterSystem: "100, 150"
+  Description: "[c][ff00ff]Exotic system.[-][/c] Brown Dwarfs are failed stars that never grew massive enough to initiate fusion."
+  GalaxySpawnAmount: 10
 }
 
 # Q23 type Anomaly Bright Blue
@@ -3610,6 +3715,37 @@
   GalaxySpawnAmount: 3
 }
 
+# Type Unknown
+{ GalaxyConfig, Name: Unknown Signal
+  StarClass: Unknown
+  SolarSystemConfigSuffix: _MainUnknownT1
+  # Model: SunRedDwarf
+  Model: SunGeneric
+  Probability: 0.002
+  SizeClass: 1
+  # Color: "0.9,0.05,0.9"
+  Color: "0.3,0.7,0.5"
+  LightColor: "0.00,0.00,0.00"
+  ModelColor: "0, 0, 0"
+  ModelBrightness: 0
+  ModelCoronaSpikesSize: 0
+  ModelPlasmaArcsSize: 0
+  ModelFlareBrightness: 0
+  SurfaceTemperature: "10, 20" 
+  Mass: 0.1
+  Radius: 0.1
+  # Luminosity: 0.002
+  Luminosity: 0.01
+  ColorName: Black
+  Age: 5
+  InnerSystem: "749, 799"
+  HabitableHot: "800, 849"
+  HabitableTemperate: "850, 899"
+  HabitableCold: "900, 949"
+  OuterSystem: "950, 1000"
+  Description: "[c][00ffff]Unknown system.[-][/c] An unknown signal. Special warp drive upgrades may be required to explore systems such as these."
+  # GalaxySpawnAmount: 0
+}
 
 # Type K3
 { GalaxyConfig, Name: K3
@@ -3971,6 +4107,37 @@
   OuterSystem: "50, 74"
   Description: "[c][ff00ff]Exotic system.[-][/c] Strange stars had until now had only been theorized. Thought to be made out of unstable exotic matter, these stars may behave in strange, unpredictable ways."
 }
+
+# Type L3
+{ GalaxyConfig, Name: L Brown Dwarf
+  StarClass: L3
+  SolarSystemConfigSuffix: _MainExoticT2
+  Model: SunGeneric
+  Probability: 0.002
+  SizeClass: 9
+  Color: "0.7,0.6,0.4"
+  LightColor: "0.4,0.3,0.2"
+  ModelColor: "1,0.9,0.4"
+  ModelBrightness: 0.25
+  ModelNoiseTiling: 5
+  ModelCoronaSpikesSize: 0
+  ModelPlasmaArcsSize: 0
+  ModelFlareBrightness: 0.5
+  SurfaceTemperature: "400, 800" 
+  Mass: 0.1
+  Radius: 0.3
+  Luminosity: 0.1
+  ColorName: Yellow
+  Age: 30
+  InnerSystem: "15, 19"
+  HabitableHot: "20, 39"
+  HabitableTemperate: "40, 69"
+  HabitableCold: "70, 99"
+  OuterSystem: "100, 150"
+  Description: "[c][ff00ff]Exotic system.[-][/c] Brown Dwarfs are failed stars that never grew massive enough to initiate fusion."
+  GalaxySpawnAmount: 10
+}
+
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ARC Stars
 # Type M
@@ -4454,7 +4621,7 @@
 # Type F
 { GalaxyConfig, Name: F3
   StarClass: F3
-  SolarSystemConfigSuffix: _MainHabitableT1
+  SolarSystemConfigSuffix: _MainHabitableT2
   Model: SunGeneric
   Probability: 0
   SizeClass: 9

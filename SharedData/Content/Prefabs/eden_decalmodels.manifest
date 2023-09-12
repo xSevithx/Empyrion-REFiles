@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 718941768
+CRC: 3065165241
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 04c240893202b8557994da795f9bb796
+    Hash: 2bf97836faf1de7ff1e9b996363669ac
   TypeTreeHash:
     serializedVersion: 2
     Hash: 278793eaaf19dc517fa03eeac1d1b866
@@ -67,6 +67,9 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceMultiBright
+  1.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceGreenBase.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFirefliesSwarmWhite.prefab
 - Assets/eden_decalmodels/POI Decorations/Effects/Eden_WarpInShip_Template.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFirefliesSwarmYellow.prefab
@@ -105,10 +108,12 @@ Assets:
 - Assets/eden_decalmodels/Posters/Advertisements/Random/Eden_SignRandomNewsMixed3.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Corporations/Eden_SignOkyMedical2.prefab
 - Assets/eden_decalmodels/Environmental Space/Eden_DebrisCloud2.prefab
+- Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloGameOld2.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Eden_AdVideoColonists1.prefab
-- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFlowerGreen.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceBlueBase.prefab
 - Assets/eden_decalmodels/POI Decorations/Crystals/Eden_DecoCrystalRed.prefab
 - Assets/eden_decalmodels/Eden_FlamesYellowSmall.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFlowerGreen.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Eden_AdZirax1.prefab
 - Assets/eden_decalmodels/POI Decorations/Fire/Eden_FireOilFlareSmoke.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudRed2.prefab
@@ -118,7 +123,7 @@ Assets:
 - Assets/eden_decalmodels/POI Decorations/Fog/Eden_POIFogBlue.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudRedRandom.prefab
 - Assets/eden_decalmodels/POI Decorations/Particles/Eden_DecoLightningRingBlue.prefab
-- Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloCyborg.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceWhite.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoConePurple2.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoLightPulseRed.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Eden_AdTrader2.prefab
@@ -126,16 +131,19 @@ Assets:
 - Assets/eden_decalmodels/POI Decorations/Effects/Eden_WarpInShip5.prefab
 - Assets/eden_decalmodels/Docking Lights/Arrows/Line Arrows/Eden_DockArrowLine2Cyan.prefab
 - Assets/eden_decalmodels/Docking Lights/Arrows/Eden_DockArrowCyan.prefab
-- Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsWhiteAnim2.prefab
+- Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloCyborg.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudGreen2.prefab
 - Assets/eden_decalmodels/Docking Lights/Eden_DockHexBlue3.prefab
 - Assets/eden_decalmodels/POI Decorations/Particles/Eden_DecoSporeCloudGreen3.prefab
 - Assets/eden_decalmodels/POI Decorations/Particles/Eden_DecoSporeCloudBlue2.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Corporations/Eden_SignPirate2.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoLightPulsePurple.prefab
-- Assets/eden_decalmodels/POI Decorations/Fire/Eden_HarvestWater.prefab
+- Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsWhiteAnim2.prefab
 - Assets/eden_decalmodels/Docking Lights/Arrows/Line Arrows/Eden_DockArrowLineOrange.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceMultiL.prefab
+- Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloGameNew.prefab
 - Assets/eden_decalmodels/Environmental Space/Eden_DebrisPiece1.prefab
+- Assets/eden_decalmodels/POI Decorations/Fire/Eden_HarvestWater.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoLightPulseSlowWhite.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Corporations/Eden_SignCargoHaul.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Bounties/Eden_SignBountyRandom2.prefab
@@ -143,8 +151,10 @@ Assets:
 - Assets/eden_decalmodels/POI Decorations/Eden_SparksBlue1.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Presets/Eden_GasCloudVariedCyan3.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoLightPulseSlowCyan.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFirefliesOrangeL.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudGreen3.prefab
 - Assets/eden_decalmodels/Test/Eden_StealthTest.prefab
+- Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloCyborgRed.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/News/Eden_SignRandomStockMarket.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoLightPulseCyan.prefab
 - Assets/eden_decalmodels/Eden_HexBlue2.prefab
@@ -159,6 +169,7 @@ Assets:
 - Assets/eden_decalmodels/POI Decorations/Fog/Eden_POIFogOrange.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFirefliesWhite.prefab
 - Assets/eden_decalmodels/POI Decorations/Fire/Eden_HarvestOxygen.prefab
+- Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloGame4.prefab
 - Assets/eden_decalmodels/Eden_DockingLightsOrange.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoPlantCyan.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_FogCloudOrange.prefab
@@ -172,6 +183,7 @@ Assets:
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudPurple2.prefab
 - Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsRedAnim.prefab
 - Assets/eden_decalmodels/POI Decorations/Particles/Eden_DecoLightningLineRed.prefab
+- Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloGame7.prefab
 - Assets/eden_decalmodels/Docking Lights/Arrows/Line Arrows/Eden_DockArrowLineYellow.prefab
 - Assets/eden_decalmodels/Eden_FlamesOrangeSmall2.prefab
 - Assets/eden_decalmodels/POI Decorations/Fire/Eden_FireShipWhiteL.prefab
@@ -185,6 +197,7 @@ Assets:
 - Assets/eden_decalmodels/POI Decorations/Fire/Eden_SteamJet3.prefab
 - Assets/eden_decalmodels/POI Decorations/Particles/Eden_DecoBloodSpoutGreen4.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringGreen.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceMultiBase.prefab
 - Assets/eden_decalmodels/POI Decorations/Eden_VoidGate2.prefab
 - Assets/eden_decalmodels/POI Decorations/Crystals/Eden_DecoCrystalGreenBright.prefab
 - Assets/eden_decalmodels/POI Decorations/Eden_PlanetDisplay.prefab
@@ -194,6 +207,7 @@ Assets:
 - Assets/eden_decalmodels/Posters/Advertisements/Corporations/Eden_SignCorpGeneric5.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoPlant2Green.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_FogCloudBlue2.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceGreenBright.prefab
 - Assets/eden_decalmodels/POI Decorations/Effects/Eden_WarpInShipBlueS.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFungusOrange2.prefab
 - Assets/eden_decalmodels/Docking Lights/Eden_LightConeWhite.prefab
@@ -210,6 +224,7 @@ Assets:
 - Assets/eden_decalmodels/POI Decorations/Forcefields/Eden_DecoForcefieldRed.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Pirates/Eden_SignNoEntry.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Bounties/Eden_SignBountyRandomFixed.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceMultiBright.prefab
 - Assets/eden_decalmodels/Docking Lights/Eden_DockHexWhite.prefab
 - Assets/eden_decalmodels/Eden_NoticeDecals.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoPlantPurple.prefab
@@ -240,6 +255,7 @@ Assets:
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Presets/Eden_GasCloudVariedRust.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFungusOrange.prefab
 - Assets/eden_decalmodels/POI Decorations/Fog/Eden_POIFogWhiteDense.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceYellowBase.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFungusCyan2.prefab
 - Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsCircleWhite2.prefab
 - Assets/eden_decalmodels/POI Decorations/Crystals/Eden_DecoCrystalOrangeBright.prefab
@@ -248,6 +264,7 @@ Assets:
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudBlue.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFungusBlue2.prefab
 - Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightGreenSingleAnim2.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoSporesBlue.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_NebulaRandomBlueGreen.prefab
 - Assets/eden_decalmodels/POI Decorations/Crystals/Eden_DecoCrystalPurpleGlow.prefab
 - Assets/eden_decalmodels/POI Decorations/Effects/Eden_WarpInShipOrangeS.prefab
@@ -269,6 +286,7 @@ Assets:
 - Assets/eden_decalmodels/Docking Lights/Arrows/Line Arrows/Eden_DockArrowLine2Orange.prefab
 - Assets/eden_decalmodels/Eden_DockingLightsBlue.prefab
 - Assets/eden_decalmodels/Docking Lights/Eden_DockHexYellow.prefab
+- Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloGameOld3.prefab
 - Assets/eden_decalmodels/Eden_FlamesOrangeSmall4.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudGreenTiny3.prefab
 - Assets/eden_decalmodels/POI Decorations/Effects/Eden_WarpInShip6.prefab
@@ -280,11 +298,11 @@ Assets:
 - Assets/eden_decalmodels/POI Decorations/Particles/Eden_DecoLightningLineBlue.prefab
 - Assets/eden_decalmodels/Eden_WarpGatePulseBlue.prefab
 - Assets/eden_decalmodels/Eden_AnomalyModelBlue1.prefab
-- Assets/eden_decalmodels/Posters/Advertisements/Pirates/Eden_SignSkull.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoLightOrange.prefab
-- Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsCircleWhiteAnim.prefab
 - Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsYellowAnim.prefab
+- Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsCircleWhiteAnim.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/News/Eden_SignRandomNews7D.prefab
+- Assets/eden_decalmodels/Posters/Advertisements/Pirates/Eden_SignSkull.prefab
 - Assets/eden_decalmodels/Docking Lights/Arrows/Eden_DockArrowWhite.prefab
 - Assets/eden_decalmodels/Environmental Space/Eden_DebrisPiece10.prefab
 - Assets/eden_decalmodels/POI Decorations/Crystals/Eden_DecoCrystalPurpleBright.prefab
@@ -293,20 +311,23 @@ Assets:
 - Assets/eden_decalmodels/Posters/Advertisements/Random/Eden_SignRandomCorp2.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoConeCyan.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringPurpleBright.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceYellowL.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoPlant2Red.prefab
 - Assets/eden_decalmodels/Environmental Space/Eden_DebrisPiece8.prefab
 - Assets/eden_decalmodels/POI Decorations/Effects/Eden_WarpInShipBlueM.prefab
 - Assets/eden_decalmodels/Docking Lights/Eden_DockHexBlue.prefab
-- Assets/eden_decalmodels/Environmental Space/Gas Clouds/Presets/Eden_GasCloudPresetOrange1.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceCyanL.prefab
 - Assets/eden_decalmodels/Docking Lights/Arrows/Line Arrows/Eden_DockArrowLine2Blue.prefab
 - Assets/eden_decalmodels/Eden_FlamesGreenTiny.prefab
-- Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudRed3.prefab
+- Assets/eden_decalmodels/Environmental Space/Gas Clouds/Presets/Eden_GasCloudPresetOrange1.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Bounties/Eden_SignBountyRandom3.prefab
 - Assets/eden_decalmodels/POI Decorations/Particles/Eden_DecoBloodSpoutGreen2.prefab
 - Assets/eden_decalmodels/Environmental Space/Eden_DebrisCloud3.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoConeYellow2.prefab
 - Assets/eden_decalmodels/POI Decorations/Eden_LegacyTrail.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_NebulaGreenRandomL.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFirefliesBlueL.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceCyanBright.prefab
 - Assets/eden_decalmodels/Eden_HexYellow1.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Presets/Eden_GasCloudVariedOrange3.prefab
 - Assets/eden_decalmodels/Eden_FlamesOrangeSmall1.prefab
@@ -344,6 +365,8 @@ Assets:
 - Assets/eden_decalmodels/Eden_FlamesOrangeTall.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudOrange3.prefab
 - Assets/eden_decalmodels/POI Decorations/Effects/Eden_WarpInShip2BlueM.prefab
+- Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudRed3.prefab
+- Assets/eden_decalmodels/POI Decorations/Eden_PowerSurgePurple.prefab
 - Assets/eden_decalmodels/POI Decorations/Forcefields/Eden_DecoSphereShieldGreen.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudRedSmallRandom.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Presets/Eden_GasCloudVariedCyan.prefab
@@ -351,11 +374,13 @@ Assets:
 - Assets/eden_decalmodels/POI Decorations/Effects/Eden_WarpInShipOrangeL.prefab
 - Assets/eden_decalmodels/POI Decorations/Crystals/Eden_DecoCrystalOrange.prefab
 - Assets/eden_decalmodels/POI Decorations/Fire/Eden_SteamJet4.prefab
+- Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloCyborgBlue.prefab
 - Assets/eden_decalmodels/Eden_HexRed3.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringOrange.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/News/Eden_SignRandomNews5.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Corporations/Eden_SignMACorp.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Corporations/Eden_SignUIM.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFirefliesRedL.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Sprite Videos/Eden_SignNewsIonStorm.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoLightPulseWhite.prefab
 - Assets/eden_decalmodels/POI Decorations/Particles/Eden_DecoLightningLineBlue2.prefab
@@ -367,7 +392,7 @@ Assets:
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoLightPulseSlowBlue.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Sprite Videos/Eden_SignNewsIceMining.prefab
 - Assets/eden_decalmodels/Docking Lights/Eden_DockHexCyan2.prefab
-- Assets/eden_decalmodels/POI Decorations/Particles/Eden_DecoBloodSpoutRed3.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceCyanBase.prefab
 - Assets/eden_decalmodels/POI Decorations/Eden_HoloPlanetEarth.prefab
 - Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightCyanSingleAnim2.prefab
 - Assets/eden_decalmodels/Environmental Space/Eden_DebrisPiece9.prefab
@@ -390,8 +415,10 @@ Assets:
 - Assets/eden_decalmodels/Environmental Space/Eden_DebrisPiece14.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/News/Eden_SignRandomNews7B.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Eden_AdZirax2.prefab
-- Assets/eden_decalmodels/Environmental Space/Gas Clouds/Presets/Eden_GasCloudVariedBlue.prefab
+- Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloGame1.prefab
+- Assets/eden_decalmodels/POI Decorations/Particles/Eden_DecoBloodSpoutRed3.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Corporations/Posters/Eden_SignCorpPosterRandom.prefab
+- Assets/eden_decalmodels/Environmental Space/Gas Clouds/Presets/Eden_GasCloudVariedBlue.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Corporations/Eden_SignTotallyOverpowered.prefab
 - Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsCircleGreenAnim.prefab
 - Assets/eden_decalmodels/POI Decorations/Fog/Eden_POIFogPurple.prefab
@@ -412,6 +439,7 @@ Assets:
 - Assets/eden_decalmodels/Faction Decals/Eden_DecalZiraxRadosLogo.prefab
 - Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsWhiteAnim.prefab
 - Assets/eden_decalmodels/Docking Lights/Eden_DockHexCyan.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceWhiteL.prefab
 - Assets/eden_decalmodels/POI Decorations/Eden_GalaxyHolo.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudBlueSmallRandom.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringCyanBright.prefab
@@ -431,14 +459,16 @@ Assets:
 - Assets/eden_decalmodels/Docking Lights/Eden_DockHexGreen2.prefab
 - Assets/eden_decalmodels/Faction Decals/Eden_DecalZiraxEpsilonLogo.prefab
 - Assets/eden_decalmodels/Environmental Space/Eden_DebrisPiece3.prefab
-- Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_FogCloudOrangeXL.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGrassPurple.prefab
+- Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_FogCloudOrangeXL.prefab
+- Assets/eden_decalmodels/Docking Lights/Eden_DockGlowOrange.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpacePurpleBright.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Pirates/Eden_SignNoWeapons.prefab
 - Assets/eden_decalmodels/POI Decorations/Crystals/Eden_DecoCrystalIce3.prefab
 - Assets/eden_decalmodels/Docking Lights/Eden_DockHexYellow2.prefab
 - Assets/eden_decalmodels/Environmental Space/Eden_DebrisPiece12.prefab
-- Assets/eden_decalmodels/Docking Lights/Eden_DockGlowOrange.prefab
 - Assets/eden_decalmodels/POI Decorations/Forcefields/Eden_DecoSphereShieldOrangeL2.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoSporesOrange2.prefab
 - Assets/eden_decalmodels/POI Decorations/Fire/Eden_HarvestHydrogen.prefab
 - Assets/eden_decalmodels/Docking Lights/Eden_DockHexRed.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudCyan3.prefab
@@ -463,6 +493,7 @@ Assets:
 - Assets/eden_decalmodels/Posters/Advertisements/Corporations/Eden_SignQuantumStar.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFungusCyan.prefab
 - Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsBlueAnim.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpacePurpleL.prefab
 - Assets/eden_decalmodels/POI Decorations/Fire/Eden_FireStackRed.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFungusGreen.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoLightPulseOrange.prefab
@@ -487,20 +518,24 @@ Assets:
 - Assets/eden_decalmodels/POI Decorations/Forcefields/Eden_BossShieldTimedBlue.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoConeWhite2.prefab
 - Assets/eden_decalmodels/POI Decorations/Effects/Eden_WarpInShipBlueXL.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceBlueL.prefab
 - Assets/eden_decalmodels/Faction Decals/Eden_FarrWelcomeSign.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudRed.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Corporations/Eden_SignArtemis.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Presets/Eden_GasCloudVariedBlueRandom4.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceRedL.prefab
 - Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsBlueAnim2.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/News/Eden_SignRandomNews9.prefab
 - Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsCircleRed.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoLightPulseGreen.prefab
 - Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsCircleOrangeAnim2.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFungusBlue.prefab
+- Assets/eden_decalmodels/Docking Lights/Arrows/Line Arrows/Eden_DockArrowLine2Green.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFirefliesWhiteL.prefab
+- Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightWhiteSingle.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceOrangeBright.prefab
 - Assets/eden_decalmodels/POI Decorations/Fog/Eden_POIFogWhite.prefab
 - Assets/eden_decalmodels/POI Decorations/Crystals/Eden_DecoCrystalCyanBright.prefab
-- Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightWhiteSingle.prefab
-- Assets/eden_decalmodels/Docking Lights/Arrows/Line Arrows/Eden_DockArrowLine2Green.prefab
 - Assets/eden_decalmodels/POI Decorations/Effects/Eden_WarpInShipGreenL.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowwormsGreen.prefab
 - Assets/eden_decalmodels/Eden_FlamesV2_RedMedium.prefab
@@ -516,6 +551,7 @@ Assets:
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoPlant2Blue.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowwormsYellow.prefab
 - Assets/eden_decalmodels/POI Decorations/Eden_SparksBlueConstant.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceYellowBright.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudYellow3.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowwormsOrange.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/News/Eden_SignRandomFalling.prefab
@@ -529,8 +565,10 @@ Assets:
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Presets/Eden_GasCloudVariedYellow2.prefab
 - Assets/eden_decalmodels/POI Decorations/Eden_KeypadDecalGreen.prefab
 - Assets/eden_decalmodels/Eden_HexBlue1.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceRedBase.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/News/Eden_SignRandomNews3.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloPlant.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceGreenL.prefab
 - Assets/eden_decalmodels/POI Decorations/Particles/Eden_DecoSporeCloudGreen2.prefab
 - Assets/eden_decalmodels/POI Decorations/Particles/Eden_DecoLightningLineGreen2.prefab
 - Assets/eden_decalmodels/Eden_HexRed1.prefab
@@ -539,6 +577,7 @@ Assets:
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoConeWhite.prefab
 - Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsBlue.prefab
 - Assets/eden_decalmodels/POI Decorations/Forcefields/Eden_DecoForcefieldGreen.prefab
+- Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloGame2.prefab
 - Assets/eden_decalmodels/POI Decorations/Effects/Eden_WarpInShipBlueL.prefab
 - Assets/eden_decalmodels/POI Decorations/Fire/Eden_FireOilFlare.prefab
 - Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsOrangeAnim2.prefab
@@ -564,7 +603,7 @@ Assets:
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_FogCloudBlue.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Presets/Eden_GasCloudVariedRed.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Eden_AdVideoCorp1.prefab
-- Assets/eden_decalmodels/Eden_HexGreen2.prefab
+- Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloGame6.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringWhite.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Corporations/Eden_SignIceMining.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFlowerOrange.prefab
@@ -572,14 +611,16 @@ Assets:
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringPurple.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoConeOrange2.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFirefliesGreen.prefab
-- Assets/eden_decalmodels/Docking Lights/Eden_LightConeBlue.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoSporesOrange.prefab
 - Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsCircleYellowAnim.prefab
+- Assets/eden_decalmodels/Eden_HexGreen2.prefab
 - Assets/eden_decalmodels/Docking Lights/Arrows/Line Arrows/Eden_DockArrowLine2White.prefab
 - Assets/eden_decalmodels/Faction Decals/Eden_DecalZiraxGhystLogo.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFungusPurple2.prefab
 - Assets/eden_decalmodels/POI Decorations/Eden_KeypadDecalRed.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceOrange.prefab
 - Assets/eden_decalmodels/Eden_FlamesGreenTall.prefab
-- Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoConePurple.prefab
+- Assets/eden_decalmodels/Docking Lights/Eden_LightConeBlue.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Eden_AdColonists1.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Presets/Eden_GasCloudVariedBlueRandomL.prefab
 - Assets/eden_decalmodels/Docking Lights/Eden_DockGlowYellow.prefab
@@ -597,10 +638,12 @@ Assets:
 - Assets/eden_decalmodels/Environmental Space/Eden_DebrisPiece11.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoLightBlue.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoLightPulseSlowGreen.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceRedBright.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Random/Eden_SignRandomCorp3.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoConeGreen2.prefab
 - Assets/eden_decalmodels/Docking Lights/Eden_DockHexGreen3.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudGreen.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceWhiteBase.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/News/Eden_SignRandomNews6.prefab
 - Assets/eden_decalmodels/POI Decorations/Effects/Eden_WarpInShip2.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloCyborg2.prefab
@@ -618,47 +661,53 @@ Assets:
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoPlant2Purple.prefab
 - Assets/eden_decalmodels/POI Decorations/Fire/Eden_FireOilFlareBlueSmoke.prefab
 - Assets/eden_decalmodels/Unused/Eden_UnusedSignWanted4.prefab
-- Assets/eden_decalmodels/POI Decorations/Eden_SparksOrange1.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceBlueBright.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Sprite Videos/Eden_SignNewsDroneSwarm.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Corporations/Eden_SignCorpGeneric6.prefab
-- Assets/eden_decalmodels/Unused/Eden_UnusedSignWanted3.prefab
+- Assets/eden_decalmodels/POI Decorations/Eden_SparksOrange1.prefab
 - Assets/eden_decalmodels/POI Decorations/Eden_KeypadDecalOrange.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Presets/Eden_GasCloudVariedCyan2.prefab
+- Assets/eden_decalmodels/Unused/Eden_UnusedSignWanted3.prefab
 - Assets/eden_decalmodels/Eden_GasCloudGreenBase2.prefab
-- Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_FogCloudRedRandom.prefab
-- Assets/eden_decalmodels/POI Decorations/Eden_SparksOrangeConstant.prefab
+- Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloGameOld1.prefab
 - Assets/eden_decalmodels/POI Decorations/Fire/Eden_FireStackWhite.prefab
-- Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloAsteroid.prefab
+- Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_FogCloudRedRandom.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Corporations/Eden_SignFuelCore.prefab
 - Assets/eden_decalmodels/Eden_HexRed2.prefab
 - Assets/eden_decalmodels/Environmental Space/Eden_DebrisPiece2.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceOrangeL.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/News/Eden_SignRandomNews9Yellow.prefab
 - Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsCircleOrange.prefab
-- Assets/eden_decalmodels/Eden_SwirlGreen.prefab
+- Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloAsteroid.prefab
 - Assets/eden_decalmodels/Environmental Space/Eden_DebrisCloud1.prefab
 - Assets/eden_decalmodels/Faction Decals/Eden_FarrLogoSpinning.prefab
 - Assets/eden_decalmodels/POI Decorations/Particles/Eden_DecoLightningLineRed2.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Eden_AdPolaris2.prefab
+- Assets/eden_decalmodels/POI Decorations/Eden_SparksOrangeConstant.prefab
+- Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloGame5.prefab
 - Assets/eden_decalmodels/POI Decorations/Effects/Eden_WarpInShipGreenS.prefab
 - Assets/eden_decalmodels/Eden_FlamesOrangeTall2.prefab
 - Assets/eden_decalmodels/Eden_FlamesOrangeSmall3.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFungusRed2.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoPlantRed.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFirefliesPurpleL.prefab
 - Assets/eden_decalmodels/Eden_WarpGateBlue.prefab
 - Assets/eden_decalmodels/POI Decorations/Particles/Eden_DecoLightningLineGreen.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpacePurpleBase.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Corporations/Eden_SignBertrams.prefab
 - Assets/eden_decalmodels/POI Decorations/Forcefields/Eden_DecoForcefieldBlue.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/News/Eden_SignRandomNews7E.prefab
 - Assets/eden_decalmodels/POI Decorations/Particles/Eden_DecoBloodSpoutGreen3.prefab
 - Assets/eden_decalmodels/POI Decorations/Crystals/Eden_DecoCrystalWhiteGlow.prefab
 - Assets/eden_decalmodels/POI Decorations/Particles/Eden_DecoBloodSpoutRed.prefab
+- Assets/eden_decalmodels/Posters/Advertisements/Holograms/Eden_HoloGame3.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoPlantOrange2.prefab
 - Assets/eden_decalmodels/Docking Lights/Eden_DockGlowGreen.prefab
 - Assets/eden_decalmodels/Docking Lights/Guides/Eden_DockLightsCircleRedAnim.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudYellowRandom.prefab
 - Assets/eden_decalmodels/POI Decorations/Eden_KeypadDecal.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/News/Eden_SignRandomNews7.prefab
-- Assets/eden_decalmodels/Environmental Space/Gas Clouds/Presets/Eden_GasCloudVariedBlue4.prefab
+- Assets/eden_decalmodels/Eden_SwirlGreen.prefab
 - Assets/eden_decalmodels/POI Decorations/Effects/Eden_WarpInShipOrangeM.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Presets/Eden_GasCloudVariedRedRandomL.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Eden_AdTrader1.prefab
@@ -670,6 +719,7 @@ Assets:
 - Assets/eden_decalmodels/Environmental Space/Eden_DebrisPiece16.prefab
 - Assets/eden_decalmodels/POI Decorations/Fire/Eden_FireOilFlareBlue.prefab
 - Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoLightGreen.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringSpaceOrangeBase.prefab
 - Assets/eden_decalmodels/Docking Lights/Eden_DockHexYellow3.prefab
 - Assets/eden_decalmodels/Eden_ChargeGreen.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFungusPurple.prefab
@@ -683,12 +733,15 @@ Assets:
 - Assets/eden_decalmodels/Posters/Advertisements/Bounties/Eden_SignBountyRandom1.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGlowstringYellowBright.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_FogCloudPurple.prefab
+- Assets/eden_decalmodels/POI Decorations/Lights/Eden_DecoConePurple.prefab
 - Assets/eden_decalmodels/Eden_ChargeGreenTest.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFungusGreen2.prefab
+- Assets/eden_decalmodels/Environmental Space/Gas Clouds/Presets/Eden_GasCloudVariedBlue4.prefab
 - Assets/eden_decalmodels/POI Decorations/Particles/Eden_DecoLightningTunnelRed.prefab
 - Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoGrassRed.prefab
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Eden_GasCloudYellow2.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Random/Eden_SignRandomMixed3.prefab
+- Assets/eden_decalmodels/POI Decorations/Plants/Eden_DecoFirefliesGreenL.prefab
 - Assets/eden_decalmodels/Docking Lights/Eden_DockHexGreen.prefab
 - Assets/eden_decalmodels/POI Decorations/Forcefields/Eden_BossShieldWeston.prefab
 - Assets/eden_decalmodels/Posters/Advertisements/Corporations/Eden_SignPirate4.prefab
@@ -696,4 +749,4 @@ Assets:
 - Assets/eden_decalmodels/Environmental Space/Gas Clouds/Presets/Eden_GasCloudVariedGreenL2.prefab
 - Assets/eden_decalmodels/Eden_TractorBeamBlue.prefab
 Dependencies:
-- D:/Empyrion Unity Projects/Project Eden v6/Bundles/eden_blockmodels
+- D:/Unity Projects/Project Eden v6/Bundles/eden_blockmodels

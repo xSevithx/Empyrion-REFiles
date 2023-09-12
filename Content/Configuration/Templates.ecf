@@ -7963,6 +7963,19 @@
   }
 }
 
+# { +Template Name: Eden_Polymer
+  # BaseItem: true
+  # CraftTime: 20
+  # Target: "LargeC,AdvC"
+  # { Child Inputs
+    # PlasticMaterial: 500
+    # OpticalFiber: 8
+    # Electronics: 4
+    # Computer: 1
+    # Motor: 2
+  # }
+# }
+
 
 
 # ========================================================================================================================== Augmented Armor. Progenitor Tech.
@@ -8541,6 +8554,17 @@
   }
 }
 
+{ +Template Name: Eden_TurretAlarm
+  CraftTime: 10
+  Target: "SmallC,HoverC,BaseC,LargeC,AdvC"
+  { Child Inputs
+    Electronics: 1
+    OpticalFiber: 3
+    MechanicalComponents: 2
+    PlasticMaterial: 1
+  }
+}
+
 { +Template Name: Eden_TurretMissileCruisePOI
   DeconOverride: Continue
   CraftTime: 30
@@ -8975,8 +8999,72 @@
   }
 }
 
+{ +Template Name: Eden_WindTurbineBase
+  BaseItem: true
+  CraftTime: 20 #A1 Ba CV 1
+  Target: "SurvC,SmallC,HoverC,BaseC,LargeC,AdvC"
+  { Child Inputs
+    Electronics: 4
+    Motor: 1
+    Computer: 1
+    PlasticMaterial: 24
+    SteelPlate: 24
+    Nanotubes: 8
+  }
+}
 
+{ +Template Name: Eden_WindTurbineIdle
+  BaseItem: true
+  CraftTime: 20 #A1 Ba CV 1
+  Target: "SurvC,SmallC,HoverC,BaseC,LargeC,AdvC"
+  { Child Inputs
+    Motor: 6
+    PlasticMaterial: 50
+    SteelPlate: 24
+  }
+}
 
+{ +Template Name: Eden_WindTurbineActiveT2
+  BaseItem: true
+  CraftTime: 20 #A1 Ba CV 1
+  # Target: "SurvC,SmallC,HoverC,BaseC,LargeC,AdvC"
+  Target: ""
+  { Child Inputs
+    Motor: 24
+    NeodymiumIngot: 250
+    SteelPlate: 24
+    SteelPlateArmored: 24
+    PlasticMaterial: 250
+    AluminiumCoil: 10
+    Eden_Polymer: 10
+  }
+}
+
+{ +Template Name: Eden_GeothermalGenerator
+  BaseItem: true
+  CraftTime: 20 #A1 Ba CV 1
+  Target: "LargeC,AdvC"
+  { Child Inputs
+    Motor: 12
+    Eden_TungstenIngot: 24
+    TitanPlates: 48
+    NeodymiumIngot: 24
+  }
+}
+
+{ +Template Name: Eden_GeothermalGeneratorActive
+  BaseItem: true
+  CraftTime: 20 #A1 Ba CV 1
+  # Target: "SurvC,SmallC,HoverC,BaseC,LargeC,AdvC"
+  Target: ""
+  { Child Inputs
+    Motor: 12
+    Eden_TungstenIngot: 24
+    TitanPlates: 48
+    NeodymiumIngot: 24
+    Eden_CoreSample: 1
+  }
+}
 
 { +Template Name: Eden_HydroponicsEmpty
   BaseItem: true
@@ -9866,7 +9954,7 @@
   CraftTime: 10
   Target: ""
   { Child Inputs
-    WaterJug: 100
+    WaterJug: 50
     ToxicWaste: 1
   }
 }

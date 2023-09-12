@@ -16,7 +16,8 @@ UseFixed: True
 
 Radiation: [5,10]
 TemperatureDay: [-250,-200]
-Music: [DarkSoundscape, DarkSoundscape2, DarkSoundscape3, barren, Blight, lava2]
+# Dark Ambient Music
+Music: [alien2, AnAridPlace, barren, Blight, Cypher, DarkSoundscape, DarkSoundscape2, DarkSoundscape3, lava2]
 
 PlayfieldType: Space
 LandClaimZone: Device
@@ -294,7 +295,7 @@ POIs:
       Faction: None
       FactionTerritory: [Eden_DroneHome]
       Mode: Survival
-      CountMinMax: [ 1, 2 ]
+      CountMinMax: [ 1, 1 ]
       Probability: 0.5
       SpaceDefenseOverrideDefaults: True
       SpaceDefenseProbability: 0

@@ -5,23 +5,31 @@
 # ---------------------------------------------------------------------------------------
 
 # Overlay title
-Title: <b><#0077FF>Reforged Eden 1.10</color></b> <size=65%><#ffffff>(build 54)</color></size>
+Title: <b><#0077FF>Reforged Eden 1.10</color></b> <size=65%><#ffffff>(build 60)</color></size>
 
 # Overlay body (typically multi-line text)
 # If commented out, only the title will be displayed
 Body: |
-  <size=135%><#ffffff><b>August 3:</b></color></size>
-  <size=85%><#ffffff>A major update to the scenario is coming sometime in September:</color></size>
-  <size=85%>•<indent=3%>The upcoming update adds new bulk trading, wind and geothermal power, visuals for space, amd more.</indent>
-  •<indent=3%>A test scenario is currently available on the workshop along with preliminary update notes.</indent>
-  
-  <#ffff00>As with any major update please make sure you back up your blueprints and save games before the update.</color>
-  A new game start will be recommended but is not required.
-  A release date will be posted on the workshop as soon as it's available.</size>
+  <size=135%><#ffffff><b>Sep 12 Major Update: War and Industry</b></color></size>
+  <size=85%>•<indent=3%>Overhauled Trading Station sectors.</indent>
+  •<indent=3%>Overhauled orbital trading factories.</indent>
+  •<indent=3%>Added decorative decals for trading POIs.</indent>
+  •<indent=3%>Added ambient cargo shuttle traffic.</indent>
+  •<indent=3%>Updated secure supply caches.</indent>
+  •<indent=3%>Added new combat and mining sites.</indent> (PDA update needed)
+  •<indent=3%>Added new decorative asteroid fields and sector nebula.</indent>
+  •<indent=3%>Added wind and geothermal power.</indent>
+  •<indent=3%>Added alarm sentry.</indent>
+  •<indent=3%>Added new star classes.</indent>
+  •<indent=3%>Lowered volume and frequency of radio chatter.</indent>
+  •<indent=3%>Updated POIs.</indent>
+  •<indent=3%>Updated Empyriopedia.</indent>
+  •<indent=3%>Many, many other updates and fixes. See full change notes on the Steam Workshop.</indent>
+  <#ffff00>This update requires the <#ffffff>pda readdata</color> command for <u>existing</u> single player saves to get the updated PDA. A new game is recommended for the best experience but <i>not required</i>.</color></size>
   
 # To show a certain image at the start of each loading image sequence, specify the respective file name
 # To use the default random image selection, comment out the following line
-# FirstPic: p05
+FirstPic: p49
 
 # To show the overlay text with certain images only, specify the respective file names
 # To show the text with every image, comment out the following line
@@ -35,5 +43,5 @@ StandardShowTime: 15
 # To set a specific show time for certain images, specify "filename: time" lines
 # If not needed, comment out all lines of the following parameter
 ShowTimes:
-  # p05: 6
+  p49: 45
   # p06: 8

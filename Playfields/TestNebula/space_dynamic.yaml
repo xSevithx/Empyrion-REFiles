@@ -397,7 +397,7 @@ POIs:
     - Type: BA_Alien
       Name: [CompoundVoidium]
       GroupName: Eden_VoidiumSpace
-      Faction: Eden_Wreck
+      Faction: None
       FactionTerritory: [All]
       Mode: Survival
       CountMinMax: [ 1, 1 ]

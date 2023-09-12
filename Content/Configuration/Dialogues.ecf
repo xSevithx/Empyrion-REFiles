@@ -19099,14 +19099,14 @@
 # ============================================================================================================================================================================================================
 # ===================================================================================================================================== Project Eden Custom Dialog eWCCT
 # ============================================================================================================================================================================================================
-/*  Created with eWCCT 3.49.0 | 14.1.2023 - 19:40:5  */
+/*  Created with eWCCT 3.56.0 | 11.9.2023 - 19:24:47  */
 /*  Made by Hayawen & RexXxuS  */
 /*  You can do with your exported files from this tool what you want  */
 /*  But this tool itself is licenced under https://creativecommons.org/licenses/by-nc-nd/4.0/ (CC BY-NC-ND 4.0)  */
 /*  Sponsored by HWS  */
 /*  Website: https://empyrion-homeworld.net/tools/ewcct  */
 { +Dialogue Name: Eden_GlobalVariables
-  Globals: "int Eden_G_DataChipT1R = 1; int Eden_G_DataChipT1C = 10000; int Eden_G_DataChipT1UP = 10; int Eden_G_DataChipT2R = 5; int Eden_G_DataChipT2C = 50000; int Eden_G_DataChipT2UP = 50; int Eden_G_DataChipT3R = 10; int Eden_G_DataChipT3C = 100000; int Eden_G_DataChipT3UP = 100;<nl>int Eden_G_BanditRewardT1 = 20000; int Eden_G_BanditRewardT2 = 40000; int Eden_G_BanditRewardT3 = 80000; int Eden_Global_DataPad = 50;"
+  Globals: "int Eden_G_DataChipT1R = 1; int Eden_G_DataChipT1C = 10000; int Eden_G_DataChipT1UP = 10; int Eden_G_DataChipT2R = 5; int Eden_G_DataChipT2C = 50000; int Eden_G_DataChipT2UP = 50; int Eden_G_DataChipT3R = 10; int Eden_G_DataChipT3C = 100000; int Eden_G_DataChipT3UP = 100;<nl>int Eden_G_BanditRewardT1 = 20000; int Eden_G_BanditRewardT2 = 40000; int Eden_G_BanditRewardT3 = 80000; int Eden_G_BountyRewardT1 = 100000; int Eden_G_BountyRewardT2 = 250000; int Eden_G_BountyRewardT3 = 500000;<nl>int Eden_G_BanditRepT1 = 50; int Eden_G_BanditRepT2 = 75; int Eden_G_BanditRepT3 = 100; int Eden_G_BountyRepT1 = 100; int Eden_G_BountyRepT2 = 150; int Eden_G_BountyRepT3 = 200;<nl>int Eden_Global_DataPad = 50;<nl>int Eden_Global_ContractMineTimer = 3600; int Eden_GlobalContractMineCredit = 50000; int Eden_GlobalContractMineRep = 50; int Eden_GlobalSchematicToken = 6416;"
 }
 { +Dialogue Name: Eden_ScenarioIntro_Start
   NPCName: eden_dialogue_Wi8m4gW
@@ -19145,6 +19145,110 @@
   OptionNext_2: Eden_ScenarioIntro_Story
   Option_3: eden_dialogue_0O8YK88
   OptionNext_3: End
+}
+{ +Dialogue Name: Eden_TestAmbush_Init
+  Variable_1: "Eden_AmbushCount", param1: dbplayerpf_int
+  Next_1: Eden_TestAmbush_Deny
+  NextIf_1: "Eden_AmbushCount >= 3"
+  Next_2: Eden_TestAmbush_Start
+}
+{ +Dialogue Name: Eden_TestAmbush_Deny
+  Next_1: End
+}
+{ +Dialogue Name: Eden_TestAmbush_Start
+  Execute: "Eden_AmbushCount += 1"
+  Output: eden_dialogue_4OiiC0a
+  Option_1: eden_dialogue_0GOqG44
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_BarkPirateBulk_Init
+  Variable_1: "Eden_ChatOption", param1: dbplayerpoi_int
+  Variable_2: "Eden_PlyOpt_NPCFlavor", param1: dbplayer_int
+  Variable_3: "StringType", param1: string
+  Variable_4: "StringBark", param1: string
+  BarkingState: Eden_BarkPirateBulk_Greet
+}
+{ +Dialogue Name: Eden_BarkPirateBulk_Greet
+  Execute: "StringType = 'Eden_BarkPirateBulk'"
+  Next_1: End
+  NextIf_1: "Eden_PlyOpt_NPCFlavor == 1"
+  Next_2: Eden_BarkPirateBulk_Random
+  NextIf_2: "Eden_ChatOption == 0"
+  Next_3: Eden_BarkGeneric_Init
+}
+{ +Dialogue Name: Eden_BarkPirateBulk_Random
+  Execute: "Eden_ChatOption = Random(1,40)"
+  Next_1: Eden_BarkGeneric_Init
+}
+{ +Dialogue Name: Eden_BarkPirateCiv_Init
+  Variable_1: "Eden_ChatOption", param1: dbplayerpoi_int
+  Variable_2: "Eden_PlyOpt_NPCFlavor", param1: dbplayer_int
+  Variable_3: "StringType", param1: string
+  Variable_4: "StringBark", param1: string
+  BarkingState: Eden_BarkPirateCiv_Greet
+}
+{ +Dialogue Name: Eden_BarkPirateCiv_Greet
+  Execute: "StringType = 'Eden_BarkPirateCiv'"
+  Next_1: End
+  NextIf_1: "Eden_PlyOpt_NPCFlavor == 1"
+  Next_2: Eden_BarkPirateCiv_Random
+  NextIf_2: "Eden_ChatOption == 0"
+  Next_3: Eden_BarkGeneric_Init
+}
+{ +Dialogue Name: Eden_BarkPirateCiv_Random
+  Execute: "Eden_ChatOption = Random(1,5)"
+  Next_1: Eden_BarkGeneric_Init
+}
+{ +Dialogue Name: Eden_BarkWorker_Init
+  BarkingState: Eden_BarkWorker_Greet
+  Variable_1: "Eden_ChatOption", param1: dbplayerpoi_int
+  Variable_2: "Eden_PlyOpt_NPCFlavor", param1: dbplayer_int
+  Variable_3: "StringType", param1: string
+  Variable_4: "StringBark", param1: string
+}
+{ +Dialogue Name: Eden_BarkWorker_Greet
+  Next_1: End
+  NextIf_1: "Eden_PlyOpt_NPCFlavor == 1"
+  Next_2: Eden_BarkWorker_Random
+  NextIf_2: "Eden_ChatOption == 0"
+  Next_3: Eden_BarkGeneric_Init
+  Execute: "StringType = 'Eden_BarkWorker'"
+}
+{ +Dialogue Name: Eden_BarkWorker_Random
+  Execute: "Eden_ChatOption = Random(1,5)"
+  Next_1: Eden_BarkGeneric_Init
+}
+{ +Dialogue Name: Eden_BarkGeneric_Init
+  Execute: "StringBark = StringType + Eden_ChatOption"
+  #: "<c>Backup code is&nbsp;StringFaction = GetFaction(LocalStructure.Entity.Id); StringBark = 'Eden_BarkCivilian' + StringFaction + Eden_ChatOption</c>"
+  Output: eden_dialogue_u2OmSmq
+}
+{ +Dialogue Name: Eden_PlayerOptions_Init
+  Variable_1: "Eden_PlyOpt_NPCFlavor", param1: dbplayer_int
+  Next_1: Eden_PlayerOptions_Greet
+}
+{ +Dialogue Name: Eden_PlayerOptions_Greet
+  Output: eden_dialogue_OW8eK4S
+  Option_1: eden_dialogue_eKeeaeK
+  OptionNext_1: Eden_PlayerOptions_NPCFlavor
+  Option_2: eden_dialogue_Ke4aqSW
+  OptionIf_2: "HasItem('Token', 1, 6000)"
+  OptionNext_2: Eden_AdminConfig_Start, param1: GotoAndReset
+  Option_3: eden_dialogue_oiCKCiC
+  OptionNext_3: End
+}
+{ +Dialogue Name: Eden_PlayerOptions_NPCFlavor
+  Output: eden_dialogue_CueGiSS
+  Option_1: eden_dialogue_CKe4GS0
+  OptionIf_1: "Eden_PlyOpt_NPCFlavor == 1"
+  OptionNext_1: Eden_PlayerOptions_NPCFlavor
+  OptionExecute_1: "Eden_PlyOpt_NPCFlavor = 0"
+  Option_2: eden_dialogue_SmiSaSm
+  OptionIf_2: "Eden_PlyOpt_NPCFlavor == 0"
+  OptionNext_2: Eden_PlayerOptions_NPCFlavor
+  OptionExecute_2: "Eden_PlyOpt_NPCFlavor = 1"
+  Option_3: eden_dialogue_0mSu0qG
+  OptionNext_3: Eden_PlayerOptions_Greet
 }
 { +Dialogue Name: Eden_Trader_OpenTrader
   Execute: "OpenTraderWindow()"
@@ -19246,6 +19350,1367 @@
   Option_1: eden_dialogue_GGiKOeG
   OptionNext_1: End
   Output: eden_dialogue_KCamE0C
+}
+{ +Dialogue Name: Eden_UIM_Init
+  Next_1: Eden_UIM_Greet
+  Variable_1: "Eden_Timer", param1: dbplayerpoi_int
+  Variable_2: "Randomize", param1: int
+  NPCName: eden_dialogue_08KaWPm
+}
+{ +Dialogue Name: Eden_UIM_Greet
+  Output: eden_dialogue_WtameGO
+  Option_1: eden_dialogue_O85CiSq
+  OptionNext_1: Eden_UIM_Check
+  Option_2: eden_dialogue_eC4GcCh
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_UIM_Check
+  Next_1: Eden_UIM_Deny
+  NextIf_1: "(GetGameTimeInSec() - Eden_Timer) <= Eden_Global_ContractMineTimer"
+  Next_2: Eden_UIM_ContractColonists
+  NextIf_2: "GetFaction(LocalStructure.Entity.Id) == 'Colonists'"
+  Next_3: Eden_UIM_ContractPolaris
+  NextIf_3: "GetFaction(LocalStructure.Entity.Id) == 'Polaris'"
+  Next_4: Eden_UIM_Deny2
+}
+{ +Dialogue Name: Eden_UIM_Check2
+  Next_1: Eden_UIM_ContractColonists
+  NextIf_1: "GetFaction(LocalStructure.Entity.Id) == 'Colonists'"
+  Next_2: Eden_UIM_ContractPolaris
+  NextIf_2: "GetFaction(LocalStructure.Entity.Id) == 'Polaris'"
+  Next_3: Eden_UIM_Deny2
+}
+{ +Dialogue Name: Eden_UIM_Deny
+  Output: eden_dialogue_CqsWGeS
+  Option_1: eden_dialogue_ig4iiiG
+  OptionNext_1: Eden_UIM_Greet
+  Option_2: eden_dialogue_KuGG0Oi
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_UIM_Deny2
+  Output: eden_dialogue_SWGqGqq
+  Option_1: eden_dialogue_WKuC8GW
+  OptionNext_1: Eden_UIM_Greet
+  Option_2: eden_dialogue_CuSKG0S
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_UIM_ContractColonists
+  Output: eden_dialogue_8mqqmK8
+  Option_1: eden_dialogue_eigu8Su
+  OptionNext_1: Eden_UIM_ContractColonists2
+  Option_2: eden_dialogue_qiKqGuC
+  OptionNext_2: Eden_UIM_Greet
+  Option_3: eden_dialogue_uiqOO3m
+  OptionNext_3: End
+}
+{ +Dialogue Name: Eden_UIM_ContractColonists2
+  Execute: "Randomize = Random(6811,6813); AddItem('Token', 1, Randomize); Eden_Timer = GetGameTimeInSec()"
+  Output: eden_dialogue_KuU8Gaa
+  Option_1: eden_dialogue_Tte4eOY
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_UIM_ContractPolaris
+  Output: eden_dialogue_itKSS8c
+  Option_1: eden_dialogue_gYemaGG
+  OptionNext_1: Eden_UIM_ContractPolaris2
+  Option_2: eden_dialogue_q44Kqau
+  OptionNext_2: Eden_UIM_Greet
+  Option_3: eden_dialogue_StuaSme
+  OptionNext_3: End
+}
+{ +Dialogue Name: Eden_UIM_ContractPolaris2
+  Execute: "Randomize = Random(6821,6824); AddItem('Token', 1, Randomize); Eden_Timer = GetGameTimeInSec()"
+  Output: eden_dialogue_u8GO8Su
+  Option_1: eden_dialogue_0aCCSq0
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ContractMiningColT1_Reward
+  NPCName: eden_dialogue_0qSKC0i
+  Execute: "Player.Credit += Eden_GlobalContractMineCredit; AddReputation(Faction.Colonists, Eden_GlobalContractMineRep)"
+  Output: eden_dialogue_WOqeuqa
+  Option_1: eden_dialogue_0cOY42W
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ContractMiningColT2_Reward
+  NPCName: eden_dialogue_8iOGK4M
+  Execute: "Player.Credit += Eden_GlobalContractMineCredit * 2; AddReputation(Faction.Colonists, Eden_GlobalContractMineRep * 2)"
+  Output: eden_dialogue_gaSme84
+  Option_1: eden_dialogue_4imGOWe
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ContractMiningColT3_Reward
+  NPCName: eden_dialogue_euO4uSi
+  Execute: "Player.Credit += Eden_GlobalContractMineCredit * 3; AddReputation(Faction.Colonists, Eden_GlobalContractMineRep * 3)"
+  Output: eden_dialogue_meuGKKG
+  Option_1: eden_dialogue_88KeiGS
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ContractMiningColT4_Reward
+  NPCName: eden_dialogue_a8O8qWG
+  Execute: "Player.Credit += Eden_GlobalContractMineCredit * 4; AddReputation(Faction.Colonists, Eden_GlobalContractMineRep * 4)"
+  Output: eden_dialogue_n04I4eA
+  Option_1: eden_dialogue_u88BeuG
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ContractMiningPolT1_Reward
+  NPCName: eden_dialogue_eK0kOmq
+  Execute: "Player.Credit += Eden_GlobalContractMineCredit; AddReputation(Faction.Polaris, Eden_GlobalContractMineRep)"
+  Output: eden_dialogue_GaqCmOu
+  Option_1: eden_dialogue_umSe444
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ContractMiningPolT2_Reward
+  NPCName: eden_dialogue_maiGW0u
+  Execute: "Player.Credit += Eden_GlobalContractMineCredit * 2; AddReputation(Faction.Polaris, Eden_GlobalContractMineRep * 2)"
+  Output: eden_dialogue_pemOKum
+  Option_1: eden_dialogue_GGqaO4q
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ContractMiningPolT3_Reward
+  NPCName: eden_dialogue_a08Wq8a
+  Execute: "Player.Credit += Eden_GlobalContractMineCredit * 3; AddReputation(Faction.Polaris, Eden_GlobalContractMineRep * 3)"
+  Output: eden_dialogue_08gWCmK
+  Option_1: eden_dialogue_imCGqOi
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ContractMiningPolT4_Reward
+  NPCName: eden_dialogue_uSuGaCC
+  Execute: "Player.Credit += Eden_GlobalContractMineCredit * 4; AddReputation(Faction.Polaris, Eden_GlobalContractMineRep * 4)"
+  Output: eden_dialogue_ieeWuo0
+  Option_1: eden_dialogue_SC8S0mK
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ContractMiningPolT5_Reward
+  NPCName: eden_dialogue_q4eqYCq
+  Execute: "Player.Credit += Eden_GlobalContractMineCredit * 5; AddReputation(Faction.Polaris, Eden_GlobalContractMineRep * 5)"
+  Output: eden_dialogue_qwCaqe0
+  Option_1: eden_dialogue_eqauuq0
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ContractMiningPolT20_Reward
+  NPCName: eden_dialogue_8aCiamq
+  Execute: "Player.Credit += Eden_GlobalContractMineCredit * 20; AddReputation(Faction.Polaris, Eden_GlobalContractMineRep * 20)"
+  Output: eden_dialogue_K4KCeWK
+  Option_1: eden_dialogue_imKOiCW
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_TraHabitat_Init
+  NPCName: eden_dialogue_O0Wu2ea
+  Variable_1: "Eden_CrewShipment", param1: dbplayerpoipos_int
+  Variable_2: "Eden_Randomize", param1: dbplayerpoipos_int
+  Variable_3: "Eden_TokenType", param1: string
+  Variable_4: "Eden_TokenMeta", param1: int
+  Variable_5: "Eden_TokenVolume", param1: int
+  Variable_6: "Eden_FactionName", param1: string
+  Next_1: Eden_ColHabitat_Randomize
+  NextIf_1: "Eden_Randomize == 0"
+  Next_2: Eden_ColHabitat_Greet
+  Execute: "Eden_TokenType = 'Eden_ShipmentVIP'; Eden_TokenMeta = 6739; Eden_TokenVolume = 160000; Eden_FactionName = 'Trader'"
+}
+{ +Dialogue Name: Eden_PolHabitat_Init
+  NPCName: eden_dialogue_OOKiSCF
+  Variable_1: "Eden_CrewShipment", param1: dbplayerpoipos_int
+  Variable_2: "Eden_Randomize", param1: dbplayerpoipos_int
+  Variable_3: "Eden_TokenType", param1: string
+  Variable_4: "Eden_TokenMeta", param1: int
+  Variable_5: "Eden_TokenVolume", param1: int
+  Variable_6: "Eden_FactionName", param1: string
+  Next_1: Eden_ColHabitat_Randomize
+  NextIf_1: "Eden_Randomize == 0"
+  Next_2: Eden_ColHabitat_Greet
+  Execute: "Eden_TokenType = 'Eden_ShipmentOfficer'; Eden_TokenMeta = 6738; Eden_TokenVolume = 80000; Eden_FactionName = 'Polaris'"
+}
+{ +Dialogue Name: Eden_ColHabitat_Init
+  NPCName: eden_dialogue_CSie0G6
+  Variable_1: "Eden_CrewShipment", param1: dbplayerpoipos_int
+  Variable_2: "Eden_Randomize", param1: dbplayerpoipos_int
+  Variable_3: "Eden_TokenType", param1: string
+  Variable_4: "Eden_TokenMeta", param1: int
+  Variable_5: "Eden_TokenVolume", param1: int
+  Variable_6: "Eden_FactionName", param1: string
+  Next_1: Eden_ColHabitat_Randomize
+  NextIf_1: "Eden_Randomize == 0"
+  Next_2: Eden_ColHabitat_Greet
+  Execute: "Eden_TokenType = 'Eden_ShipmentWorker'; Eden_TokenMeta = 6737; Eden_TokenVolume = 40000; Eden_FactionName = 'Colonists'"
+}
+{ +Dialogue Name: Eden_ColHabitat_Randomize
+  Execute: "Eden_Randomize = Random(1,10)"
+  Next_1: Eden_ColHabitat_Greet
+}
+{ +Dialogue Name: Eden_ColHabitat_Greet
+  Option_1: eden_dialogue_GuammK4
+  OptionNext_1: End
+  OptionExecute_1: "OpenTraderWindow()"
+  Option_2: eden_dialogue_Ki8WGqu
+  OptionIf_2: "Eden_CrewShipment == 0"
+  OptionNext_2: Eden_ColHabitat_Check
+  Option_3: eden_dialogue_OeOC0vq
+  OptionIf_3: "HasItem('Token', 1, 6150) && Eden_FactionName == 'Trader'"
+  OptionNext_3: Eden_ColHabitat_MessageTra
+  Option_4: eden_dialogue_4SQE8e8
+  OptionIf_4: "HasItem('Token', 1, 6151) && Eden_FactionName == 'Polaris'"
+  OptionNext_4: Eden_ColHabitat_MessagePol
+  Option_5: eden_dialogue_iScGGqu
+  OptionIf_5: "HasItem('Token', 1, 6152) && Eden_FactionName == 'Colonists'"
+  OptionNext_5: Eden_ColHabitat_MessageCol
+  Option_6: eden_dialogue_C0xuCa4
+  OptionNext_6: End
+  Output: eden_dialogue_GWueSGW
+}
+{ +Dialogue Name: Eden_ColHabitat_Check
+  Next_1: Eden_ColHabitat_Work
+  NextIf_1: "Eden_Randomize >= 8"
+  Next_2: Eden_ColHabitat_Deny
+}
+{ +Dialogue Name: Eden_ColHabitat_Work
+  Output: eden_dialogue_e0TWOOe
+  Option_1: eden_dialogue_08keS4e
+  OptionNext_1: End
+  OptionExecute_1: "AddItem(Eden_TokenType, 1); Eden_CrewShipment = 1"
+  Option_2: eden_dialogue_CW0CCCK
+  OptionNext_2: Eden_ColHabitat_Greet
+}
+{ +Dialogue Name: Eden_ColHabitat_Deny
+  Output: eden_dialogue_mKKruOG
+  Option_1: eden_dialogue_00eY0sC
+  OptionNext_1: Eden_ColHabitat_Greet
+  Option_2: eden_dialogue_iOi8qK4
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_ColHabitat_MessageTra
+  Output: eden_dialogue_CQ8WAae
+  Option_1: eden_dialogue_eeOYq1u
+  OptionNext_1: Eden_ColHabitat_Greet
+  Execute: "RemoveItem('Token', 1, 6150); AddReputation(Faction.Trader, 100); Player.Credit += 50000"
+}
+{ +Dialogue Name: Eden_ColHabitat_MessagePol
+  Output: eden_dialogue_4eSiOmp
+  Option_1: eden_dialogue_OaKu2qq
+  OptionNext_1: Eden_ColHabitat_Greet
+  Execute: "RemoveItem('Token', 1, 6151); AddReputation(Faction.Polaris, 150); Player.Credit += 3500"
+}
+{ +Dialogue Name: Eden_ColHabitat_MessageCol
+  Output: eden_dialogue_uGCuRiK
+  Option_1: eden_dialogue_qGO8cSG
+  OptionNext_1: Eden_ColHabitat_Greet
+  Execute: "RemoveItem('Token', 1, 6152); AddReputation(Faction.Colonists, 250); Player.Credit += 25000"
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Init
+  Variable_1: "Eden_ChatOption", param1: dbplayerpoi_int
+  Variable_2: "Eden_PlyOpt_NPCFlavor", param1: dbplayer_int
+  NPCName: eden_dialogue_mG5uKqP
+  #: "<c><c>Randomized flavor text for Habitats for Polaris Trader and Colonists.</c></c>"
+  BarkingState: Eden_ColHabitatChat_Greet
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Greet
+  Next_1: End
+  NextIf_1: "Eden_PlyOpt_NPCFlavor == 1"
+  Next_2: Eden_ColHabitatChat_Random
+  NextIf_2: "Eden_ChatOption == 0"
+  Next_3: Eden_ColHabitatChat_Select
+  #: "<c>Randomized flavor text for Polaris Distribution Centers.</c>"
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Random
+  Execute: "Eden_ChatOption = Random(1,15)"
+  Next_1: Eden_ColHabitatChat_Select
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Select
+  Next_1: Eden_ColHabitatChat_Chat1
+  NextIf_1: "Eden_ChatOption == 1"
+  Next_2: Eden_ColHabitatChat_Chat2
+  NextIf_2: "Eden_ChatOption == 2"
+  Next_3: Eden_ColHabitatChat_Chat3
+  NextIf_3: "Eden_ChatOption == 3"
+  Next_4: Eden_ColHabitatChat_Chat4
+  NextIf_4: "Eden_ChatOption == 4"
+  Next_5: Eden_ColHabitatChat_Chat5
+  NextIf_5: "Eden_ChatOption == 5"
+  Next_6: Eden_ColHabitatChat_Chat6
+  NextIf_6: "Eden_ChatOption == 6"
+  Next_7: Eden_ColHabitatChat_Chat7
+  NextIf_7: "Eden_ChatOption == 7"
+  Next_8: Eden_ColHabitatChat_Chat8
+  NextIf_8: "Eden_ChatOption == 8"
+  Next_9: Eden_ColHabitatChat_Chat9
+  NextIf_9: "Eden_ChatOption == 9"
+  Next_10: Eden_ColHabitatChat_Chat10
+  NextIf_10: "Eden_ChatOption == 10"
+  Next_11: Eden_ColHabitatChat_Chat11
+  NextIf_11: "Eden_ChatOption == 11"
+  Next_12: Eden_ColHabitatChat_Chat12
+  NextIf_12: "Eden_ChatOption == 12"
+  Next_13: Eden_ColHabitatChat_Chat13
+  NextIf_13: "Eden_ChatOption == 13"
+  Next_14: Eden_ColHabitatChat_Chat14
+  NextIf_14: "Eden_ChatOption == 14"
+  Next_15: Eden_ColHabitatChat_Chat15
+  NextIf_15: "Eden_ChatOption == 15"
+  Next_16: Eden_ColHabitatChat_Chat0
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Chat0
+  Output: eden_dialogue_iKmqieK
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Chat1
+  Output: eden_dialogue_eqC8iKS
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Chat2
+  Output: eden_dialogue_UKiSuGA
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Chat3
+  Output: eden_dialogue_Oeqeaaa
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Chat4
+  Output: eden_dialogue_SKmD4iO
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Chat5
+  Output: eden_dialogue_GWWuKC0
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Chat6
+  Output: eden_dialogue_aS48O0C
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Chat7
+  Output: eden_dialogue_eaaSCCJ
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Chat8
+  Output: eden_dialogue_ugOaSe4
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Chat9
+  Output: eden_dialogue_qimcCOi
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Chat10
+  Output: eden_dialogue_iqqSmCe
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Chat11
+  Output: eden_dialogue_e4qqIem
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Chat12
+  Output: eden_dialogue_aE0WWK4
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Chat13
+  Output: eden_dialogue_8XL0aSK
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Chat14
+  Output: eden_dialogue_mSdmGKq
+}
+{ +Dialogue Name: Eden_ColHabitatChat_Chat15
+  Output: eden_dialogue_qHWCqGK
+}
+{ +Dialogue Name: Eden_ColHabitatChat2_Init
+  NPCName: eden_dialogue_a008K4S
+  Next_1: Eden_ColHabitatChat2_Deny4
+  NextIf_1: "Eden_ColHabitatChat2_Complete2 >= 6"
+  Next_2: Eden_ColHabitatChat2_Deny3
+  NextIf_2: "Eden_ColHabitatChat2_Complete == 2"
+  Next_3: Eden_ColHabitatChat2_Deny
+  NextIf_3: "Eden_ColHabitatChat2_Complete == 1"
+  Next_4: Eden_ColHabitatChat2_Greet
+  Variable_1: "Eden_ColHabitatChat2_Complete", param1: dbplayerpoipos_int
+  Variable_2: "Eden_ColHabitatChat2_Complete2", param1: dbplayerpf_int
+}
+{ +Dialogue Name: Eden_ColHabitatChat2_Deny
+  Output: eden_dialogue_00uu4eS
+  Execute: "SetNPCName('Individual 1')"
+  Option_1: eden_dialogue_Oe8VWua
+  OptionNext_1: End
+  Option_2: eden_dialogue_vS04KOC
+  OptionNext_2: Eden_ColHabitatChat2_Deny2
+}
+{ +Dialogue Name: Eden_ColHabitatChat2_Deny2
+  Execute: "SetNPCName('Individual 2'); AddReputation(Faction.Colonists, -100); AddReputation(Faction.Pirates, 100); Player.Credit += 10000; Eden_ColHabitatChat2_Complete = 2"
+  Output: eden_dialogue_0W80GGq
+  Option_1: eden_dialogue_i4BmeGm
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ColHabitatChat2_Deny3
+  Output: eden_dialogue_GKmuq0e
+  Execute: "SetNPCName('Individual 1')"
+  Option_1: eden_dialogue_eOGqGe8
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ColHabitatChat2_Deny4
+  Output: eden_dialogue_8qWSdaS
+  Option_1: eden_dialogue_a8CGaaS
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ColHabitatChat2_Greet
+  Output: eden_dialogue_4444OOW
+  Option_1: eden_dialogue_O8m8auS
+  OptionNext_1: Eden_ColHabitatChat2_Chat1
+  Option_2: eden_dialogue_OG8Cm4u
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_ColHabitatChat2_Chat1
+  Output: eden_dialogue_4eqiWee
+  Option_1: eden_dialogue_SmFieuY
+  OptionNext_1: Eden_ColHabitatChat2_Chat2
+  Option_2: eden_dialogue_uaqsNmO
+  OptionNext_2: End
+  Execute: "SetNPCName('Individual 1')"
+}
+{ +Dialogue Name: Eden_ColHabitatChat2_Chat2
+  Output: eden_dialogue_WCW8qeS
+  Option_1: eden_dialogue_eKW8CW0
+  OptionNext_1: Eden_ColHabitatChat2_Chat3
+  Option_2: eden_dialogue_amGoWi4
+  OptionNext_2: End
+  Execute: "SetNPCName('Individual 2')"
+}
+{ +Dialogue Name: Eden_ColHabitatChat2_Chat3
+  Output: eden_dialogue_iemErmu
+  Option_1: eden_dialogue_u0OmCua
+  OptionNext_1: Eden_ColHabitatChat2_Chat4
+  Option_2: eden_dialogue_CDOGBI4
+  OptionNext_2: End
+  Execute: "SetNPCName('Individual 1')"
+}
+{ +Dialogue Name: Eden_ColHabitatChat2_Chat4
+  Output: eden_dialogue_GiGmuOW
+  Option_1: eden_dialogue_a4G8NW4
+  OptionIf_1: "Player.Credit >= 10000"
+  OptionNext_1: Eden_ColHabitatChat2_Complete
+  Option_2: eden_dialogue_uGiGWE4
+  OptionNext_2: End
+  Option_3: eden_dialogue_0SciSWK
+  OptionNext_3: End
+  Execute: "SetNPCName('Individual 2')"
+}
+{ +Dialogue Name: Eden_ColHabitatChat2_Complete
+  Execute: "SetNPCName('Individual 1'); Player.Credit -= 10000; AddReputation(Faction.Colonists, 100); Eden_ColHabitatChat2_Complete = 1; Eden_ColHabitatChat2_Complete2 += 1"
+  Output: eden_dialogue_aeSaOWi
+  Option_1: eden_dialogue_oGeSqEe
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ColBulkWorker_Init
+  Variable_1: "Eden_ChatOption", param1: dbplayerpoi_int
+  Variable_2: "Eden_PlyOpt_NPCFlavor", param1: dbplayer_int
+  NPCName: eden_dialogue_OEuqiiK
+  #: "<c><c>Randomized flavor text for Colonists Distribution Centers.</c></c>"
+  BarkingState: Eden_ColBulkWorker_Greet
+}
+{ +Dialogue Name: Eden_ColBulkWorker_Greet
+  Next_1: End
+  NextIf_1: "Eden_PlyOpt_NPCFlavor == 1"
+  Next_2: Eden_ColBulkWorker_Random
+  NextIf_2: "Eden_ChatOption == 0"
+  Next_3: Eden_ColBulkWorker_Select
+  #: "<c>Randomized flavor text for Polaris Distribution Centers.</c>"
+}
+{ +Dialogue Name: Eden_ColBulkWorker_Random
+  Execute: "Eden_ChatOption = Random(1,11)"
+  Next_1: Eden_ColBulkWorker_Select
+}
+{ +Dialogue Name: Eden_ColBulkWorker_Select
+  Next_1: Eden_ColBulkWorker_Chat1
+  NextIf_1: "Eden_ChatOption == 1"
+  Next_2: Eden_ColBulkWorker_Chat2
+  NextIf_2: "Eden_ChatOption == 2"
+  Next_3: Eden_ColBulkWorker_Chat3
+  NextIf_3: "Eden_ChatOption == 3"
+  Next_4: Eden_ColBulkWorker_Chat4
+  NextIf_4: "Eden_ChatOption == 4"
+  Next_5: Eden_ColBulkWorker_Chat5
+  NextIf_5: "Eden_ChatOption == 5"
+  Next_6: Eden_ColBulkWorker_Chat6
+  NextIf_6: "Eden_ChatOption == 6"
+  Next_7: Eden_ColBulkWorker_Chat7
+  NextIf_7: "Eden_ChatOption == 7"
+  Next_8: Eden_ColBulkWorker_Chat8
+  NextIf_8: "Eden_ChatOption == 8"
+  Next_9: Eden_ColBulkWorker_Chat9
+  NextIf_9: "Eden_ChatOption == 9"
+  Next_10: Eden_ColBulkWorker_Chat10
+  NextIf_10: "Eden_ChatOption == 10"
+  Next_11: Eden_ColBulkWorker_Chat11
+  NextIf_11: "Eden_ChatOption == 11"
+  Next_12: Eden_ColBulkWorker_Chat0
+}
+{ +Dialogue Name: Eden_ColBulkWorker_Chat0
+  Output: eden_dialogue_WWWa88I
+}
+{ +Dialogue Name: Eden_ColBulkWorker_Chat1
+  Output: eden_dialogue_SCqHKSp
+}
+{ +Dialogue Name: Eden_ColBulkWorker_Chat2
+  Output: eden_dialogue_W48S4WK
+}
+{ +Dialogue Name: Eden_ColBulkWorker_Chat3
+  Output: eden_dialogue_8u8aGK1
+}
+{ +Dialogue Name: Eden_ColBulkWorker_Chat4
+  Output: eden_dialogue_8a0uGCe
+}
+{ +Dialogue Name: Eden_ColBulkWorker_Chat5
+  Output: eden_dialogue_mGmWWeC
+}
+{ +Dialogue Name: Eden_ColBulkWorker_Chat6
+  Output: eden_dialogue_6i0qeq0
+}
+{ +Dialogue Name: Eden_ColBulkWorker_Chat7
+  Output: eden_dialogue_4WCmKci
+}
+{ +Dialogue Name: Eden_ColBulkWorker_Chat8
+  Output: eden_dialogue_eu8qaS6
+}
+{ +Dialogue Name: Eden_ColBulkWorker_Chat9
+  Output: eden_dialogue_GaGS4OO
+}
+{ +Dialogue Name: Eden_ColBulkWorker_Chat10
+  Output: eden_dialogue_neuiG4a
+}
+{ +Dialogue Name: Eden_ColBulkWorker_Chat11
+  Output: eden_dialogue_4u4eGa8
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Init
+  Variable_1: "Eden_ChatOption", param1: dbplayerpoi_int
+  Variable_2: "Eden_PlyOpt_NPCFlavor", param1: dbplayer_int
+  NPCName: eden_dialogue_Wc0uU48
+  #: "<c>Randomized flavor text for Polaris Distribution Centers.</c>"
+  BarkingState: Eden_PolBulkWorker_Greet
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Greet
+  Next_1: End
+  NextIf_1: "Eden_PlyOpt_NPCFlavor == 1"
+  Next_2: Eden_PolBulkWorker_Random
+  NextIf_2: "Eden_ChatOption == 0"
+  Next_3: Eden_PolBulkWorker_Select
+  #: "<c>Randomized flavor text for Polaris Distribution Centers.</c>"
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Random
+  Execute: "Eden_ChatOption = Random(1,15)"
+  Next_1: Eden_PolBulkWorker_Select
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Select
+  Next_1: Eden_PolBulkWorker_Chat1
+  NextIf_1: "Eden_ChatOption == 1"
+  Next_2: Eden_PolBulkWorker_Chat2
+  NextIf_2: "Eden_ChatOption == 2"
+  Next_3: Eden_PolBulkWorker_Chat3
+  NextIf_3: "Eden_ChatOption == 3"
+  Next_4: Eden_PolBulkWorker_Chat4
+  NextIf_4: "Eden_ChatOption == 4"
+  Next_5: Eden_PolBulkWorker_Chat5
+  NextIf_5: "Eden_ChatOption == 5"
+  Next_6: Eden_PolBulkWorker_Chat6
+  NextIf_6: "Eden_ChatOption == 6"
+  Next_7: Eden_PolBulkWorker_Chat7
+  NextIf_7: "Eden_ChatOption == 7"
+  Next_8: Eden_PolBulkWorker_Chat8
+  NextIf_8: "Eden_ChatOption == 8"
+  Next_9: Eden_PolBulkWorker_Chat9
+  NextIf_9: "Eden_ChatOption == 9"
+  Next_10: Eden_PolBulkWorker_Chat10
+  NextIf_10: "Eden_ChatOption == 10"
+  Next_11: Eden_PolBulkWorker_Chat11
+  NextIf_11: "Eden_ChatOption == 11"
+  Next_12: Eden_PolBulkWorker_Chat12
+  NextIf_12: "Eden_ChatOption == 12"
+  Next_13: Eden_PolBulkWorker_Chat13
+  NextIf_13: "Eden_ChatOption == 13"
+  Next_14: Eden_PolBulkWorker_Chat14
+  NextIf_14: "Eden_ChatOption == 14"
+  Next_15: Eden_PolBulkWorker_Chat15
+  NextIf_15: "Eden_ChatOption == 15"
+  Next_16: Eden_PolBulkWorker_Chat0
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Chat0
+  Output: eden_dialogue_Wm04e4a
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Chat1
+  Output: eden_dialogue_t83g7uW
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Chat2
+  Output: eden_dialogue_A8lCau0
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Chat3
+  Output: eden_dialogue_Qeueqoq
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Chat4
+  Output: eden_dialogue_0goae4O
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Chat5
+  Output: eden_dialogue_iuGiOC4
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Chat6
+  Output: eden_dialogue_VAiuq4a
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Chat7
+  Output: eden_dialogue_2GG4WSe
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Chat8
+  Output: eden_dialogue_Su0mqui
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Chat9
+  Output: eden_dialogue_08WSqSW
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Chat10
+  Output: eden_dialogue_qK4aScK
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Chat11
+  Output: eden_dialogue_umqi0aK
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Chat12
+  Output: eden_dialogue_CqaSqWe
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Chat13
+  Output: eden_dialogue_4mWmaGe
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Chat14
+  Output: eden_dialogue_uS4K8iG
+}
+{ +Dialogue Name: Eden_PolBulkWorker_Chat15
+  Output: eden_dialogue_qPq00eu
+}
+{ +Dialogue Name: Eden_PolBulkOfficer_Init
+  Variable_1: "Eden_ChatOption", param1: dbplayerpoi_int
+  Variable_2: "Eden_PlyOpt_NPCFlavor", param1: dbplayer_int
+  NPCName: eden_dialogue_Sqqq48i
+  #: "<c>Randomized flavor text for Polaris Distribution Centers.</c>"
+  BarkingState: Eden_PolBulkOfficer_Greet
+}
+{ +Dialogue Name: Eden_PolBulkOfficer_Greet
+  Next_1: End
+  NextIf_1: "Eden_PlyOpt_NPCFlavor == 1"
+  Next_2: Eden_PolBulkOfficer_Random
+  NextIf_2: "Eden_ChatOption == 0"
+  Next_3: Eden_PolBulkOfficer_Select
+  #: "<c>Randomized flavor text for Polaris Distribution Centers.</c>"
+}
+{ +Dialogue Name: Eden_PolBulkOfficer_Random
+  Execute: "Eden_ChatOption = Random(1,10)"
+  Next_1: Eden_PolBulkOfficer_Select
+}
+{ +Dialogue Name: Eden_PolBulkOfficer_Select
+  Next_1: Eden_PolBulkOfficer_Chat1
+  NextIf_1: "Eden_ChatOption == 1"
+  Next_2: Eden_PolBulkOfficer_Chat2
+  NextIf_2: "Eden_ChatOption == 2"
+  Next_3: Eden_PolBulkOfficer_Chat3
+  NextIf_3: "Eden_ChatOption == 3"
+  Next_4: Eden_PolBulkOfficer_Chat4
+  NextIf_4: "Eden_ChatOption == 4"
+  Next_5: Eden_PolBulkOfficer_Chat5
+  NextIf_5: "Eden_ChatOption == 5"
+  Next_6: Eden_PolBulkOfficer_Chat6
+  NextIf_6: "Eden_ChatOption == 6"
+  Next_7: Eden_PolBulkOfficer_Chat7
+  NextIf_7: "Eden_ChatOption == 7"
+  Next_8: Eden_PolBulkOfficer_Chat8
+  NextIf_8: "Eden_ChatOption == 8"
+  Next_9: Eden_PolBulkOfficer_Chat9
+  NextIf_9: "Eden_ChatOption == 9"
+  Next_10: Eden_PolBulkOfficer_Chat10
+  NextIf_10: "Eden_ChatOption == 10"
+  Next_11: Eden_PolBulkOfficer_Chat0
+}
+{ +Dialogue Name: Eden_PolBulkOfficer_Chat0
+  Output: eden_dialogue_iqOuS8m
+}
+{ +Dialogue Name: Eden_PolBulkOfficer_Chat1
+  Output: eden_dialogue_SiWliW4
+}
+{ +Dialogue Name: Eden_PolBulkOfficer_Chat2
+  Output: eden_dialogue_uim8mye
+}
+{ +Dialogue Name: Eden_PolBulkOfficer_Chat3
+  Output: eden_dialogue_imiuqKi
+}
+{ +Dialogue Name: Eden_PolBulkOfficer_Chat4
+  Output: eden_dialogue_quiuaC4
+}
+{ +Dialogue Name: Eden_PolBulkOfficer_Chat5
+  Output: eden_dialogue_mBOEGG8
+}
+{ +Dialogue Name: Eden_PolBulkOfficer_Chat6
+  Output: eden_dialogue_W82SWqu
+}
+{ +Dialogue Name: Eden_PolBulkOfficer_Chat7
+  Output: eden_dialogue_20GiCqS
+}
+{ +Dialogue Name: Eden_PolBulkOfficer_Chat8
+  Output: eden_dialogue_NG48eG4
+}
+{ +Dialogue Name: Eden_PolBulkOfficer_Chat9
+  Output: eden_dialogue_COCuWOC
+}
+{ +Dialogue Name: Eden_PolBulkOfficer_Chat10
+  Output: eden_dialogue_Ku8AGCK
+}
+{ +Dialogue Name: Eden_PolBulkSecurity_Init
+  Variable_1: "Eden_ChatOption", param1: dbplayerpoi_int
+  Variable_2: "Eden_PlyOpt_NPCFlavor", param1: dbplayer_int
+  NPCName: eden_dialogue_KeZiAqk
+  #: "<c>Randomized flavor text for Polaris Distribution Centers.</c>"
+  BarkingState: Eden_PolBulkSecurity_Greet
+}
+{ +Dialogue Name: Eden_PolBulkSecurity_Greet
+  Next_1: End
+  NextIf_1: "Eden_PlyOpt_NPCFlavor == 1"
+  Next_2: Eden_PolBulkSecurity_Random
+  NextIf_2: "Eden_ChatOption == 0"
+  Next_3: Eden_PolBulkSecurity_Select
+  #: "<c>Randomized flavor text for Polaris Distribution Centers.</c>"
+}
+{ +Dialogue Name: Eden_PolBulkSecurity_Random
+  Execute: "Eden_ChatOption = Random(1,4)"
+  Next_1: Eden_PolBulkSecurity_Select
+}
+{ +Dialogue Name: Eden_PolBulkSecurity_Select
+  Next_1: Eden_PolBulkSecurity_Chat1
+  NextIf_1: "Eden_ChatOption == 1"
+  Next_2: Eden_PolBulkSecurity_Chat2
+  NextIf_2: "Eden_ChatOption == 2"
+  Next_3: Eden_PolBulkSecurity_Chat3
+  NextIf_3: "Eden_ChatOption == 3"
+  Next_4: Eden_PolBulkSecurity_Chat4
+  NextIf_4: "Eden_ChatOption == 4"
+  Next_5: Eden_PolBulkSecurity_Chat5
+  NextIf_5: "Eden_ChatOption == 5"
+  Next_6: Eden_PolBulkSecurity_Chat0
+}
+{ +Dialogue Name: Eden_PolBulkSecurity_Chat0
+  Output: eden_dialogue_FcmaiuS
+}
+{ +Dialogue Name: Eden_PolBulkSecurity_Chat1
+  Output: eden_dialogue_QfO4qKu
+}
+{ +Dialogue Name: Eden_PolBulkSecurity_Chat2
+  Output: eden_dialogue_K0kqG8m
+}
+{ +Dialogue Name: Eden_PolBulkSecurity_Chat3
+  Output: eden_dialogue_8Kqm884
+}
+{ +Dialogue Name: Eden_PolBulkSecurity_Chat4
+  Output: eden_dialogue_e1WmCa8
+}
+{ +Dialogue Name: Eden_PolBulkSecurity_Chat5
+  Output: eden_dialogue_a6YSoSZ
+}
+{ +Dialogue Name: Eden_PolBulkChat1_Init
+  NPCName: eden_dialogue_00n0SCC
+  Output: eden_dialogue_GiWCiGm
+  Option_1: eden_dialogue_OCOiiWe
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_PolBulkChat2_Init
+  NPCName: eden_dialogue_WWOq0iS
+  Variable_1: "Eden_NPCName", param1: dbplayerpoi_int
+  Next_1: Eden_PolBulkChat2_Randomize
+  NextIf_1: "Eden_NPCName == 0"
+  Next_2: Eden_PolBulkChat2_Greet
+}
+{ +Dialogue Name: Eden_PolBulkChat2_Randomize
+  Execute: "Eden_NPCName = Random(100,99999)"
+  Next_1: Eden_PolBulkChat2_Greet
+}
+{ +Dialogue Name: Eden_PolBulkChat2_Greet
+  Output: eden_dialogue_u8WummC
+  Option_1: eden_dialogue_Wi4GOAC
+  OptionNext_1: Eden_PolBulkChat2_Goodbye
+}
+{ +Dialogue Name: Eden_PolBulkChat2_Goodbye
+  Output: eden_dialogue_SCCWuiK
+  Option_1: eden_dialogue_eWCiqgC
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_PolBulkChat3_Init
+  NPCName: eden_dialogue_4qaeSma
+  Output: eden_dialogue_KSi4OOG
+  Option_1: eden_dialogue_Mi8pCmi
+  OptionNext_1: Eden_PolBulkChat3_Chat
+  Option_2: eden_dialogue_aK8K4Oe
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_PolBulkChat3_Chat
+  Option_1: eden_dialogue_aim0iKq
+  OptionNext_1: Eden_PolBulkChat3_Chat2
+  Option_2: eden_dialogue_04qSSaW
+  OptionNext_2: End
+  Output: eden_dialogue_8gp40ee
+}
+{ +Dialogue Name: Eden_PolBulkChat3_Chat2
+  Output: eden_dialogue_K8pauCe
+  Option_1: eden_dialogue_O88i0qe
+  OptionNext_1: Eden_PolBulkChat3_Chat3
+  Option_2: eden_dialogue_qSC84e8
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_PolBulkChat3_Chat3
+  Output: eden_dialogue_iGa4kuG
+  Option_1: eden_dialogue_SWX80ek
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_PolBulkChat4_Init
+  Output: eden_dialogue_8SGGem8
+  NPCName: eden_dialogue_muOmGSG
+  Option_1: eden_dialogue_eeOeEam
+  OptionNext_1: Eden_PolBulkChat4_Chat
+  Option_2: eden_dialogue_R0i00iq
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_PolBulkChat4_Chat
+  Output: eden_dialogue_iKimCCC
+  Option_1: eden_dialogue_eSS40W4
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_PolBulkBathroom_Greet1
+  Output: eden_dialogue_ma44Sqa
+  Option_1: eden_dialogue_iiOOeiK
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_PolBulkBathroom_Greet2
+  NPCName: eden_dialogue_KUu4ipC
+  Output: eden_dialogue_iQeGi4i
+  Option_1: eden_dialogue_m0SCe48
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_PolBulkBathroom_Greet3
+  NPCName: eden_dialogue_GuGq0me
+  Output: eden_dialogue_FCGKqW4
+  Option_1: eden_dialogue_quSgOSc
+  OptionIf_1: "HasItem('Token', 1, 6306) && Eden_BathroomComplete == 0"
+  OptionNext_1: Eden_PolBulkBathroom_Complete
+  Option_2: eden_dialogue_40Woe00
+  OptionIf_2: "Eden_BathroomComplete == 0"
+  OptionNext_2: Eden_PolBulkBathroom_Greet4
+  Option_3: eden_dialogue_CuOI8GO
+  OptionIf_3: "Eden_BathroomComplete == 1"
+  OptionNext_3: Eden_PolBulkBathroom_Deny
+  Option_4: eden_dialogue_eqGqKSC
+  OptionIf_4: "HasItem('Token', 1, 6121) && Eden_MineComplete == 0"
+  OptionNext_4: Eden_PolBulkBathroom_Mine
+  Option_5: eden_dialogue_ei5SS82
+  OptionNext_5: End
+  Variable_1: "Eden_BathroomComplete", param1: dbplayerpoi_int
+  Variable_2: "Eden_MineComplete", param1: dbplayerpoi_int
+}
+{ +Dialogue Name: Eden_PolBulkBathroom_Greet4
+  Output: eden_dialogue_eG4G04f
+  Option_1: eden_dialogue_meiqeKK
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_PolBulkBathroom_Mine
+  Output: eden_dialogue_u8uOCuu
+  Option_1: eden_dialogue_WW4e40W
+  OptionNext_1: Eden_PolBulkBathroom_Mine2
+  Option_2: eden_dialogue_0Kq86m8
+  OptionNext_2: Eden_PolBulkBathroom_Greet3
+}
+{ +Dialogue Name: Eden_PolBulkBathroom_Mine2
+  Output: eden_dialogue_0SaSa0S
+  Option_1: eden_dialogue_82GSume
+  OptionIf_1: "HasItem('Token', 1, 6121) && Eden_MineComplete == 0"
+  OptionNext_1: End
+  OptionExecute_1: "RemoveItem('Token', 1, 6121); AddItem('PlatinumCard', 10); Eden_MineComplete = 1"
+  Option_2: eden_dialogue_Caq4SGK
+  OptionNext_2: Eden_PolBulkBathroom_Greet3
+  Option_3: eden_dialogue_WuSKIqC
+  OptionNext_3: End
+}
+{ +Dialogue Name: Eden_PolBulkBathroom_Complete
+  Output: eden_dialogue_aSWemei
+  Option_1: eden_dialogue_SqKO8m8
+  OptionNext_1: End
+  Execute: "RemoveItem('Token', 1, 6306); AddReputation(Faction.Polaris, 150); Eden_BathroomComplete = 1"
+}
+{ +Dialogue Name: Eden_PolBulkBathroom_Deny
+  Output: eden_dialogue_mqGSSWR
+  Option_1: eden_dialogue_WO4mKmm
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_TraMilitary_Init
+  Variable_1: "Eden_ChatOption", param1: dbplayerpoi_int
+  Variable_2: "Eden_PlyOpt_NPCFlavor", param1: dbplayer_int
+  NPCName: eden_dialogue_a8am88S
+  #: "<c>Randomized flavor text for Polaris Distribution Centers.</c>"
+  BarkingState: Eden_TraMilitary_Greet
+}
+{ +Dialogue Name: Eden_TraMilitary_Greet
+  Next_1: End
+  NextIf_1: "Eden_PlyOpt_NPCFlavor == 1"
+  Next_2: Eden_TraMilitary_Random
+  NextIf_2: "Eden_ChatOption == 0"
+  Next_3: Eden_TraMilitary_Select
+  #: "<c>Randomized flavor text for Polaris Distribution Centers.</c>"
+}
+{ +Dialogue Name: Eden_TraMilitary_Random
+  Execute: "Eden_ChatOption = Random(1,10)"
+  Next_1: Eden_TraMilitary_Select
+}
+{ +Dialogue Name: Eden_TraMilitary_Select
+  Next_1: Eden_TraMilitary_Chat1
+  NextIf_1: "Eden_ChatOption == 1"
+  Next_2: Eden_TraMilitary_Chat2
+  NextIf_2: "Eden_ChatOption == 2"
+  Next_3: Eden_TraMilitary_Chat3
+  NextIf_3: "Eden_ChatOption == 3"
+  Next_4: Eden_TraMilitary_Chat4
+  NextIf_4: "Eden_ChatOption == 4"
+  Next_5: Eden_TraMilitary_Chat5
+  NextIf_5: "Eden_ChatOption == 5"
+  Next_6: Eden_TraMilitary_Chat6
+  NextIf_6: "Eden_ChatOption == 6"
+  Next_7: Eden_TraMilitary_Chat7
+  NextIf_7: "Eden_ChatOption == 7"
+  Next_8: Eden_TraMilitary_Chat8
+  NextIf_8: "Eden_ChatOption == 8"
+  Next_9: Eden_TraMilitary_Chat9
+  NextIf_9: "Eden_ChatOption == 9"
+  Next_10: Eden_TraMilitary_Chat10
+  NextIf_10: "Eden_ChatOption == 10"
+  Next_11: Eden_TraMilitary_Chat0
+}
+{ +Dialogue Name: Eden_TraMilitary_Chat0
+  Output: eden_dialogue_GKOwIDC
+}
+{ +Dialogue Name: Eden_TraMilitary_Chat1
+  Output: eden_dialogue_qOqOCaa
+}
+{ +Dialogue Name: Eden_TraMilitary_Chat2
+  Output: eden_dialogue_CC7G0iO
+}
+{ +Dialogue Name: Eden_TraMilitary_Chat3
+  Output: eden_dialogue_4CuKia4
+}
+{ +Dialogue Name: Eden_TraMilitary_Chat4
+  Output: eden_dialogue_eOmalCq
+}
+{ +Dialogue Name: Eden_TraMilitary_Chat5
+  Output: eden_dialogue_eBG440A
+}
+{ +Dialogue Name: Eden_TraMilitary_Chat6
+  Output: eden_dialogue_GKKWO8e
+}
+{ +Dialogue Name: Eden_TraMilitary_Chat7
+  Output: eden_dialogue_iGUEqC0
+}
+{ +Dialogue Name: Eden_TraMilitary_Chat8
+  Output: eden_dialogue_QfaqWu2
+}
+{ +Dialogue Name: Eden_TraMilitary_Chat9
+  Output: eden_dialogue_OOToWSC
+}
+{ +Dialogue Name: Eden_TraMilitary_Chat10
+  Output: eden_dialogue_ZeKumuS
+}
+{ +Dialogue Name: Eden_TraPrisonNote1_Init
+  NPCName: eden_dialogue_e0qeu0F
+  Variable_1: "Eden_TraPrisonComplete", param1: dbplayer_int
+  Variable_2: "Eden_TraPrisonStage", param1: dbplayerpf_int
+  Next_1: Eden_TraPrisonNote1_Deny
+  NextIf_1: "Eden_TraPrisonComplete == 1 && Eden_TraPrisonStage == 2"
+  Next_2: Eden_TraPrisonNote1_Deny3
+  NextIf_2: "Eden_TraPrisonComplete == 1"
+  Next_3: Eden_TraPrisonNote1_Deny4
+  NextIf_3: "Eden_TraPrisonStage == 3"
+  Next_4: Eden_TraPrisonNote1_Reward
+  NextIf_4: "Eden_TraPrisonComplete == 0 && Eden_TraPrisonStage == 1"
+  Next_5: Eden_TraPrisonNote1_Deny2
+  NextIf_5: "HasItem('Token', 1, 6308)"
+  Next_6: Eden_TraPrisonNote1_Greet
+}
+{ +Dialogue Name: Eden_TraPrisonNote1_Deny
+  Output: eden_dialogue_qm0iOuG
+  Option_1: eden_dialogue_OUau4Cu
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_TraPrisonNote1_Deny2
+  Output: eden_dialogue_4Wq8CeO
+  Option_1: eden_dialogue_0u8iOi0
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_TraPrisonNote1_Deny3
+  Output: eden_dialogue_qKuOmu0
+  Option_1: eden_dialogue_GeaeGqQ
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_TraPrisonNote1_Deny4
+  Output: eden_dialogue_WCCqmWS
+  Option_1: eden_dialogue_Om448eG
+  OptionNext_1: Eden_TraPrisonNote1_Deny5
+}
+{ +Dialogue Name: Eden_TraPrisonNote1_Deny5
+  Option_1: eden_dialogue_q0W0Wq0
+  OptionNext_1: End
+  Output: eden_dialogue_cq8qGWm
+}
+{ +Dialogue Name: Eden_TraPrisonNote1_Greet
+  Output: eden_dialogue_mSWm0Oh
+  Option_1: eden_dialogue_a0uamO4
+  OptionNext_1: Eden_TraPrisonNote1_Info
+  Option_2: eden_dialogue_qive0Oo
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_TraPrisonNote1_Info
+  Output: eden_dialogue_0sGGWSu
+  Option_1: eden_dialogue_E0K0GOK
+  OptionNext_1: Eden_TraPrisonNote1_Info2
+  Option_2: eden_dialogue_I0e44q8
+  OptionNext_2: Eden_TraPrisonNote1_Refuse
+}
+{ +Dialogue Name: Eden_TraPrisonNote1_Info2
+  Output: eden_dialogue_08eKKqC
+  Option_1: eden_dialogue_UmGCWuG
+  OptionNext_1: End
+  Execute: "AddItem('Token', 1, 6308)"
+}
+{ +Dialogue Name: Eden_TraPrisonNote1_Refuse
+  Output: eden_dialogue_qe8Uea4
+  Option_1: eden_dialogue_4qEZGmm
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_TraPrisonNote1_Reward
+  Execute: "Eden_TraPrisonComplete = 1; Eden_TraPrisonStage = 2; AddItem('MoneyCard', 15000); AddReputation(Faction.Pirates, +300)"
+  Output: eden_dialogue_8GmeNQ8
+  Option_1: eden_dialogue_4KGmSem
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_TraPrisonNote2_Init
+  Next_1: Eden_TraPrisonNote2_Punch2
+  NextIf_1: "Eden_TraPrisonStage == 3"
+  Next_2: Eden_TraPrisonNote2_Greet
+  Variable_1: "Eden_TraPrisonComplete", param1: dbplayer_int
+  Variable_2: "Eden_TraPrisonStage", param1: dbplayerpf_int
+  NPCName: eden_dialogue_qq8FimW
+}
+{ +Dialogue Name: Eden_TraPrisonNote2_Greet
+  Option_1: eden_dialogue_0Km8OuO
+  OptionIf_1: "HasItem('Token', 1, 6308) && Eden_TraPrisonComplete == 0"
+  OptionNext_1: Eden_TraPrisonNote2_Note
+  Option_2: eden_dialogue_0e4unu8
+  OptionNext_2: End
+  Option_3: eden_dialogue_KiQei04
+  OptionNext_3: Eden_TraPrisonNote2_Hamster
+  Output: eden_dialogue_aaqeCSi
+}
+{ +Dialogue Name: Eden_TraPrisonNote2_Hamster
+  Output: eden_dialogue_Ce6KKOS
+  Option_1: eden_dialogue_ae8Om8W
+  OptionNext_1: Eden_TraPrisonNote2_Greet
+  Option_2: eden_dialogue_mmqOWOd
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_TraPrisonNote2_Note
+  Output: eden_dialogue_qWsWSOq
+  Option_1: eden_dialogue_LCW0eqq
+  OptionNext_1: Eden_TraPrisonNote2_Note2
+  Option_2: eden_dialogue_WYqSixm
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_TraPrisonNote2_Note2
+  Output: eden_dialogue_Su4Ce0c
+  Option_1: eden_dialogue_dWu00Gs
+  OptionNext_1: Eden_TraPrisonNote2_Note3
+  Option_2: eden_dialogue_uWSC8CO
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_TraPrisonNote2_Note3
+  Output: eden_dialogue_0SWCu40
+  Option_1: eden_dialogue_eaeO4qa
+  OptionIf_1: "HasItem('MoneyCard', 5000)"
+  OptionNext_1: Eden_TraPrisonNote2_Note4
+  Option_2: eden_dialogue_aW0GWQC
+  OptionIf_2: "!HasItem('MoneyCard', 5000)"
+  OptionNext_2: End
+  Option_3: eden_dialogue_maSC1ik
+  OptionNext_3: Eden_TraPrisonNote2_Punch
+  Option_4: eden_dialogue_O0CqGe0
+  OptionNext_4: End
+}
+{ +Dialogue Name: Eden_TraPrisonNote2_Note4
+  Output: eden_dialogue_mW0uaaF
+  Execute: "RemoveItem('Token', 1, 6308); RemoveItem('MoneyCard', 5000); Eden_TraPrisonStage = 1"
+  Option_1: eden_dialogue_O04ieuu
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_TraPrisonNote2_Punch
+  Output: eden_dialogue_euM8CuO
+  Option_1: eden_dialogue_S4S8Cum
+  OptionNext_1: End
+  Execute: "RemoveItem('Token', 1, 6308); Player.Health -= 100; Eden_TraPrisonStage = 3"
+}
+{ +Dialogue Name: Eden_TraPrisonNote2_Punch2
+  Output: eden_dialogue_c8OGGKO
+  Option_1: eden_dialogue_WS0ai0i
+  OptionNext_1: End
+  OptionExecute_1: "Player.Health -= 500"
+  Option_2: eden_dialogue_Kma8iSK
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_TraPrisonNote3_Init
+  Variable_1: "Eden_TraPrisonComplete", param1: dbplayer_int
+  Variable_2: "Eden_TraPrisonStage", param1: dbplayerpf_int
+  NPCName: eden_dialogue_4uSGWSq
+  Next_1: Eden_TraPrisonNote3_Greet
+}
+{ +Dialogue Name: Eden_TraPrisonNote3_Greet
+  Option_1: eden_dialogue_Sq84Kq0
+  OptionIf_1: "HasItem('Token', 1, 6308) && Eden_TraPrisonComplete == 0"
+  OptionNext_1: Eden_TraPrisonNote3_Reward
+  Option_2: eden_dialogue_GAKDaSv
+  OptionNext_2: End
+  Output: eden_dialogue_C0qnqCq
+}
+{ +Dialogue Name: Eden_TraPrisonNote3_Reward
+  Output: eden_dialogue_OK2maOi
+  Option_1: eden_dialogue_4uuCIWg
+  OptionNext_1: Eden_TraPrisonNote3_Reward2
+  Option_2: eden_dialogue_e8aWWlm
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_TraPrisonNote3_Reward2
+  Output: eden_dialogue_a00W0OS
+  Execute: "Eden_TraPrisonComplete = 1; Eden_TraPrisonStage = 4; AddReputation(Faction.Trader, +300)"
+}
+{ +Dialogue Name: Eden_TraCoordinator_Init
+  NPCName: eden_dialogue_KKcaOeK
+  Next_1: Eden_TraCoordinator_Greet
+}
+{ +Dialogue Name: Eden_TraCoordinator_Greet
+  Output: eden_dialogue_uCoeKS4
+  Option_1: eden_dialogue_QSOKwiG
+  OptionIf_1: "GetReputation(Faction.Trader) >= Reputation.FriendlyMin"
+  OptionNext_1: End
+  OptionExecute_1: "OpenTraderWindow()"
+  Option_2: eden_dialogue_KOSGamK
+  OptionIf_2: "GetReputation(Faction.Trader) < Reputation.FriendlyMin"
+  OptionNext_2: Eden_TraCoordinator_Deny
+  Option_3: eden_dialogue_SaCSI4C
+  OptionNext_3: Eden_TraCoordinator_InfoBeacon
+  Option_4: eden_dialogue_a4eGZ0i
+  OptionNext_4: Eden_TraCoordinator_InfoBulk
+  Option_5: eden_dialogue_WU44c00
+  OptionNext_5: End
+}
+{ +Dialogue Name: Eden_TraCoordinator_Deny
+  Output: eden_dialogue_4qW0qWa
+  Option_1: eden_dialogue_5WemSmC
+  OptionNext_1: Eden_TraCoordinator_Greet
+  Option_2: eden_dialogue_ueiCn4u
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_TraCoordinator_InfoBeacon
+  Output: eden_dialogue_SG0KwWu
+  Option_1: eden_dialogue_mOiKqai
+  OptionNext_1: Eden_TraCoordinator_Init
+}
+{ +Dialogue Name: Eden_TraCoordinator_InfoBulk
+  Output: eden_dialogue_qGO90K0
+  Option_1: eden_dialogue_eu53ePO
+  OptionNext_1: Eden_TraCoordinator_InfoBulk2
+  Option_2: eden_dialogue_8aGaOiO
+  OptionNext_2: Eden_TraCoordinator_Greet
+  Option_3: eden_dialogue_mTmemG4
+  OptionNext_3: End
+}
+{ +Dialogue Name: Eden_TraCoordinator_InfoBulk2
+  Output: eden_dialogue_eWiKiIm
+  Option_1: eden_dialogue_iiWeKi4
+  OptionNext_1: Eden_TraCoordinator_Greet
+  Option_2: eden_dialogue_Se8Kau0
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_PirBulkMusic_Init
+  NPCName: eden_dialogue_maOKuq8
+  Next_1: Eden_PirBulkMusic_Music
+  NextIf_1: "HasItem('Token', 1, 6122) && Eden_Known == 0"
+  Next_2: Eden_PirBulkMusic_Greet
+  Variable_1: "Eden_Known", param1: dbplayerpoi_int
+}
+{ +Dialogue Name: Eden_PirBulkMusic_Greet
+  Option_1: eden_dialogue_BaSBqW4
+  OptionIf_1: "HasItem('Token', 1, 6122) && Eden_Known == 1"
+  OptionNext_1: Eden_PirBulkMusic_Reward
+  Option_2: eden_dialogue_KSSKaIS
+  OptionNext_2: Eden_PirBulkMusic_Info
+  Option_3: eden_dialogue_84KqueO
+  OptionNext_3: End
+  Output: eden_dialogue_OSKIWi4
+}
+{ +Dialogue Name: Eden_PirBulkMusic_Info
+  Output: eden_dialogue_qGaieCQ
+  Option_1: eden_dialogue_840qui8
+  OptionNext_1: Eden_PirBulkMusic_Info2
+}
+{ +Dialogue Name: Eden_PirBulkMusic_Info2
+  Output: eden_dialogue_CWWO8ia
+  Option_1: eden_dialogue_E8afumi
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_PirBulkMusic_Music
+  Output: eden_dialogue_uq4C8mu
+  Option_1: eden_dialogue_aVb0K80
+  OptionIf_1: "HasItem('Token', 1, 6122)"
+  OptionNext_1: Eden_PirBulkMusic_Reward
+  Option_2: eden_dialogue_WaKulOW
+  OptionNext_2: Eden_PirBulkMusic_Music2
+}
+{ +Dialogue Name: Eden_PirBulkMusic_Music2
+  Output: eden_dialogue_8GGKW2m
+  Option_1: eden_dialogue_C8W8S3Q
+  OptionIf_1: "HasItem('Token', 1, 6122)"
+  OptionNext_1: Eden_PirBulkMusic_Reward
+}
+{ +Dialogue Name: Eden_PirBulkMusic_Reward
+  Output: eden_dialogue_qmHuoCK
+  Option_1: eden_dialogue_4uaaOS8
+  OptionNext_1: Eden_PirBulkMusic_Greet
+  Option_2: eden_dialogue_7SeOumu
+  OptionNext_2: End
+  Execute: "RemoveItem('Token', 1, 6122); Eden_Known = 1; Player.Credit += 25000; AddReputation(Faction.Pirates, +100)"
+}
+{ +Dialogue Name: Eden_PirBulkGuard1_Init
+  NPCName: eden_dialogue_ea0qciu
+  Output: eden_dialogue_iWihS4G
+  Option_1: eden_dialogue_CS4eOam
+  OptionNext_1: Eden_PirBulkGuard1_Buddy1
+  Option_2: eden_dialogue_48Si0Ca
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_PirBulkGuard1_Buddy1
+  Output: eden_dialogue_GKkAaMC
+  Option_1: eden_dialogue_GRe4mee
+  OptionNext_1: Eden_PirBulkGuard1_Buddy2
+}
+{ +Dialogue Name: Eden_PirBulkGuard1_Buddy2
+  Output: eden_dialogue_qO8ae14
+  Option_1: eden_dialogue_SmAeq00
+  OptionNext_1: Eden_PirBulkGuard1_Buddy3
+}
+{ +Dialogue Name: Eden_PirBulkGuard1_Buddy3
+  Output: eden_dialogue_maKiaae
+  Option_1: eden_dialogue_S8WOSia
+  OptionNext_1: Eden_PirBulkGuard1_Buddy1
+}
+{ +Dialogue Name: Eden_PirBulkGamer1_Init
+  NPCName: eden_dialogue_mKemiSg
+  Output: eden_dialogue_eS8iFG8
+  Option_1: eden_dialogue_a8NemW8
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_PirBulkGamer2_Init
+  Option_1: eden_dialogue_iamG0qs
+  OptionNext_1: End
+  Output: eden_dialogue_GuWCeYi
+  NPCName: eden_dialogue_qmCGc0S
+}
+{ +Dialogue Name: Eden_PirBulkGamer3_Init
+  NPCName: eden_dialogue_qmm04lq
+  Output: eden_dialogue_QIOG8qe
+  Option_1: eden_dialogue_eGO8JuW
+  OptionNext_1: Eden_PirBulkGamer3_Play
+  Option_2: eden_dialogue_SGKau0i
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_PirBulkGamer3_Play
+  Output: eden_dialogue_WCCCaeS
+  Option_1: eden_dialogue_CmW8fS0
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_PirBulkGamer4_Init
+  NPCName: eden_dialogue_4ee8aGG
+  Output: eden_dialogue_q08uKiu
+  Option_1: eden_dialogue_SC2KWWW
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_PirBulkGamer5_Init
+  NPCName: eden_dialogue_O0SC2q8
+  Output: eden_dialogue_88G88Gq
+  Option_1: eden_dialogue_q0TiCuu
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_PirBulkGamer6_Init
+  NPCName: eden_dialogue_aiWaSCm
+  Output: eden_dialogue_Gi08S08
+  Option_1: eden_dialogue_4088jsO
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_PirBulkGamer7_Init
+  NPCName: eden_dialogue_aKpZC8e
+  Output: eden_dialogue_q8aWpmK
+  Option_1: eden_dialogue_Oi4aCqY
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_PirBulkGamer8_Init
+  NPCName: eden_dialogue_uMm4qKS
+  Output: eden_dialogue_OSrKaie
+  Option_1: eden_dialogue_aCOCamq
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_PirBulkManager_Init
+  Next_1: Eden_PirBulkManager_Greet
+  NPCName: eden_dialogue_mSaSCuO
+}
+{ +Dialogue Name: Eden_PirBulkManager_Greet
+  Output: eden_dialogue_O4au8W8
+  Option_1: eden_dialogue_aCo0iOq
+  OptionNext_1: Eden_PirBulkManager_Info
+  Option_2: eden_dialogue_eGWqOO4
+  OptionNext_2: Eden_PirBulkManager_Info2
+  Option_3: eden_dialogue_eKK8EWS
+  OptionNext_3: Eden_PirBulkManager_Info3
+  Option_4: eden_dialogue_e0mGOG0
+  OptionNext_4: End
+}
+{ +Dialogue Name: Eden_PirBulkManager_Info
+  Output: eden_dialogue_Wu8uuSK
+  Option_1: eden_dialogue_OCGWmGe
+  OptionNext_1: Eden_PirBulkManager_Greet
+}
+{ +Dialogue Name: Eden_PirBulkManager_Info2
+  Output: eden_dialogue_mmo0C05
+  Option_1: eden_dialogue_OOoa8m8
+  OptionNext_1: Eden_PirBulkManager_Greet
+  Option_2: eden_dialogue_OOoa8m8
+  OptionNext_2: Eden_PirBulkManager_Greet
+}
+{ +Dialogue Name: Eden_PirBulkManager_Info3
+  Output: eden_dialogue_aHCu0WS
+  Option_1: eden_dialogue_WeEEOuW
+  OptionNext_1: Eden_PirBulkManager_Greet
+}
+{ +Dialogue Name: Eden_PirBulkRandom_Init
+  Output: eden_dialogue_eSWuSee
+  NPCName: eden_dialogue_CZIaWma
+  Option_1: eden_dialogue_miSou8G
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_PirBulkPax_Init
+  NPCName: eden_dialogue_CpGq4qm
+  Option_1: eden_dialogue_uaqaKua
+  OptionNext_1: Eden_PirBulkPax_Info
+  Option_2: eden_dialogue_eDqkqiC
+  OptionNext_2: End
+  Output: eden_dialogue_0mEpYCq
+}
+{ +Dialogue Name: Eden_PirBulkPax_Info
+  Output: eden_dialogue_IuSquim
+  Option_1: eden_dialogue_KaQqSqa
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_PirBulkTV_Init
+  Output: eden_dialogue_i8Raa0q
+  Option_1: eden_dialogue_GSK88mC
+  OptionNext_1: End
+  OptionExecute_1: "SetBlockActive('NewsMarket', true); SetBlockActive('NewsGalaxy', false); SetBlockActive('NewsColonists', false); SetBlockActive('NewsTrader', false); SetBlockActive('NewsGeneric', false); SetBlockActive('NewsPolaris', false)"
+  Option_2: eden_dialogue_OsiO4Gi
+  OptionNext_2: End
+  OptionExecute_2: "SetBlockActive('NewsMarket', false); SetBlockActive('NewsGalaxy', true); SetBlockActive('NewsColonists', false); SetBlockActive('NewsTrader', false); SetBlockActive('NewsGeneric', false); SetBlockActive('NewsPolaris', false)"
+  Option_3: eden_dialogue_0mqGKK8
+  OptionNext_3: End
+  OptionExecute_3: "SetBlockActive('NewsMarket', false); SetBlockActive('NewsGalaxy', false); SetBlockActive('NewsColonists', true); SetBlockActive('NewsTrader', false); SetBlockActive('NewsGeneric', false); SetBlockActive('NewsPolaris', false)"
+  Option_4: eden_dialogue_a84C8Ga
+  OptionNext_4: End
+  OptionExecute_4: "SetBlockActive('NewsMarket', false); SetBlockActive('NewsGalaxy', false); SetBlockActive('NewsColonists', false); SetBlockActive('NewsTrader', true); SetBlockActive('NewsGeneric', false); SetBlockActive('NewsPolaris', false)"
+  Option_5: eden_dialogue_OGOu8eS
+  OptionNext_5: End
+  OptionExecute_5: "SetBlockActive('NewsMarket', false); SetBlockActive('NewsGalaxy', false); SetBlockActive('NewsColonists', false); SetBlockActive('NewsTrader', false); SetBlockActive('NewsGeneric', true); SetBlockActive('NewsPolaris', false)"
+  Option_6: eden_dialogue_O8euiSC
+  OptionNext_6: End
+  OptionExecute_6: "SetBlockActive('NewsMarket', false); SetBlockActive('NewsGalaxy', false); SetBlockActive('NewsColonists', false); SetBlockActive('NewsTrader', false); SetBlockActive('NewsGeneric', false); SetBlockActive('NewsPolaris', true)"
+  Option_7: eden_dialogue_YkW8m8O
+  OptionNext_7: End
+  OptionExecute_7: "SetBlockActive('NewsMarket', false); SetBlockActive('NewsGalaxy', false); SetBlockActive('NewsColonists', false); SetBlockActive('NewsTrader', false); SetBlockActive('NewsGeneric', false); SetBlockActive('NewsPolaris', false)"
+  NPCName: eden_dialogue_e0CK04e
 }
 { +Dialogue Name: Eden_SyndicatePrisoner_Start
   NPCName: eden_dialogue_m84OC
@@ -19912,7 +21377,7 @@
   Next_3: Eden_LostStationFire_Player1
 }
 { +Dialogue Name: Eden_LostStationFire_Player3
-  Execute: "SetSignal('FireControl', true); SetSignal('Dif2', true); SetSignal('Dif3', true)"
+  Execute: "SetSignal('FireControl', true); SetSignal('Dif2', true); SetSignal('Dif3', true); SetSignal('WestonDoorEnd', false); SetSignal('BossP2_D1', false); SetSignal('BossP2_D2', false); SetSignal('BossP2_1', false); SetSignal('BossP2_2', false); SetSignal('*WestonEnd', false); SetSignal('*WestonP2', false)"
   Option_1: eden_dialogue_eWKGCiK
   OptionNext_1: Eden_LostStationFire_Music
   Option_2: eden_dialogue_GeWCOKM
@@ -19920,7 +21385,7 @@
   Output: eden_dialogue_WqeqiVG
 }
 { +Dialogue Name: Eden_LostStationFire_Player2
-  Execute: "SetSignal('FireControl', true); SetSignal('Dif2', true)"
+  Execute: "SetSignal('FireControl', true); SetSignal('Dif2', true); SetSignal('WestonDoorEnd', false); SetSignal('BossP2_D1', false); SetSignal('BossP2_D2', false); SetSignal('BossP2_1', false); SetSignal('BossP2_2', false); SetSignal('*WestonEnd', false); SetSignal('*WestonP2', false)"
   Option_1: eden_dialogue_WmOVe6T
   OptionNext_1: Eden_LostStationFire_Player3
   Option_2: eden_dialogue_nWpOW0S
@@ -19930,7 +21395,7 @@
   Output: eden_dialogue_44K88um
 }
 { +Dialogue Name: Eden_LostStationFire_Player1
-  Execute: "SetSignal('FireControl', true)"
+  Execute: "SetSignal('FireControl', true); SetSignal('WestonDoorEnd', false); SetSignal('BossP2_D1', false); SetSignal('BossP2_D2', false); SetSignal('BossP2_1', false); SetSignal('BossP2_2', false); SetSignal('*WestonEnd', false); SetSignal('*WestonP2', false)"
   Option_1: eden_dialogue_Cma08uu
   OptionNext_1: Eden_LostStationFire_Player2
   Option_2: eden_dialogue_pUCWi4i
@@ -20097,13 +21562,17 @@
   OptionNext_6: Eden_CasinoDJ_Info
   Option_7: eden_dialogue_8mumSC8
   OptionNext_7: End
+  Variable_1: "Eden_DJMusic", param1: dbplayerpoi_int
 }
 { +Dialogue Name: Eden_CasinoDJ_Info
   Output: eden_dialogue_GCOm48O
-  Option_1: eden_dialogue_aGWWqqq
-  OptionNext_1: Eden_CasinoDJ_Start
-  Option_2: eden_dialogue_a4mCqO8
-  OptionNext_2: End
+  Option_1: eden_dialogue_ie4GSmC
+  OptionIf_1: "Eden_DJMusic == 0"
+  OptionNext_1: Eden_CasinoDJ_Music
+  Option_2: eden_dialogue_aGWWqqq
+  OptionNext_2: Eden_CasinoDJ_Start
+  Option_3: eden_dialogue_a4mCqO8
+  OptionNext_3: End
 }
 { +Dialogue Name: Eden_CasinoDJ_DeadMoon
   Execute: "SetBlockActive('DeadMoon', true);<nl>SetBlockActive('DeathLoop', false);<nl>SetBlockActive('Karnal', false);<nl>SetBlockActive('TheFallenWorld', false);"
@@ -20129,6 +21598,27 @@
   Output: eden_dialogue_Kume4iS
   Option_1: eden_dialogue_C4Sueua
   OptionNext_1: End
+}
+{ +Dialogue Name: Eden_CasinoDJ_Music
+  Output: eden_dialogue_ueeOiC0
+  Option_1: eden_dialogue_Wq8an0q
+  OptionIf_1: "Eden_DJMusic == 0"
+  OptionNext_1: Eden_CasinoDJ_Music2
+  Option_2: eden_dialogue_ad8qe0q
+  OptionNext_2: Eden_CasinoDJ_Music3
+}
+{ +Dialogue Name: Eden_CasinoDJ_Music2
+  Output: eden_dialogue_We4SauW
+  Option_1: eden_dialogue_0G0KJ2m
+  OptionNext_1: End
+  Execute: "AddItem('Token', 1, 6122); Eden_DJMusic = 1"
+}
+{ +Dialogue Name: Eden_CasinoDJ_Music3
+  Output: eden_dialogue_SKqXei4
+  Option_1: eden_dialogue_4e8OicG
+  OptionNext_1: Eden_CasinoDJ_Start
+  Option_2: eden_dialogue_aq8GamB
+  OptionNext_2: End
 }
 { +Dialogue Name: Eden_Object82Door_Start
   Output: eden_dialogue_4qeWNKu
@@ -20601,6 +22091,269 @@
   Execute: "Player.Credit += 100000"
   Next_1: End
 }
+{ +Dialogue Name: Eden_BountyCol_Init
+  Variable_1: "FactionType", param1: string
+  Variable_2: "ReputationCount", param1: int
+  Variable_3: "Greeting", param1: string
+  Variable_4: "Count", param1: int
+  Variable_5: "TokenType", param1: int
+  Variable_6: "CreditReward", param1: int
+  Variable_7: "ReputationReward", param1: int
+  Variable_8: "LoopCredit", param1: int
+  Variable_9: "LoopReputation", param1: int
+  Execute: "FactionType = 'Colonists'"
+  Next_1: Eden_BountyOffice_Init
+  NPCName: eden_dialogue_qe0aa4i
+}
+{ +Dialogue Name: Eden_BountyPol_Init
+  Variable_1: "FactionType", param1: string
+  Variable_2: "ReputationCount", param1: int
+  Variable_3: "Greeting", param1: string
+  Variable_4: "Count", param1: int
+  Variable_5: "TokenType", param1: int
+  Variable_6: "CreditReward", param1: int
+  Variable_7: "ReputationReward", param1: int
+  Variable_8: "LoopCredit", param1: int
+  Variable_9: "LoopReputation", param1: int
+  Execute: "FactionType = 'Polaris'"
+  Next_1: Eden_BountyOffice_Init
+  NPCName: eden_dialogue_O604O44
+}
+{ +Dialogue Name: Eden_BountyTra_Init
+  Variable_1: "FactionType", param1: string
+  Variable_2: "ReputationCount", param1: int
+  Variable_3: "Greeting", param1: string
+  Variable_4: "Count", param1: int
+  Variable_5: "TokenType", param1: int
+  Variable_6: "CreditReward", param1: int
+  Variable_7: "ReputationReward", param1: int
+  Variable_8: "LoopCredit", param1: int
+  Variable_9: "LoopReputation", param1: int
+  Execute: "FactionType = 'Trader'"
+  Next_1: Eden_BountyOffice_Init
+  NPCName: eden_dialogue_O48mOGG
+}
+{ +Dialogue Name: Eden_BountyZir_Init
+  Variable_1: "FactionType", param1: string
+  Variable_2: "ReputationCount", param1: int
+  Variable_3: "Greeting", param1: string
+  Variable_4: "Count", param1: int
+  Variable_5: "TokenType", param1: int
+  Variable_6: "CreditReward", param1: int
+  Variable_7: "ReputationReward", param1: int
+  Variable_8: "LoopCredit", param1: int
+  Variable_9: "LoopReputation", param1: int
+  Execute: "FactionType = 'Zirax'"
+  Next_1: Eden_BountyOffice_Init
+  NPCName: eden_dialogue_IEWOO0q
+}
+{ +Dialogue Name: Eden_BountyPir_Init
+  Variable_1: "FactionType", param1: string
+  Variable_2: "ReputationCount", param1: int
+  Variable_3: "Greeting", param1: string
+  Variable_4: "Count", param1: int
+  Variable_5: "TokenType", param1: int
+  Variable_6: "CreditReward", param1: int
+  Variable_7: "ReputationReward", param1: int
+  Variable_8: "LoopCredit", param1: int
+  Variable_9: "LoopReputation", param1: int
+  Execute: "FactionType = 'Pirates'"
+  Next_1: Eden_BountyOffice_Init
+  NPCName: eden_dialogue_qiaKKuS
+}
+{ +Dialogue Name: Eden_BountyOffice_Init
+  Output: eden_dialogue_uCKu1Cu
+  Option_1: eden_dialogue_eWaUKmO
+  OptionNext_1: Eden_BountyOffice_Turnin
+  Option_2: eden_dialogue_KiOuqiC
+  OptionNext_2: End
+  Execute: "LoopReputation = 0; LoopCredit = 0"
+}
+{ +Dialogue Name: Eden_BountyOffice_Turnin
+  Output: eden_dialogue_OCspSOQ
+  Option_1: eden_dialogue_4mGCui8
+  OptionIf_1: "HasItem('Token', 1, 6505) || HasItem('Token', 1, 6506) || HasItem('Token', 1, 6507) || HasItem('Token', 1, 6508) || HasItem('Token', 1, 6509) || HasItem('Token', 1, 6510)"
+  OptionNext_1: Eden_BountyOffice_LoopSetup
+  OptionExecute_1: "Count = 1"
+  Option_2: eden_dialogue_euGmioh
+  OptionIf_2: "HasItem('Token', 1, 6505)"
+  OptionNext_2: Eden_BountyOffice_Turnin2
+  OptionExecute_2: "TokenType = 6505; CreditReward = Eden_G_BanditRewardT1; ReputationReward = Eden_G_BanditRepT1"
+  Option_3: eden_dialogue_bKiaPKi
+  OptionIf_3: "HasItem('Token', 1, 6508)"
+  OptionNext_3: Eden_BountyOffice_Turnin2
+  OptionExecute_3: "TokenType = 6508; CreditReward = Eden_G_BountyRewardT1; ReputationReward = Eden_G_BountyRepT1"
+  Option_4: eden_dialogue_GieKCWu
+  OptionIf_4: "HasItem('Token', 1, 6506)"
+  OptionNext_4: Eden_BountyOffice_Turnin2
+  OptionExecute_4: "TokenType = 6506; CreditReward = Eden_G_BanditRewardT2; ReputationReward = Eden_G_BanditRepT2"
+  Option_5: eden_dialogue_WGeUOjS
+  OptionIf_5: "HasItem('Token', 1, 6509)"
+  OptionNext_5: Eden_BountyOffice_Turnin2
+  OptionExecute_5: "TokenType = 6509; CreditReward = Eden_G_BountyRewardT2; ReputationReward = Eden_G_BountyRepT2"
+  Option_6: eden_dialogue_wOu08mY
+  OptionIf_6: "HasItem('Token', 1, 6507)"
+  OptionNext_6: Eden_BountyOffice_Turnin2
+  OptionExecute_6: "TokenType = 6507; CreditReward = Eden_G_BanditRewardT3; ReputationReward = Eden_G_BanditRepT3"
+  Option_7: eden_dialogue_Gmqm40f
+  OptionIf_7: "HasItem('Token', 1, 6510)"
+  OptionNext_7: Eden_BountyOffice_Turnin2
+  OptionExecute_7: "TokenType = 6510; CreditReward = Eden_G_BountyRewardT3; ReputationReward = Eden_G_BountyRepT3"
+  Option_8: eden_dialogue_SK0iOqE
+  OptionNext_8: End
+  OptionExecute_8: "OpenTraderWindow()"
+  Option_9: eden_dialogue_iWCqmSX
+  OptionIf_9: "HasItem('Token', 1, 6505) || HasItem('Token', 1, 6506) || HasItem('Token', 1, 6507) || HasItem('Token', 1, 6508) || HasItem('Token', 1, 6509) || HasItem('Token', 1, 6510)"
+  OptionNext_9: End
+  Option_10: eden_dialogue_aS205u4
+  OptionIf_10: "!HasItem('Token', 1, 6505) && !HasItem('Token', 1, 6506) && !HasItem('Token', 1, 6507) && !HasItem('Token', 1, 6508) && !HasItem('Token', 1, 6509) && !HasItem('Token', 1, 6510)"
+  OptionNext_10: End
+}
+{ +Dialogue Name: Eden_BountyOffice_Turnin2
+  Execute: "if (IsInputOk()) Count = InputResultAsInt()"
+  Input: eden_dialogue_Om0q4ii, param1: int;eden_dialogue_m4Siu48;eden_dialogue_qeGKGau
+  Next_1: Eden_BountyOffice_Check
+  NextIf_1: "IsInputOk()"
+  Next_2: Eden_BountyOffice_Turnin
+  NextIf_2: "IsInputCancel()"
+}
+{ +Dialogue Name: Eden_BountyOffice_Check
+  Next_1: Eden_BountyOffice_Confirm
+  NextIf_1: "HasItem('Token', Count, TokenType) && Count > 0"
+  Next_2: Eden_BountyOffice_Deny
+}
+{ +Dialogue Name: Eden_BountyOffice_Confirm
+  Execute: "RemoveItem('Token', Count, TokenType); Player.Credit += (CreditReward * Count)"
+  Output: eden_dialogue_qiWmeKq
+  Next_1: Eden_BountyOffice_Col
+  NextIf_1: "FactionType == 'Colonists'"
+  Next_2: Eden_BountyOffice_Pol
+  NextIf_2: "FactionType == 'Polaris'"
+  Next_3: Eden_BountyOffice_Tra
+  NextIf_3: "FactionType == 'Trader'"
+  Next_4: Eden_BountyOffice_Zir
+  NextIf_4: "FactionType == 'Zirax'"
+  Next_5: Eden_BountyOffice_Pir
+  NextIf_5: "FactionType == 'Pirates'"
+}
+{ +Dialogue Name: Eden_BountyOffice_Col
+  Execute: "AddReputation(Faction.Colonists, +ReputationReward * Count)"
+  Next_1: Eden_BountyOffice_Turnin
+}
+{ +Dialogue Name: Eden_BountyOffice_Pol
+  Execute: "AddReputation(Faction.Polaris, +ReputationReward * Count)"
+  Next_1: Eden_BountyOffice_Turnin
+}
+{ +Dialogue Name: Eden_BountyOffice_Tra
+  Execute: "AddReputation(Faction.Trader, +ReputationReward * Count)"
+  Next_1: Eden_BountyOffice_Turnin
+}
+{ +Dialogue Name: Eden_BountyOffice_Zir
+  Execute: "AddReputation(Faction.Zirax, +ReputationReward * Count)"
+  Next_1: Eden_BountyOffice_Turnin
+}
+{ +Dialogue Name: Eden_BountyOffice_Pir
+  Execute: "AddReputation(Faction.Pirates, +ReputationReward * Count)"
+  Next_1: Eden_BountyOffice_Turnin
+}
+{ +Dialogue Name: Eden_BountyOffice_LoopSetup
+  Next_1: Eden_BountyOffice_LoopSetup1
+  NextIf_1: "HasItem('Token', 1, 6505)"
+  Next_2: Eden_BountyOffice_LoopSetup2
+  NextIf_2: "HasItem('Token', 1, 6508)"
+  Next_3: Eden_BountyOffice_LoopSetup3
+  NextIf_3: "HasItem('Token', 1, 6506)"
+  Next_4: Eden_BountyOffice_LoopSetup4
+  NextIf_4: "HasItem('Token', 1, 6509)"
+  Next_5: Eden_BountyOffice_LoopSetup5
+  NextIf_5: "HasItem('Token', 1, 6507)"
+  Next_6: Eden_BountyOffice_LoopSetup6
+  NextIf_6: "HasItem('Token', 1, 6510)"
+  Next_7: Eden_BountyOffice_Loop2
+}
+{ +Dialogue Name: Eden_BountyOffice_LoopSetup1
+  Execute: "TokenType = 6505; CreditReward = Eden_G_BanditRewardT1; ReputationReward = Eden_G_BanditRepT1"
+  Next_1: Eden_BountyOffice_Loop1
+}
+{ +Dialogue Name: Eden_BountyOffice_LoopSetup2
+  Execute: "TokenType = 6508; CreditReward = Eden_G_BountyRewardT1; ReputationReward = Eden_G_BountyRepT1"
+  Next_1: Eden_BountyOffice_Loop1
+}
+{ +Dialogue Name: Eden_BountyOffice_LoopSetup3
+  Execute: "TokenType = 6506; CreditReward = Eden_G_BanditRewardT2; ReputationReward = Eden_G_BanditRepT2"
+  Next_1: Eden_BountyOffice_Loop1
+}
+{ +Dialogue Name: Eden_BountyOffice_LoopSetup4
+  Execute: "TokenType = 6509; CreditReward = Eden_G_BountyRewardT2; ReputationReward = Eden_G_BountyRepT2"
+  Next_1: Eden_BountyOffice_Loop1
+}
+{ +Dialogue Name: Eden_BountyOffice_LoopSetup5
+  Execute: "TokenType = 6507; CreditReward = Eden_G_BanditRewardT3; ReputationReward = Eden_G_BanditRepT3"
+  Next_1: Eden_BountyOffice_Loop1
+}
+{ +Dialogue Name: Eden_BountyOffice_LoopSetup6
+  Execute: "TokenType = 6510; CreditReward = Eden_G_BountyRewardT3; ReputationReward = Eden_G_BountyRepT3"
+  Next_1: Eden_BountyOffice_Loop1
+}
+{ +Dialogue Name: Eden_BountyOffice_Loop1
+  Next_1: Eden_BountyOffice_Loop1
+  NextIf_1: "HasItem('Token', 1, TokenType)"
+  Next_2: Eden_BountyOffice_LoopSetup
+  Next_3: Eden_BountyOffice_LoopCol
+  NextIf_3: "FactionType == 'Colonists'"
+  Next_4: Eden_BountyOffice_LoopPol
+  NextIf_4: "FactionType == 'Polaris'"
+  Next_5: Eden_BountyOffice_LoopTra
+  NextIf_5: "FactionType == 'Trader'"
+  Next_6: Eden_BountyOffice_LoopZir
+  NextIf_6: "FactionType == 'Zirax'"
+  Next_7: Eden_BountyOffice_LoopPir
+  NextIf_7: "FactionType == 'Pirates'"
+  Execute: "RemoveItem('Token', Count, TokenType); LoopCredit += (CreditReward * Count); LoopReputation += (ReputationReward * Count)"
+}
+{ +Dialogue Name: Eden_BountyOffice_Loop2
+  Next_1: Eden_BountyOffice_LoopCol
+  NextIf_1: "FactionType == 'Colonists'"
+  Next_2: Eden_BountyOffice_LoopPol
+  NextIf_2: "FactionType == 'Polaris'"
+  Next_3: Eden_BountyOffice_LoopTra
+  NextIf_3: "FactionType == 'Trader'"
+  Next_4: Eden_BountyOffice_LoopZir
+  NextIf_4: "FactionType == 'Zirax'"
+  Next_5: Eden_BountyOffice_LoopPir
+  NextIf_5: "FactionType == 'Pirates'"
+}
+{ +Dialogue Name: Eden_BountyOffice_LoopCol
+  Execute: "AddReputation(Faction.Colonists, +LoopReputation); Player.Credit += LoopCredit"
+  Next_1: Eden_BountyOffice_LoopDone
+}
+{ +Dialogue Name: Eden_BountyOffice_LoopPol
+  Execute: "AddReputation(Faction.Polaris, +LoopReputation); Player.Credit += LoopCredit"
+  Next_1: Eden_BountyOffice_LoopDone
+}
+{ +Dialogue Name: Eden_BountyOffice_LoopTra
+  Execute: "AddReputation(Faction.Trader, +LoopReputation); Player.Credit += LoopCredit"
+  Next_1: Eden_BountyOffice_LoopDone
+}
+{ +Dialogue Name: Eden_BountyOffice_LoopZir
+  Execute: "AddReputation(Faction.Zirax, +LoopReputation); Player.Credit += LoopCredit"
+  Next_1: Eden_BountyOffice_LoopDone
+}
+{ +Dialogue Name: Eden_BountyOffice_LoopPir
+  Execute: "AddReputation(Faction.Pirates, +LoopReputation); Player.Credit += LoopCredit"
+  Next_1: Eden_BountyOffice_LoopDone
+}
+{ +Dialogue Name: Eden_BountyOffice_LoopDone
+  Output: eden_dialogue_SaqhCuu
+  Option_1: eden_dialogue_xiO4aGC
+  OptionNext_1: Eden_BountyOffice_Init
+  Option_2: eden_dialogue_OmiSqq8
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_BountyOffice_Deny
+  Output: eden_dialogue_q0IWi4a
+  Next_1: Eden_BountyOffice_Turnin
+}
 { +Dialogue Name: Eden_BountyOffice_Start
   NPCName: eden_dialogue_8maeemC
   Output: eden_dialogue_UqaaGOm
@@ -21052,6 +22805,293 @@
   OptionNext_1: End
   Output: eden_dialogue_aO0Oum0
 }
+{ +Dialogue Name: Eden_ExploreT1_1C_Init
+  Variable_1: "SystemLockdownExploration", param1: dbplayerpoi_int
+  Variable_2: "SystemLockdownScience", param1: dbplayerpoi_int
+  Variable_3: "Eden_Complete", param1: dbplayerpoi_int
+  Next_1: Eden_ExploreT1_1C_Deny
+  NextIf_1: "Eden_Complete == 1"
+  Next_2: Eden_ExploreT1_1C_Greet
+}
+{ +Dialogue Name: Eden_ExploreT1_1C_Deny
+  Output: eden_dialogue_SSb8Gki
+  Option_1: eden_dialogue_80GWGSO
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ExploreT1_1C_Greet
+  Output: eden_dialogue_Ca4mg0m
+  Option_1: eden_dialogue_mCeOq8C
+  OptionIf_1: "SystemLockdownExploration == 1 && SystemLockdownScience == 1"
+  OptionNext_1: End
+  OptionExecute_1: "SetSignal('Open', true); Eden_Complete = 1"
+  Option_2: eden_dialogue_Se4JSi0
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_ExploreT3_1A_Init
+  Next_1: Eden_ExploreT3_1A_Reward
+  NextIf_1: "IsPdaTaskActive('eden_pda_qIgX4iS', 'eden_pda_gS4OGK8') && Eden_Complete != 1"
+  Next_2: Eden_ExploreT3_1A_Deny
+  NextIf_2: "Eden_Complete == 1"
+  Next_3: Eden_ExploreT3_1A_Fail
+  NextIf_3: "IsPdaChapterActive('eden_pda_qIgX4iS') && Eden_OxygenTimer - GetGameTimeInSec() <= 0 && Eden_CrewCount >= 1"
+  Next_4: Eden_ExploreT3_1A_Fail2
+  NextIf_4: "IsPdaChapterActive('eden_pda_qIgX4iS') && Eden_OxygenTimer - GetGameTimeInSec() <= 0"
+  Next_5: Eden_ExploreT3_1A_Oxygen
+  NextIf_5: "IsPdaChapterActive('eden_pda_qIgX4iS')"
+  Next_6: Eden_ExploreT3_1A_Greet
+  Variable_1: "Eden_OxygenTimer", param1: dbplayerpf_int
+  Variable_2: "Eden_CrewCount", param1: dbplayerpf_int
+  Variable_3: "Eden_Complete", param1: dbplayerpf_int
+  Variable_4: "Eden_AnomalyBonus", param1: dbplayerpf_int
+  Variable_5: "Eden_TokenValue", param1: dbplayerpf_int
+  NPCName: eden_dialogue_OpWqSSG
+}
+{ +Dialogue Name: Eden_ExploreT3_1A_Deny
+  Output: eden_dialogue_GuGSaOU
+  Option_1: eden_dialogue_G8aSea4
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ExploreT3_1A_Greet
+  Option_1: eden_dialogue_eiekfuW
+  OptionIf_1: "Eden_Complete == 0"
+  OptionNext_1: Eden_ExploreT3_1A_Mission
+  Option_2: eden_dialogue_1WumiF8
+  OptionNext_2: Eden_ExploreT3_1A_Info
+  Option_3: eden_dialogue_800q4iW
+  OptionNext_3: Eden_ExploreT3_1A_T800
+  Option_4: eden_dialogue_5G84eWC
+  OptionNext_4: End
+  Output: eden_dialogue_4w7i4sm
+}
+{ +Dialogue Name: Eden_ExploreT3_1A_Info
+  Output: eden_dialogue_aiS0qa0
+  Option_1: eden_dialogue_W8Wail4
+  OptionNext_1: Eden_ExploreT3_1A_Info2
+  Option_2: eden_dialogue_q8uuCqO
+  OptionNext_2: Eden_ExploreT3_1A_Greet
+  Option_3: eden_dialogue_SequWsW
+  OptionNext_3: End
+}
+{ +Dialogue Name: Eden_ExploreT3_1A_Info2
+  Output: eden_dialogue_vCk6Cem
+  Option_1: eden_dialogue_WeeOC0q
+  OptionNext_1: Eden_ExploreT3_1A_Greet
+  Option_2: eden_dialogue_WqckMGe
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_ExploreT3_1A_T800
+  Output: eden_dialogue_aSi4Sq0
+  Option_1: eden_dialogue_4C0sm49
+  OptionNext_1: Eden_ExploreT3_1A_Greet
+  Option_2: eden_dialogue_SuSiqum
+  OptionNext_2: Eden_ExploreT3_1A_Greet
+  Option_3: eden_dialogue_04T0gee
+  OptionNext_3: End
+}
+{ +Dialogue Name: Eden_ExploreT3_1A_Mission
+  Option_1: eden_dialogue_Oq8e8uC
+  OptionNext_1: End
+  OptionExecute_1: "Eden_Complete = 2; Eden_AnomalyBonus = 1; Eden_OxygenTimer = (GetGameTimeInSec() + 600); Eden_TokenValue = 6123"
+  Option_2: eden_dialogue_KeO0m0W
+  OptionNext_2: Eden_ExploreT3_1A_Greet
+  Option_3: eden_dialogue_IO8SKum
+  OptionNext_3: End
+  Output: eden_dialogue_me00GWW
+}
+{ +Dialogue Name: Eden_ExploreT3_1A_Oxygen
+  Output: eden_dialogue_uKO0qWm
+  Option_1: eden_dialogue_awmiWaK
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ExploreT3_1A_Reward
+  Output: eden_dialogue_jGOuKqW
+  Option_1: eden_dialogue_8GqiOGG
+  OptionNext_1: End
+  OptionExecute_1: "Player.Credit += (75000 * Eden_CrewCount); AddReputation(Faction.Polaris, 50 * Eden_CrewCount); Eden_Complete = 1; AddItemsFromContainer(41, 1); AddItemsFromContainer(40, 1); AddItemsFromContainer(652, 8); AddItemsFromContainer(651, 8); AddItemsFromContainer(Random(624,626), 8)"
+  Option_2: eden_dialogue_88x4KOi
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_ExploreT3_1A_Fail
+  Output: eden_dialogue_ikGGaWu
+  Option_1: eden_dialogue_OCOu8iK
+  OptionNext_1: End
+  OptionExecute_1: "Player.Credit += (50000 * Eden_CrewCount); AddReputation(Faction.Polaris, 50 * Eden_CrewCount); Eden_Complete = 1"
+  Option_2: eden_dialogue_uG0WOiS
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_ExploreT3_1A_Fail2
+  Output: eden_dialogue_eGu8qKq
+  Option_1: eden_dialogue_eW0Gm6i
+  OptionNext_1: End
+  OptionExecute_1: "Eden_Complete = 1"
+}
+{ +Dialogue Name: Eden_ExploreT3_1B_Init
+  NPCName: eden_dialogue_8GmuWSm
+  Next_1: Eden_ExploreT3_1B_Deny
+  NextIf_1: "Eden_OxygenTimer - GetGameTimeInSec() <= 0"
+  Next_2: Eden_ExploreT3_1B_Greet
+  NextIf_2: "IsPdaTaskActive('eden_pda_qIgX4iS', 'eden_pda_W4uq80G') && IsBlockActive('Pod1')"
+  Next_3: Eden_ExploreT3_1B_Greet2
+  NextIf_3: "IsPdaTaskActive('eden_pda_qIgX4iS', 'eden_pda_i8qaA4m') && IsBlockActive('Pod2')"
+  Next_4: Eden_ExploreT3_1B_Greet3
+  NextIf_4: "IsPdaTaskActive('eden_pda_qIgX4iS', 'eden_pda_CkGCaW8') && IsBlockActive('Pod3')"
+  Next_5: Eden_ExploreT3_1B_Greet4
+  NextIf_5: "IsPdaTaskActive('eden_pda_qIgX4iS', 'eden_pda_a4GOKOO') && IsBlockActive('Pod4')"
+  Next_6: Eden_ExploreT3_1B_Greet5
+  NextIf_6: "IsPdaTaskActive('eden_pda_qIgX4iS', 'eden_pda_CKO8KKm') && IsBlockActive('Pod5')"
+  Next_7: Eden_ExploreT3_1B_Deny2
+  Variable_1: "Eden_OxygenTimer", param1: dbplayerpf_int
+  Variable_2: "Eden_CrewCount", param1: dbplayerpf_int
+  Variable_3: "Eden_AnomalyBonus", param1: dbplayerpf_int
+  Variable_4: "Eden_ScanComplete", param1: dbplayerpf_int
+  Variable_5: "Eden_SiteDifficulty", param1: dbplayerpf_int
+}
+{ +Dialogue Name: Eden_ExploreT3_1B_Greet
+  Output: eden_dialogue_SOQSGqC
+  Option_1: eden_dialogue_m0CCKW8
+  OptionNext_1: End
+  OptionExecute_1: "AddItem('AlienNPCBlocks', 1); Eden_CrewCount = 1; Eden_ScanComplete = 0; Eden_SiteDifficulty = 0; Eden_AnomalyBonus = 1"
+  Option_2: eden_dialogue_qeACOqq
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_ExploreT3_1B_Greet2
+  Output: eden_dialogue_Km4mu8G
+  Option_1: eden_dialogue_ua90uaG
+  OptionNext_1: End
+  OptionExecute_1: "AddItem('AlienNPCBlocks', 1); Eden_CrewCount = 2; Eden_ScanComplete = 0; Eden_SiteDifficulty = 0; Eden_AnomalyBonus = 1"
+  Option_2: eden_dialogue_iHmbqmu
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_ExploreT3_1B_Greet3
+  Output: eden_dialogue_uaeuC4G
+  Option_1: eden_dialogue_OSvG84S
+  OptionNext_1: End
+  OptionExecute_1: "AddItem('AlienNPCBlocks', 1); Eden_CrewCount = 3; Eden_ScanComplete = 0; Eden_SiteDifficulty = 0; Eden_AnomalyBonus = 1; SetBlockActive('Surge', false)"
+  Option_2: eden_dialogue_u0uOWWO
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_ExploreT3_1B_Greet4
+  Output: eden_dialogue_C0GmqiW
+  Option_1: eden_dialogue_4KaCWi8
+  OptionNext_1: End
+  OptionExecute_1: "AddItem('AlienNPCBlocks', 1); Eden_CrewCount = 4; Eden_ScanComplete = 0; Eden_SiteDifficulty = 0; Eden_AnomalyBonus = 1"
+  Option_2: eden_dialogue_4IGq80C
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_ExploreT3_1B_Greet5
+  Output: eden_dialogue_0a0AGa8
+  Option_1: eden_dialogue_YCW4W4e
+  OptionNext_1: End
+  OptionExecute_1: "AddItem('AlienNPCBlocks', 1); Eden_CrewCount = 5; Eden_ScanComplete = 0; Eden_SiteDifficulty = 0; Eden_AnomalyBonus = 1; SetBlockActive('Surge', false)"
+  Option_2: eden_dialogue_Wau8iCH
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_ExploreT3_1B_Deny
+  Output: eden_dialogue_Tq086SQ
+  Option_1: eden_dialogue_48miiKq
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ExploreT3_1B_Deny2
+  Output: eden_dialogue_W0GC0OM
+  Option_1: eden_dialogue_am804ui
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ExploreT3_1C_Init
+  Output: eden_dialogue_uiaS6GS
+  Option_1: eden_dialogue_CSu0eua
+  OptionNext_1: End
+  NPCName: eden_dialogue_iuq0eKm
+}
+{ +Dialogue Name: Eden_ExploreT3_1C_Init2
+  NPCName: eden_dialogue_a4CGm0G
+  Variable_1: "Eden_MessageRandom", param1: dbplayerpoi_int
+  Next_1: Eden_ExploreT3_1C_Deny2
+  NextIf_1: "Eden_MessageRandom == 1"
+  Next_2: Eden_ExploreT3_1C_Greet2
+}
+{ +Dialogue Name: Eden_ExploreT3_1C_Greet2
+  Option_1: eden_dialogue_i2bOaCS
+  OptionIf_1: "Eden_MessageRandom == 0"
+  OptionNext_1: End
+  OptionExecute_1: "AddItem('Token', 1, Random(6150,6152)); Eden_MessageRandom = 1"
+  Option_2: eden_dialogue_4WWO040
+  OptionNext_2: End
+  Output: eden_dialogue_ueKqS8q
+}
+{ +Dialogue Name: Eden_ExploreT3_1C_Deny2
+  Output: eden_dialogue_k0DaGui
+  Option_1: eden_dialogue_0G8mCWT
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ExploreT3_1C_Init3
+  Output: eden_dialogue_SGK44us
+  NPCName: eden_dialogue_umGSO54
+  Option_1: eden_dialogue_uGGjS0W
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ExploreT3_1C_Init4
+  NPCName: eden_dialogue_4KeuoaO
+  Output: eden_dialogue_i0SKq0S
+  Option_1: eden_dialogue_4aKmGm8
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_HackT3_1A_Init
+  Variable_1: "Eden_HackQuantity", param1: dbplayerpf_int
+  Variable_2: "Eden_Complete", param1: dbplayerpoi_int
+  Next_1: Eden_HackT3_1A_Deny
+  NextIf_1: "Eden_Complete == 1"
+  Next_2: Eden_HackT3_1A_Reward
+  NextIf_2: "Eden_HackQuantity >= 4"
+  Next_3: Eden_HackT3_1A_Greet
+  NPCName: eden_dialogue_8qO8Kr4
+}
+{ +Dialogue Name: Eden_HackT3_1A_Deny
+  Output: eden_dialogue_Gm8mX84
+  Option_1: eden_dialogue_Miue8pu
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_HackT3_1A_Greet
+  Output: eden_dialogue_aK44eSC
+  Option_1: eden_dialogue_8ueuOdq
+  OptionNext_1: Eden_HackT3_1A_Info
+  Option_2: eden_dialogue_a08m8aO
+  OptionNext_2: Eden_HackT3_1A_Info3
+  Option_3: eden_dialogue_qaK4Coi
+  OptionNext_3: End
+  Execute: "SetNPCName('Data Repository')"
+}
+{ +Dialogue Name: Eden_HackT3_1A_Info
+  Execute: "SetNPCName('IDA')"
+  Output: eden_dialogue_iiKe4C0
+  Option_1: eden_dialogue_OSaCiKq
+  OptionNext_1: Eden_HackT3_1A_Info2
+}
+{ +Dialogue Name: Eden_HackT3_1A_Info2
+  Output: eden_dialogue_aSiK0qu
+  Option_1: eden_dialogue_OOueuAM
+  OptionNext_1: Eden_HackT3_1A_Greet
+  Option_2: eden_dialogue_eK4m4m8
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_HackT3_1A_Info3
+  Execute: "SetNPCName('IDA')"
+  Output: eden_dialogue_ujeGGS0
+  Option_1: eden_dialogue_eqiX404
+  OptionNext_1: Eden_HackT3_1A_Greet
+}
+{ +Dialogue Name: Eden_HackT3_1A_Reward
+  Output: eden_dialogue_PO80oGu
+  Option_1: eden_dialogue_Cia8Wu0
+  OptionNext_1: Eden_HackT3_1A_Reward2
+  Option_2: eden_dialogue_e4S4aie
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_HackT3_1A_Reward2
+  Output: eden_dialogue_S0eKNSm
+  Option_1: eden_dialogue_q0mGWik
+  OptionNext_1: End
+  Execute: "Eden_Complete = 1; AddItemsFromContainer(605, 8); AddItemsFromContainer(604, 8); AddItem('Token', 1, Random(6401,Eden_GlobalSchematicToken))"
+}
 { +Dialogue Name: Eden_CombatT1_1A_Init
   NPCName: eden_dialogue_iWGmGC8
   Next_1: Eden_CombatT1_1A_Deny
@@ -21115,187 +23155,933 @@
   Option_1: eden_dialogue_eeieeCm
   OptionNext_1: End
 }
-{ +Dialogue Name: Eden_ExplorationSiteC1_Init
-  NPCName: eden_dialogue_Qm80Cue
+{ +Dialogue Name: Eden_CombatT1_2A_Init
+  NPCName: eden_dialogue_O4O4Woa
+  Next_1: Eden_CombatT1_2A_Greet
+  NextIf_1: "IsPdaTaskActive('eden_pda_0OmuC2u', 'eden_pda_ea0uGDi')"
+  Next_2: Eden_CombatT1_2A_Deny
+}
+{ +Dialogue Name: Eden_CombatT1_2A_Deny
+  Output: eden_dialogue_GGOCSwi
+  Option_1: eden_dialogue_Cu8OK44
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_CombatT1_2A_Greet
+  Output: eden_dialogue_SGmSo0J
+  Option_1: eden_dialogue_8YqWKaq
+  OptionIf_1: "IsPdaTaskActive('eden_pda_0OmuC2u', 'eden_pda_ea0uGDi')"
+  OptionNext_1: Eden_CombatT1_2A_Reward
+  Option_2: eden_dialogue_G48EeSa
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_CombatT1_2A_Reward
+  Output: eden_dialogue_aSGWCaZ
+  Option_1: eden_dialogue_XCiH080
+  OptionNext_1: End
+  OptionExecute_1: "Player.Credit += 50000; AddReputation(Faction.Trader, 250)"
+}
+{ +Dialogue Name: Eden_CombatT1_2B_Init
+  NPCName: eden_dialogue_mGeiTOq
+  Variable_1: "Eden_Randomize", param1: int
+  Variable_2: "Eden_String", param1: string
+  Next_1: Eden_CombatT1_2B_RandomizeSet
+  NextIf_1: "Eden_Randomize == 0"
+  Next_2: Eden_CombatT1_2B_RandomizeSet2
+}
+{ +Dialogue Name: Eden_CombatT1_2B_RandomizeSet
+  Execute: "Eden_Randomize = Random(1,4)"
+  Next_1: Eden_CombatT1_2B_RandomizeSet2
+}
+{ +Dialogue Name: Eden_CombatT1_2B_RandomizeSet2
+  Next_1: Eden_CombatT1_2B_Randomize1
+  NextIf_1: "Eden_Randomize == 1"
+  Next_2: Eden_CombatT1_2B_Randomize2
+  NextIf_2: "Eden_Randomize == 2"
+  Next_3: Eden_CombatT1_2B_Randomize3
+  NextIf_3: "Eden_Randomize == 3"
+  Next_4: Eden_CombatT1_2B_Randomize4
+  NextIf_4: "Eden_Randomize == 4"
+}
+{ +Dialogue Name: Eden_CombatT1_2B_Randomize1
+  Next_1: Eden_CombatT1_2B_Greet
+  Execute: "Eden_String = 'Ore Shipments'"
+}
+{ +Dialogue Name: Eden_CombatT1_2B_Randomize2
+  Next_1: Eden_CombatT1_2B_Greet
+  Execute: "Eden_String = 'Diamonds'"
+}
+{ +Dialogue Name: Eden_CombatT1_2B_Randomize3
+  Next_1: Eden_CombatT1_2B_Greet
+  Execute: "Eden_String = 'Fuel Shipments'"
+}
+{ +Dialogue Name: Eden_CombatT1_2B_Randomize4
+  Next_1: Eden_CombatT1_2B_Greet
+  Execute: "Eden_String = 'Hydroponics Shipments'"
+}
+{ +Dialogue Name: Eden_CombatT1_2B_Greet
+  Output: eden_dialogue_Sa8mSGq
+  Option_1: eden_dialogue_e0SUmqK
+  OptionNext_1: Eden_CombatT1_2B_Log
+  Option_2: eden_dialogue_iWOaCV0
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_CombatT1_2B_Log
+  Output: eden_dialogue_iWG8uSi
+  Option_1: eden_dialogue_4qeaOMK
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_CombatT1_3A_Init
+  Next_1: Eden_CombatT1_3A_Greet
+  Variable_1: "Eden_Complete", param1: dbplayerpf_int
+}
+{ +Dialogue Name: Eden_CombatT1_3A_Greet
+  Output: eden_dialogue_P04Keue
+  Option_1: eden_dialogue_e0Aiaeq
+  OptionIf_1: "IsPdaTaskActive('eden_pda_a8ZmgWe', 'eden_pda_8iPjSiu')"
+  OptionNext_1: Eden_CombatT1_3A_Reward
+  Option_2: eden_dialogue_qeSqKq4
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_CombatT1_3A_Reward
+  Next_1: Eden_CombatT1_3A_Reward2
+  NextIf_1: "Eden_Complete == 0"
+  Next_2: Eden_CombatT1_3A_Reward3
+  NextIf_2: "Eden_Complete == 1"
+}
+{ +Dialogue Name: Eden_CombatT1_3A_Reward2
+  Output: eden_dialogue_8aVU0IS
+  Execute: "Player.Credit += 50000; AddReputation(Faction.Colonists, 250); AddReputation(Faction.Polaris, 100); Eden_Complete = 1"
+  Next_1: Eden_CombatT1_3A_Reward3
+}
+{ +Dialogue Name: Eden_CombatT1_3A_Reward3
+  Option_1: eden_dialogue_SJa4e0O
+  OptionNext_1: End
+  Output: eden_dialogue_4Ke44ma
+}
+{ +Dialogue Name: Eden_CombatT1_4A_Init
+  Next_1: Eden_CombatT1_4A_Deny
+  NextIf_1: "!IsBlockActive('Generator')"
+  Next_2: Eden_CombatT1_4A_Reward
+  NextIf_2: "IsPdaTaskActive('eden_pda_qS0SiKO', 'eden_pda_4GiCaO0') && IsBlockActive('LCDOff')"
+  Next_3: Eden_CombatT1_4A_Deny3
+  NextIf_3: "IsPdaChapterActive('eden_pda_qS0SiKO')"
+  Next_4: Eden_CombatT1_4A_Deny2
+  NextIf_4: "IsBlockActive('LCDOff')"
+  Next_5: Eden_CombatT1_4A_Greet
+}
+{ +Dialogue Name: Eden_CombatT1_4A_Deny
+  Output: eden_dialogue_qOCeUc8
+  Option_1: eden_dialogue_S8amCOi
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_CombatT1_4A_Deny2
+  Output: eden_dialogue_0uHCi8a
+  Option_1: eden_dialogue_4SCGqO3
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_CombatT1_4A_Deny3
+  Option_1: eden_dialogue_GCGKGuK
+  OptionNext_1: End
+  Output: eden_dialogue_amiaia0
+}
+{ +Dialogue Name: Eden_CombatT1_4A_Greet
+  Output: eden_dialogue_qCSSCam
+  Option_1: eden_dialogue_eeGiqGK
+  OptionNext_1: End
+  OptionExecute_1: "SetBlockActive('LCDOn', false); SetBlockActive('LCDOff', true)"
+  Option_2: eden_dialogue_iSCamGu
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_CombatT1_4A_Reward
+  Output: eden_dialogue_m08uK4a
+  Option_1: eden_dialogue_eKAWuu9
+  OptionIf_1: "IsPdaTaskActive('eden_pda_qS0SiKO', 'eden_pda_4GiCaO0')"
+  OptionNext_1: Eden_CombatT1_4A_Reward2
+  Option_2: eden_dialogue_7CgOOuG
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_CombatT1_4A_Reward2
+  Next_1: End
+  Execute: "SetBlockActive('Generator', false); AddItemsFromContainer(751, 8); AddItemsFromContainer(751, 8); AddItemsFromContainer(751, 8);<nl>AddItemsFromContainer(751, 8); AddItemsFromContainer(751, 8)"
+}
+{ +Dialogue Name: Eden_CombatT2_3A_Init
+  Variable_1: "Eden_Complete", param1: dbplayerpoi_int
+  Variable_2: "Eden_Start", param1: dbplayerpoi_int
+  Next_1: Eden_CombatT2_3A_Deny2
+  NextIf_1: "!IsBlockActive('Generator')"
+  Next_2: Eden_CombatT2_3A_Reward
+  NextIf_2: "Eden_Complete == 0 && IsBlockActive('Generator') && IsPdaTaskActive('eden_pda_GNOS0OS', 'eden_pda_WiGeaCC')"
+  Next_3: Eden_CombatT2_3A_Deny
+  NextIf_3: "Eden_Complete == 1 && IsBlockActive('Generator')"
+  Next_4: Eden_CombatT2_3A_Deny
+  NextIf_4: "Eden_Start == 1"
+  Next_5: Eden_CombatT2_3A_Greet
+  NextIf_5: "!IsBlockActive('Shield') && IsBlockActive('Generator')"
+  Next_6: Eden_CombatT2_3A_Deny
+  NPCName: eden_dialogue_G40SCgI
+}
+{ +Dialogue Name: Eden_CombatT2_3A_Deny
+  Output: eden_dialogue_mu8ueqC
+  Option_1: eden_dialogue_mumKWWW
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_CombatT2_3A_Deny2
+  Output: eden_dialogue_N0maamS
+  Option_1: eden_dialogue_WWmiWq8
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_CombatT2_3A_Greet
+  Output: eden_dialogue_CmmOiqe
+  Option_1: eden_dialogue_KqmGuqu
+  OptionIf_1: "!IsBlockActive('Shield')"
+  OptionNext_1: End
+  OptionExecute_1: "SetBlockActive('Shield', true); SetBlockActive('Shield2', true)"
+  Option_2: eden_dialogue_miSGWMK
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_CombatT2_3A_Reward
+  Option_1: eden_dialogue_qw4mC4m
+  OptionNext_1: End
+  OptionExecute_1: "Player.Credit += 250000; AddReputation(Faction.Trader, 350); Eden_Complete = 1"
+  Option_2: eden_dialogue_CkumK0c
+  OptionNext_2: End
+  Output: eden_dialogue_qGm0K8e
+}
+{ +Dialogue Name: Eden_CombatT2_3B_Init
+  Variable_1: "Eden_Complete", param1: dbplayerpoi_int
+  Next_1: Eden_CombatT2_3B_Deny
+  NextIf_1: "Eden_Complete == 1"
+  Next_2: Eden_CombatT2_3B_Greet
+}
+{ +Dialogue Name: Eden_CombatT2_3B_Deny
+  Output: eden_dialogue_7iW0804
+  Option_1: eden_dialogue_qtGDiil
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_CombatT2_3B_Greet
+  Output: eden_dialogue_WueSOKK
+  Option_1: eden_dialogue_ii8uG8O
+  OptionNext_1: Eden_CombatT2_3B_Info
+  Option_2: eden_dialogue_0CEYWum
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_CombatT2_3B_Info
+  Output: eden_dialogue_MeKOIOa
+  Option_1: eden_dialogue_4aSZSSG
+  OptionNext_1: End
+  Execute: "AddItem('Token', 1, 6121); Eden_Complete = 1"
+}
+{ +Dialogue Name: Eden_CombatT2_3A2_Init
+  NPCName: eden_dialogue_Kkmeu8a
+  Output: eden_dialogue_Kuaai8q
+  Option_1: eden_dialogue_uqGKG8O
+  OptionNext_1: Eden_CombatT2_3A2_Who
+  Option_2: eden_dialogue_Que86OS
+  OptionNext_2: Eden_CombatT2_3A2_What
+  Option_3: eden_dialogue_eu4Gq0q
+  OptionNext_3: Eden_CombatT2_3A2_What2
+  Option_4: eden_dialogue_7CCmSK4
+  OptionNext_4: End
+}
+{ +Dialogue Name: Eden_CombatT2_3A2_Who
+  Output: eden_dialogue_mC80e4g
+  Option_1: eden_dialogue_Lq0q0am
+  OptionNext_1: Eden_CombatT2_3A2_Init
+  Option_2: eden_dialogue_7OKaGtG
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_CombatT2_3A2_What
+  Output: eden_dialogue_mmKiOS8
+  Option_1: eden_dialogue_8gUmiYO
+  OptionNext_1: Eden_CombatT2_3A2_Init
+  Option_2: eden_dialogue_Sc4K4K8
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_CombatT2_3A2_What2
+  Option_1: eden_dialogue_0gii4WG
+  OptionNext_1: Eden_CombatT2_3A2_Init
+  Option_2: eden_dialogue_CGGSCim
+  OptionNext_2: End
+  Output: eden_dialogue_G4GWSW2
+}
+{ +Dialogue Name: Eden_CombatT3_2A_Init
+  Variable_1: "Eden_Complete", param1: dbplayerpoi_int
+  Variable_2: "Eden_Start", param1: dbplayerpoi_int
+  Next_1: Eden_CombatT3_2A_Deny2
+  NextIf_1: "!IsBlockActive('Generator')"
+  Next_2: Eden_CombatT3_2A_Reward
+  NextIf_2: "Eden_Complete == 0 && IsBlockActive('Generator') && IsPdaTaskActive('eden_pda_4qRaWaW', 'eden_pda_emVWmGG')"
+  Next_3: Eden_CombatT3_2A_Deny
+  NextIf_3: "Eden_Complete == 1 && IsBlockActive('Generator')"
+  Next_4: Eden_CombatT3_2A_Deny
+  NextIf_4: "Eden_Start == 1"
+  Next_5: Eden_CombatT3_2A_Greet
+  NextIf_5: "!IsBlockActive('Shield') && IsBlockActive('Generator')"
+  Next_6: Eden_CombatT3_2A_Deny
+  NPCName: eden_dialogue_eG0eami
+}
+{ +Dialogue Name: Eden_CombatT3_2A_Deny
+  Output: eden_dialogue_C4OOaKS
+  Option_1: eden_dialogue_i80SGea
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_CombatT3_2A_Deny2
+  Output: eden_dialogue_C8KSGei
+  Option_1: eden_dialogue_qaS0O4e
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_CombatT3_2A_Greet
+  Output: eden_dialogue_v8k4eWK
+  Option_1: eden_dialogue_a0qmqq4
+  OptionIf_1: "!IsBlockActive('Shield')"
+  OptionNext_1: End
+  OptionExecute_1: "SetBlockActive('Shield', true)"
+  Option_2: eden_dialogue_K45OSc0
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_CombatT3_2A_Reward
+  Output: eden_dialogue_a4WuwMa
+  Option_1: eden_dialogue_4A4WGm0
+  OptionNext_1: End
+  OptionExecute_1: "Player.Credit += 500000; AddReputation(Faction.Polaris, 500); Eden_Complete = 1; AddItemsFromContainer(40, 4); AddItemsFromContainer(41, 4)"
+  Option_2: eden_dialogue_SOOiim8
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_MiningT1_1A_Init
+  NPCName: eden_dialogue_84CGqKK
+  Next_1: Eden_MiningT1_1A_Reward
+  NextIf_1: "IsPdaTaskActive('eden_pda_YMCqCU0', 'eden_pda_mKiaume')"
+  Next_2: Eden_MiningT1_1A_Deny4
+  NextIf_2: "IsBlockActive('Drill') && IsPdaChapterActive('eden_pda_YMCqCU0')"
+  Next_3: Eden_MiningT1_1A_Deny2
+  NextIf_3: "IsPdaChapterActive('eden_pda_YMCqCU0')"
+  Next_4: Eden_MiningT1_1A_Deny
+  NextIf_4: "IsBlockActive('Drill')"
+  Next_5: Eden_MiningT1_1A_Greet
+}
+{ +Dialogue Name: Eden_MiningT1_1A_Deny
+  Output: eden_dialogue_SOmSSS0
+  Option_1: eden_dialogue_uuWeSiK
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_MiningT1_1A_Deny2
+  Output: eden_dialogue_CWeaWKQ
+  Option_1: eden_dialogue_i8qg8GK
+  OptionNext_1: Eden_MiningT1_1A_Deny3
+  Option_2: eden_dialogue_upveGqC
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_MiningT1_1A_Deny3
+  Output: eden_dialogue_aKi8aWq
+  Option_1: eden_dialogue_euGOSuC
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_MiningT1_1A_Deny4
+  Output: eden_dialogue_dsuCSKi
+  Option_1: eden_dialogue_KSa8Sea
+  OptionNext_1: Eden_MiningT1_1A_Deny3
+  Option_2: eden_dialogue_4iWu88W
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_MiningT1_1A_Greet
+  Output: eden_dialogue_4g5aSm0
+  Option_1: eden_dialogue_4qKSisK
+  OptionNext_1: End
+  Option_2: eden_dialogue_MWIiKGG
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_MiningT1_1A_Reward
+  Option_1: eden_dialogue_KR0uu84
+  OptionNext_1: Eden_MiningT1_1A_Reward2
+  Option_2: eden_dialogue_aiCa4iS
+  OptionNext_2: End
+  Output: eden_dialogue_CO8gOCm
+}
+{ +Dialogue Name: Eden_MiningT1_1A_Reward2
+  Execute: "Player.Credit += 25000; AddReputation(Faction.Polaris, 100); AddItemsFromContainer(665, 2); SetBlockActive('Drill', true); SetBlockActive('Drill2', true); SetBlockActive('Drill3', true);"
+  Next_1: End
+}
+{ +Dialogue Name: Eden_MiningT1_2A_Init
+  NPCName: eden_dialogue_Cqmu0iu
+  Next_1: Eden_MiningT1_2A_Reward
+  NextIf_1: "IsPdaTaskActive('eden_pda_CS8imk0', 'eden_pda_uGKa8q0')"
+  Next_2: Eden_MiningT1_2A_Deny
+  NextIf_2: "IsPdaChapterActive('eden_pda_CS8imk0')"
+  Next_3: Eden_MiningT1_2A_Deny2
+  NextIf_3: "IsBlockActive('Advertisement')"
+  Next_4: Eden_MiningT1_2A_Greet
+}
+{ +Dialogue Name: Eden_MiningT1_2A_Deny
+  Output: eden_dialogue_KmCmuoi
+  Option_1: eden_dialogue_yWOSu8N
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_MiningT1_2A_Deny2
+  Output: eden_dialogue_e4kWGiq
+  Option_1: eden_dialogue_0C4SeiK
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_MiningT1_2A_Greet
+  Output: eden_dialogue_8WmeCO4
+  Option_1: eden_dialogue_OqwaOSK
+  OptionNext_1: Eden_MiningT1_2A_Info
+  Option_2: eden_dialogue_OaoequW
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_MiningT1_2A_Info
+  Output: eden_dialogue_mSieGqa
+  Option_1: eden_dialogue_0SiKKiG
+  OptionNext_1: End
+  Option_2: eden_dialogue_uSGe0FS
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_MiningT1_2A_Reward
+  Option_1: eden_dialogue_0aSiu0i
+  OptionNext_1: Eden_MiningT1_2A_Reward2
+  Option_2: eden_dialogue_ieiq8KO
+  OptionNext_2: End
+  Output: eden_dialogue_XaAm0C4
+}
+{ +Dialogue Name: Eden_MiningT1_2A_Reward2
+  Output: eden_dialogue_aGaSKSm
+  Option_1: eden_dialogue_CWmWilO
+  OptionNext_1: Eden_MiningT1_2A_Reward3
+  Option_2: eden_dialogue_S0ieWG0
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_MiningT1_2A_Reward3
+  Execute: "Player.Credit += 25000; AddReputation(Faction.Polaris, 100); AddItemsFromContainer(665, 2); SetBlockActive('Advertisement', true)"
+  Next_1: End
+}
+{ +Dialogue Name: Eden_MiningT4_1A_Init
+  Variable_1: "Eden_Complete", param1: dbplayerpoi_int
+  NPCName: eden_dialogue_CmC4maC
+  Next_1: Eden_MiningT4_1A_Deny
+  NextIf_1: "Eden_Complete == 1"
+  Next_2: Eden_MiningT4_1A_Greet
+}
+{ +Dialogue Name: Eden_MiningT4_1A_Deny
+  Output: eden_dialogue_CmqaKGe
+  Option_1: eden_dialogue_eUSOTSu
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_MiningT4_1A_Greet
+  Output: eden_dialogue_4ee8uq8
+  Option_1: eden_dialogue_Sm0Dieu
+  OptionIf_1: "HasItem('Eden_ChromiteShipment', 5)"
+  OptionNext_1: Eden_MiningT4_1A_Reward
+  Option_2: eden_dialogue_8iom08u
+  OptionIf_2: "!HasItem('Eden_ChromiteShipment', 5)"
+  OptionNext_2: Eden_MiningT4_1A_Info
+  Option_3: eden_dialogue_q0aQ88C
+  OptionNext_3: End
+}
+{ +Dialogue Name: Eden_MiningT4_1A_Info
+  Output: eden_dialogue_W8KuaWa
+  Option_1: eden_dialogue_8PKmKu4
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_MiningT4_1A_Reward
+  Output: eden_dialogue_eeeiqGO
+  Option_1: eden_dialogue_WG04iCm
+  OptionNext_1: End
+  Execute: "RemoveItem('Eden_ChromiteShipment', 5); Eden_Complete = 1; AddItem('Token', 1, 6514); Player.Credit += 500000; AddReputation(Faction.Polaris, 500)"
+}
+{ +Dialogue Name: Eden_Geothermal_Init
+  Next_1: Eden_Geothermal_Deny
+  NextIf_1: "Eden_GeothermalSurvey == 0"
+  Next_2: Eden_Geothermal_Greet
+  NextIf_2: "Eden_GeothermalSurvey == 1"
+  Next_3: Eden_Geothermal_Deny2
+  NextIf_3: "Eden_GeothermalSurvey == 2"
+  Variable_1: "Eden_GeothermalSurvey", param1: dbplayerpf_int
+  NPCName: eden_dialogue_G0e0Oii
+}
+{ +Dialogue Name: Eden_Geothermal_Deny
+  Output: eden_dialogue_OKKa4Kq
+  Option_1: eden_dialogue_4mWOSW4
+  OptionIf_1: "HasItem('Eden_ProbeSystemT1', 1)"
+  OptionNext_1: Eden_Geothermal_Survey
+  Option_2: eden_dialogue_m80uYm0
+  OptionIf_2: "!HasItem('Eden_ProbeSystemT1', 1)"
+  OptionNext_2: Eden_Geothermal_Probes
+  Option_3: eden_dialogue_GiuYc4q
+  OptionNext_3: End
+}
+{ +Dialogue Name: Eden_Geothermal_Survey
+  Output: eden_dialogue_8COuamC
+  Option_1: eden_dialogue_Oemqa0a
+  OptionNext_1: End
+  OptionExecute_1: "RemoveItem('Eden_ProbeSystemT1', 1)"
+  Option_2: eden_dialogue_4SNaC4a
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_Geothermal_Probes
+  Output: eden_dialogue_4m4uiar
+  Option_1: eden_dialogue_4m8Oa4i
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_Geothermal_Deny2
+  Output: eden_dialogue_ua0OmSG
+  Option_1: eden_dialogue_uuiuGuI
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_Geothermal_Greet
+  Output: eden_dialogue_uKO8e4m
+  Option_1: eden_dialogue_aKGiiWq
+  OptionNext_1: Eden_Geothermal_Sample
+  Option_2: eden_dialogue_KeuWuWG
+  OptionNext_2: Eden_Geothermal_Warning
+  Option_3: eden_dialogue_2uiKm8Q
+  OptionNext_3: End
+}
+{ +Dialogue Name: Eden_Geothermal_Warning
+  Output: eden_dialogue_q8eGCm4
+  Option_1: eden_dialogue_WFCqOmW
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_Geothermal_Sample
+  Option_1: eden_dialogue_gC4OSea
+  OptionNext_1: End
+  Option_2: eden_dialogue_4mUKOOq
+  OptionNext_2: End
+  Output: eden_dialogue_iiMa8iC
+}
+{ +Dialogue Name: Eden_GeothermalSurvey_Init
+  Output: eden_dialogue_4qCGKq4
+  Option_1: eden_dialogue_GOeSS48
+  OptionNext_1: End
+  Variable_1: "Eden_GeothermalSurvey", param1: dbplayerpf_int
+  Execute: "Eden_GeothermalSurvey = 1"
+  NPCName: eden_dialogue_K0GW04W
+}
+{ +Dialogue Name: Eden_GeothermalFail_Init
+  Output: eden_dialogue_SqW4aCO
+  Option_1: eden_dialogue_CWuaaui
+  OptionNext_1: End
+  Execute: "Eden_GeothermalSurvey = 2"
+  Variable_1: "Eden_GeothermalSurvey", param1: dbplayerpf_int
+  NPCName: eden_dialogue_4GWu44S
+}
+{ +Dialogue Name: Eden_GeothermalActive_Init
+  Variable_1: "Eden_GeothermalSurvey", param1: dbplayerpf_int
+  NPCName: eden_dialogue_WSmauSe
+  Next_1: Eden_GeothermalActive_Greet
+}
+{ +Dialogue Name: Eden_GeothermalActive_Greet
+  Output: eden_dialogue_iSuOmiq
+  Option_1: eden_dialogue_C8KSWei
+  OptionNext_1: Eden_Geothermal_Warning
+  Option_2: eden_dialogue_0miOeLE
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_ScanNewAnomaly_Init
+  Next_1: End
+  Variable_1: "Eden_AnomalyBonus", param1: dbplayerpf_int
+  Execute: "Eden_AnomalyBonus += 1"
+}
+{ +Dialogue Name: Eden_ScanTableDeny_Init
+  Next_1: Eden_ScanTableDeny_Greet
+}
+{ +Dialogue Name: Eden_ScanTableDeny_Greet
+  Output: eden_dialogue_iGOiFSO
+  Option_1: eden_dialogue_m0Yieum
+  OptionNext_1: End
+}
+{ +Dialogue Name: Eden_ScanTable_Init
+  Next_1: Eden_ScanTable_Greet
+  Variable_1: "Eden_AnomalyBonus", param1: dbplayerpf_int
+}
+{ +Dialogue Name: Eden_ScanTable_Greet
+  Output: eden_dialogue_KiOTiJC
+  Option_1: eden_dialogue_m4caSua
+  OptionNext_1: End
+  Option_2: eden_dialogue_8WO7Cma
+  OptionNext_2: End
+  Option_3: eden_dialogue_mOeieCS
+  OptionNext_3: End
+}
+{ +Dialogue Name: Eden_ScanOrbit_Init
+  NPCName: eden_dialogue_a048Kwm
   Variable_1: "Eden_RewardCount", param1: int
-  Variable_2: "Eden_Complete", param1: dbplayerpf_int
+  Variable_2: "Eden_ScanComplete", param1: dbplayerpf_int
   Variable_3: "Eden_ProbeType", param1: string
   Variable_4: "Eden_ProbeTypeLoc", param1: string
   Variable_5: "Eden_SiteDifficulty", param1: dbplayerpf_int
   Variable_6: "Eden_ScanDate", param1: dbplayerpf_int
   Variable_7: "Eden_SiteType", param1: string
   Variable_8: "Eden_ContainerID", param1: int
-  Variable_9: "Eden_PlayfieldName", param1: string
-  Variable_10: "Eden_ProbeCount", param1: dbplayerpf_int
-  Variable_11: "Eden_ProbePositionX", param1: int
-  Variable_12: "Eden_ProbePositionY", param1: int
-  Variable_13: "Eden_ProbePositionZ", param1: int
-  Variable_14: "Eden_AnomalyPositionX", param1: int
-  Variable_15: "Eden_AnomalyPositionY", param1: int
-  Variable_16: "Eden_AnomalyPositionZ", param1: int
-  Variable_17: "Eden_ProbeDifferenceX", param1: int
-  Variable_18: "Eden_ProbeDifferenceY", param1: int
-  Variable_19: "Eden_ProbeDifferenceZ", param1: int
-  Variable_20: "Eden_ProbeDifference", param1: int
-  Execute: "Eden_RewardCount = 1; Eden_ProbeType = 'Eden_ProbeSystemT1'; Eden_ProbeTypeLoc = Loc('Eden_ProbeSystemT1');<nl>Eden_SiteType = 'Class 1 Exploration Site'; Eden_ContainerID = 649; Eden_PlayfieldName = Player.PlayfieldName"
-  Next_1: Eden_ExplorationSite_Deny
-  NextIf_1: "Eden_Complete == 1"
-  Next_2: Eden_ExplorationSite_Randomize
-  NextIf_2: "Eden_SiteDifficulty == 0"
-  Next_3: Eden_ExplorationSite_Greet
+  Variable_9: "Eden_ProbeCount", param1: dbplayerpf_int
+  Variable_10: "Eden_ProbePositionX", param1: int
+  Variable_11: "Eden_ProbePositionY", param1: int
+  Variable_12: "Eden_ProbePositionZ", param1: int
+  Variable_13: "Eden_AnomalyPositionX", param1: int
+  Variable_14: "Eden_AnomalyPositionY", param1: int
+  Variable_15: "Eden_AnomalyPositionZ", param1: int
+  Variable_16: "Eden_ProbeDifferenceX", param1: int
+  Variable_17: "Eden_ProbeDifferenceY", param1: int
+  Variable_18: "Eden_ProbeDifferenceZ", param1: int
+  Variable_19: "Eden_ProbeDifference", param1: int
+  Variable_20: "Eden_AnomalyBonus", param1: dbplayerpf_int
+  Variable_21: "Eden_Score", param1: dbplayerpf_int
+  Variable_22: "Eden_DummyValue", param1: int
+  Variable_23: "Eden_TokenValue", param1: dbplayerpf_int
+  Execute: "Eden_RewardCount = 1; Eden_ProbeType = 'Eden_ProbeSystemT2'; Eden_ProbeTypeLoc = Loc('Eden_ProbeSystemT2');<nl>Eden_SiteType = 'Sector'; Eden_ContainerID = 649; Eden_DummyValue = 0"
+  Next_1: Eden_ExplorationSite_Bonus
+  NextIf_1: "Eden_AnomalyBonus >= 1 && Eden_ScanComplete == 1 && Eden_SiteType != 'Sector'"
+  Next_2: Eden_ExplorationSite_Bonus
+  NextIf_2: "Eden_AnomalyBonus >= 2 && Eden_ScanComplete == 1 && Eden_SiteType == 'Sector'"
+  Next_3: Eden_ExplorationSite_Deny
+  NextIf_3: "Eden_ScanComplete == 1"
+  Next_4: Eden_ExplorationSite_Randomize
+  NextIf_4: "Eden_SiteDifficulty == 0 && Eden_AnomalyBonus >= 1"
+  Next_5: Eden_ExplorationSite_Greet
+  NextIf_5: "Eden_SiteDifficulty > 0"
+  Next_6: Eden_ExplorationSite_Deny2
+}
+{ +Dialogue Name: Eden_ScanMissionT1_Init
+  NPCName: eden_dialogue_S44uSiK
+  Variable_1: "Eden_RewardCount", param1: int
+  Variable_2: "Eden_ScanComplete", param1: dbplayerpf_int
+  Variable_3: "Eden_ProbeType", param1: string
+  Variable_4: "Eden_ProbeTypeLoc", param1: string
+  Variable_5: "Eden_SiteDifficulty", param1: dbplayerpf_int
+  Variable_6: "Eden_ScanDate", param1: dbplayerpf_int
+  Variable_7: "Eden_SiteType", param1: string
+  Variable_8: "Eden_ContainerID", param1: int
+  Variable_9: "Eden_ProbeCount", param1: dbplayerpf_int
+  Variable_10: "Eden_ProbePositionX", param1: int
+  Variable_11: "Eden_ProbePositionY", param1: int
+  Variable_12: "Eden_ProbePositionZ", param1: int
+  Variable_13: "Eden_AnomalyPositionX", param1: int
+  Variable_14: "Eden_AnomalyPositionY", param1: int
+  Variable_15: "Eden_AnomalyPositionZ", param1: int
+  Variable_16: "Eden_ProbeDifferenceX", param1: int
+  Variable_17: "Eden_ProbeDifferenceY", param1: int
+  Variable_18: "Eden_ProbeDifferenceZ", param1: int
+  Variable_19: "Eden_ProbeDifference", param1: int
+  Variable_20: "Eden_AnomalyBonus", param1: dbplayerpf_int
+  Variable_21: "Eden_Score", param1: dbplayerpf_int
+  Variable_22: "Eden_DummyValue", param1: int
+  Variable_23: "Eden_TokenValue", param1: dbplayerpf_int
+  Execute: "Eden_RewardCount = 1; Eden_ProbeType = 'Eden_ProbeSystemT1'; Eden_ProbeTypeLoc = Loc('Eden_ProbeSystemT1');<nl>Eden_SiteType = 'Sector'; Eden_ContainerID = 674; Eden_DummyValue = 0"
+  Next_1: Eden_ExplorationSite_Bonus
+  NextIf_1: "Eden_AnomalyBonus >= 1 && Eden_ScanComplete == 1 && Eden_SiteType != 'Sector'"
+  Next_2: Eden_ExplorationSite_Bonus
+  NextIf_2: "Eden_AnomalyBonus >= 2 && Eden_ScanComplete == 1 && Eden_SiteType == 'Sector'"
+  Next_3: Eden_ExplorationSite_Deny
+  NextIf_3: "Eden_ScanComplete == 1"
+  Next_4: Eden_ExplorationSite_Randomize
+  NextIf_4: "Eden_SiteDifficulty == 0 && Eden_AnomalyBonus >= 1"
+  Next_5: Eden_ExplorationSite_Greet
+  NextIf_5: "Eden_SiteDifficulty > 0"
+  Next_6: Eden_ExplorationSite_Deny2
+}
+{ +Dialogue Name: Eden_ScanMissionT2_Init
+  NPCName: eden_dialogue_Giem8Se
+  Variable_1: "Eden_RewardCount", param1: int
+  Variable_2: "Eden_ScanComplete", param1: dbplayerpf_int
+  Variable_3: "Eden_ProbeType", param1: string
+  Variable_4: "Eden_ProbeTypeLoc", param1: string
+  Variable_5: "Eden_SiteDifficulty", param1: dbplayerpf_int
+  Variable_6: "Eden_ScanDate", param1: dbplayerpf_int
+  Variable_7: "Eden_SiteType", param1: string
+  Variable_8: "Eden_ContainerID", param1: int
+  Variable_9: "Eden_ProbeCount", param1: dbplayerpf_int
+  Variable_10: "Eden_ProbePositionX", param1: int
+  Variable_11: "Eden_ProbePositionY", param1: int
+  Variable_12: "Eden_ProbePositionZ", param1: int
+  Variable_13: "Eden_AnomalyPositionX", param1: int
+  Variable_14: "Eden_AnomalyPositionY", param1: int
+  Variable_15: "Eden_AnomalyPositionZ", param1: int
+  Variable_16: "Eden_ProbeDifferenceX", param1: int
+  Variable_17: "Eden_ProbeDifferenceY", param1: int
+  Variable_18: "Eden_ProbeDifferenceZ", param1: int
+  Variable_19: "Eden_ProbeDifference", param1: int
+  Variable_20: "Eden_AnomalyBonus", param1: dbplayerpf_int
+  Variable_21: "Eden_Score", param1: dbplayerpf_int
+  Variable_22: "Eden_DummyValue", param1: int
+  Variable_23: "Eden_TokenValue", param1: dbplayerpf_int
+  Execute: "Eden_RewardCount = 1; Eden_ProbeType = 'Eden_ProbeSystemT2'; Eden_ProbeTypeLoc = Loc('Eden_ProbeSystemT2');<nl>Eden_SiteType = 'Sector'; Eden_ContainerID = 1; Eden_DummyValue = 0"
+  Next_1: Eden_ExplorationSite_Bonus
+  NextIf_1: "Eden_AnomalyBonus >= 1 && Eden_ScanComplete == 1 && Eden_SiteType != 'Sector'"
+  Next_2: Eden_ExplorationSite_Bonus
+  NextIf_2: "Eden_AnomalyBonus >= 2 && Eden_ScanComplete == 1 && Eden_SiteType == 'Sector'"
+  Next_3: Eden_ExplorationSite_Deny
+  NextIf_3: "Eden_ScanComplete == 1"
+  Next_4: Eden_ExplorationSite_Randomize
+  NextIf_4: "Eden_SiteDifficulty == 0 && Eden_AnomalyBonus >= 1"
+  Next_5: Eden_ExplorationSite_Greet
+  NextIf_5: "Eden_SiteDifficulty > 0"
+  Next_6: Eden_ExplorationSite_Deny2
+}
+{ +Dialogue Name: Eden_ScanMissionT3_Init
+  NPCName: eden_dialogue_qTxCm4C
+  Variable_1: "Eden_RewardCount", param1: int
+  Variable_2: "Eden_ScanComplete", param1: dbplayerpf_int
+  Variable_3: "Eden_ProbeType", param1: string
+  Variable_4: "Eden_ProbeTypeLoc", param1: string
+  Variable_5: "Eden_SiteDifficulty", param1: dbplayerpf_int
+  Variable_6: "Eden_ScanDate", param1: dbplayerpf_int
+  Variable_7: "Eden_SiteType", param1: string
+  Variable_8: "Eden_ContainerID", param1: int
+  Variable_9: "Eden_ProbeCount", param1: dbplayerpf_int
+  Variable_10: "Eden_ProbePositionX", param1: int
+  Variable_11: "Eden_ProbePositionY", param1: int
+  Variable_12: "Eden_ProbePositionZ", param1: int
+  Variable_13: "Eden_AnomalyPositionX", param1: int
+  Variable_14: "Eden_AnomalyPositionY", param1: int
+  Variable_15: "Eden_AnomalyPositionZ", param1: int
+  Variable_16: "Eden_ProbeDifferenceX", param1: int
+  Variable_17: "Eden_ProbeDifferenceY", param1: int
+  Variable_18: "Eden_ProbeDifferenceZ", param1: int
+  Variable_19: "Eden_ProbeDifference", param1: int
+  Variable_20: "Eden_AnomalyBonus", param1: dbplayerpf_int
+  Variable_21: "Eden_Score", param1: dbplayerpf_int
+  Variable_22: "Eden_DummyValue", param1: int
+  Variable_23: "Eden_TokenValue", param1: dbplayerpf_int
+  Execute: "Eden_RewardCount = 1; Eden_ProbeType = 'Eden_ProbeSystemT3'; Eden_ProbeTypeLoc = Loc('Eden_ProbeSystemT3');<nl>Eden_SiteType = 'Sector'; Eden_ContainerID = 1; Eden_DummyValue = 0"
+  Next_1: Eden_ExplorationSite_Bonus
+  NextIf_1: "Eden_AnomalyBonus >= 1 && Eden_ScanComplete == 1 && Eden_SiteType != 'Sector'"
+  Next_2: Eden_ExplorationSite_Bonus
+  NextIf_2: "Eden_AnomalyBonus >= 2 && Eden_ScanComplete == 1 && Eden_SiteType == 'Sector'"
+  Next_3: Eden_ExplorationSite_Deny
+  NextIf_3: "Eden_ScanComplete == 1"
+  Next_4: Eden_ExplorationSite_Randomize
+  NextIf_4: "Eden_SiteDifficulty == 0 && Eden_AnomalyBonus >= 1"
+  Next_5: Eden_ExplorationSite_Greet
+  NextIf_5: "Eden_SiteDifficulty > 0"
+  Next_6: Eden_ExplorationSite_Deny2
+}
+{ +Dialogue Name: Eden_ExplorationSiteC1_Init
+  NPCName: eden_dialogue_Qm80Cue
+  Variable_1: "Eden_RewardCount", param1: int
+  Variable_2: "Eden_ScanComplete", param1: dbplayerpf_int
+  Variable_3: "Eden_ProbeType", param1: string
+  Variable_4: "Eden_ProbeTypeLoc", param1: string
+  Variable_5: "Eden_SiteDifficulty", param1: dbplayerpf_int
+  Variable_6: "Eden_ScanDate", param1: dbplayerpf_int
+  Variable_7: "Eden_SiteType", param1: string
+  Variable_8: "Eden_ContainerID", param1: int
+  Variable_9: "Eden_ProbeCount", param1: dbplayerpf_int
+  Variable_10: "Eden_ProbePositionX", param1: int
+  Variable_11: "Eden_ProbePositionY", param1: int
+  Variable_12: "Eden_ProbePositionZ", param1: int
+  Variable_13: "Eden_AnomalyPositionX", param1: int
+  Variable_14: "Eden_AnomalyPositionY", param1: int
+  Variable_15: "Eden_AnomalyPositionZ", param1: int
+  Variable_16: "Eden_ProbeDifferenceX", param1: int
+  Variable_17: "Eden_ProbeDifferenceY", param1: int
+  Variable_18: "Eden_ProbeDifferenceZ", param1: int
+  Variable_19: "Eden_ProbeDifference", param1: int
+  Variable_20: "Eden_AnomalyBonus", param1: dbplayerpf_int
+  Variable_21: "Eden_Score", param1: dbplayerpf_int
+  Variable_22: "Eden_DummyValue", param1: int
+  Variable_23: "Eden_TokenValue", param1: dbplayerpf_int
+  Execute: "Eden_RewardCount = 1; Eden_ProbeType = 'Eden_ProbeSystemT1'; Eden_ProbeTypeLoc = Loc('Eden_ProbeSystemT1');<nl>Eden_SiteType = 'Class 1 Exploration Site'; Eden_ContainerID = 649; Eden_DummyValue = 1"
+  Next_1: Eden_ExplorationSite_Bonus
+  NextIf_1: "Eden_AnomalyBonus >= 1 && Eden_ScanComplete == 1"
+  Next_2: Eden_ExplorationSite_Deny
+  NextIf_2: "Eden_ScanComplete == 1"
+  Next_3: Eden_ExplorationSite_Randomize
+  NextIf_3: "Eden_SiteDifficulty == 0"
+  Next_4: Eden_ExplorationSite_Greet
 }
 { +Dialogue Name: Eden_ExplorationSiteC2_Init
   NPCName: eden_dialogue_qm4KKCG
   Variable_1: "Eden_RewardCount", param1: int
-  Variable_2: "Eden_Complete", param1: dbplayerpf_int
+  Variable_2: "Eden_ScanComplete", param1: dbplayerpf_int
   Variable_3: "Eden_ProbeType", param1: string
   Variable_4: "Eden_ProbeTypeLoc", param1: string
   Variable_5: "Eden_SiteDifficulty", param1: dbplayerpf_int
   Variable_6: "Eden_ScanDate", param1: dbplayerpf_int
   Variable_7: "Eden_SiteType", param1: string
   Variable_8: "Eden_ContainerID", param1: int
-  Variable_9: "Eden_PlayfieldName", param1: string
-  Variable_10: "Eden_ProbeCount", param1: dbplayerpf_int
-  Variable_11: "Eden_ProbePositionX", param1: int
-  Variable_12: "Eden_ProbePositionY", param1: int
-  Variable_13: "Eden_ProbePositionZ", param1: int
-  Variable_14: "Eden_AnomalyPositionX", param1: int
-  Variable_15: "Eden_AnomalyPositionY", param1: int
-  Variable_16: "Eden_AnomalyPositionZ", param1: int
-  Variable_17: "Eden_ProbeDifferenceX", param1: int
-  Variable_18: "Eden_ProbeDifferenceY", param1: int
-  Variable_19: "Eden_ProbeDifferenceZ", param1: int
-  Variable_20: "Eden_ProbeDifference", param1: int
-  Execute: "Eden_RewardCount = 1; Eden_ProbeType = 'Eden_ProbeSystemT1'; Eden_ProbeTypeLoc = Loc('Eden_ProbeSystemT1');<nl>Eden_SiteType = 'Class 2 Exploration Site'; Eden_ContainerID = 650; Eden_PlayfieldName = Player.PlayfieldName"
-  Next_1: Eden_ExplorationSite_Deny
-  NextIf_1: "Eden_Complete == 1"
-  Next_2: Eden_ExplorationSite_Randomize
-  NextIf_2: "Eden_SiteDifficulty == 0"
-  Next_3: Eden_ExplorationSite_Greet
+  Variable_9: "Eden_ProbeCount", param1: dbplayerpf_int
+  Variable_10: "Eden_ProbePositionX", param1: int
+  Variable_11: "Eden_ProbePositionY", param1: int
+  Variable_12: "Eden_ProbePositionZ", param1: int
+  Variable_13: "Eden_AnomalyPositionX", param1: int
+  Variable_14: "Eden_AnomalyPositionY", param1: int
+  Variable_15: "Eden_AnomalyPositionZ", param1: int
+  Variable_16: "Eden_ProbeDifferenceX", param1: int
+  Variable_17: "Eden_ProbeDifferenceY", param1: int
+  Variable_18: "Eden_ProbeDifferenceZ", param1: int
+  Variable_19: "Eden_ProbeDifference", param1: int
+  Variable_20: "Eden_AnomalyBonus", param1: dbplayerpf_int
+  Variable_21: "Eden_Score", param1: dbplayerpf_int
+  Variable_22: "Eden_DummyValue", param1: int
+  Variable_23: "Eden_TokenValue", param1: dbplayerpf_int
+  Execute: "Eden_RewardCount = 1; Eden_ProbeType = 'Eden_ProbeSystemT1'; Eden_ProbeTypeLoc = Loc('Eden_ProbeSystemT1');<nl>Eden_SiteType = 'Class 2 Exploration Site'; Eden_ContainerID = 650; Eden_DummyValue = 1"
+  Next_1: Eden_ExplorationSite_Bonus
+  NextIf_1: "Eden_AnomalyBonus >= 1 && Eden_ScanComplete == 1"
+  Next_2: Eden_ExplorationSite_Deny
+  NextIf_2: "Eden_ScanComplete == 1"
+  Next_3: Eden_ExplorationSite_Randomize
+  NextIf_3: "Eden_SiteDifficulty == 0"
+  Next_4: Eden_ExplorationSite_Greet
 }
 { +Dialogue Name: Eden_ExplorationSiteC3_Init
   NPCName: eden_dialogue_u0S0SKG
   Variable_1: "Eden_RewardCount", param1: int
-  Variable_2: "Eden_Complete", param1: dbplayerpf_int
+  Variable_2: "Eden_ScanComplete", param1: dbplayerpf_int
   Variable_3: "Eden_ProbeType", param1: string
   Variable_4: "Eden_ProbeTypeLoc", param1: string
   Variable_5: "Eden_SiteDifficulty", param1: dbplayerpf_int
   Variable_6: "Eden_ScanDate", param1: dbplayerpf_int
   Variable_7: "Eden_SiteType", param1: string
   Variable_8: "Eden_ContainerID", param1: int
-  Variable_9: "Eden_PlayfieldName", param1: string
-  Variable_10: "Eden_ProbeCount", param1: dbplayerpf_int
-  Variable_11: "Eden_ProbePositionX", param1: int
-  Variable_12: "Eden_ProbePositionY", param1: int
-  Variable_13: "Eden_ProbePositionZ", param1: int
-  Variable_14: "Eden_AnomalyPositionX", param1: int
-  Variable_15: "Eden_AnomalyPositionY", param1: int
-  Variable_16: "Eden_AnomalyPositionZ", param1: int
-  Variable_17: "Eden_ProbeDifferenceX", param1: int
-  Variable_18: "Eden_ProbeDifferenceY", param1: int
-  Variable_19: "Eden_ProbeDifferenceZ", param1: int
-  Variable_20: "Eden_ProbeDifference", param1: int
-  Execute: "Eden_RewardCount = 1; Eden_ProbeType = 'Eden_ProbeSystemT2'; Eden_ProbeTypeLoc = Loc('Eden_ProbeSystemT2');<nl>Eden_SiteType = 'Class 3 Exploration Site'; Eden_ContainerID = 651; Eden_PlayfieldName = Player.PlayfieldName"
-  Next_1: Eden_ExplorationSite_Deny
-  NextIf_1: "Eden_Complete == 1"
-  Next_2: Eden_ExplorationSite_Randomize
-  NextIf_2: "Eden_SiteDifficulty == 0"
-  Next_3: Eden_ExplorationSite_Greet
+  Variable_9: "Eden_ProbeCount", param1: dbplayerpf_int
+  Variable_10: "Eden_ProbePositionX", param1: int
+  Variable_11: "Eden_ProbePositionY", param1: int
+  Variable_12: "Eden_ProbePositionZ", param1: int
+  Variable_13: "Eden_AnomalyPositionX", param1: int
+  Variable_14: "Eden_AnomalyPositionY", param1: int
+  Variable_15: "Eden_AnomalyPositionZ", param1: int
+  Variable_16: "Eden_ProbeDifferenceX", param1: int
+  Variable_17: "Eden_ProbeDifferenceY", param1: int
+  Variable_18: "Eden_ProbeDifferenceZ", param1: int
+  Variable_19: "Eden_ProbeDifference", param1: int
+  Variable_20: "Eden_AnomalyBonus", param1: dbplayerpf_int
+  Variable_21: "Eden_Score", param1: dbplayerpf_int
+  Variable_22: "Eden_DummyValue", param1: int
+  Variable_23: "Eden_TokenValue", param1: dbplayerpf_int
+  Execute: "Eden_RewardCount = 1; Eden_ProbeType = 'Eden_ProbeSystemT2'; Eden_ProbeTypeLoc = Loc('Eden_ProbeSystemT2');<nl>Eden_SiteType = 'Class 3 Exploration Site'; Eden_ContainerID = 651; Eden_DummyValue = 1"
+  Next_1: Eden_ExplorationSite_Bonus
+  NextIf_1: "Eden_AnomalyBonus >= 1 && Eden_ScanComplete == 1"
+  Next_2: Eden_ExplorationSite_Deny
+  NextIf_2: "Eden_ScanComplete == 1"
+  Next_3: Eden_ExplorationSite_Randomize
+  NextIf_3: "Eden_SiteDifficulty == 0"
+  Next_4: Eden_ExplorationSite_Greet
 }
 { +Dialogue Name: Eden_ExplorationSiteC4_Init
-  NPCName: eden_dialogue_K4l8iOK
+  NPCName: eden_dialogue_Qm80Cue
   Variable_1: "Eden_RewardCount", param1: int
-  Variable_2: "Eden_Complete", param1: dbplayerpf_int
+  Variable_2: "Eden_ScanComplete", param1: dbplayerpf_int
   Variable_3: "Eden_ProbeType", param1: string
   Variable_4: "Eden_ProbeTypeLoc", param1: string
   Variable_5: "Eden_SiteDifficulty", param1: dbplayerpf_int
   Variable_6: "Eden_ScanDate", param1: dbplayerpf_int
   Variable_7: "Eden_SiteType", param1: string
   Variable_8: "Eden_ContainerID", param1: int
-  Variable_9: "Eden_PlayfieldName", param1: string
-  Variable_10: "Eden_ProbeCount", param1: dbplayerpf_int
-  Variable_11: "Eden_ProbePositionX", param1: int
-  Variable_12: "Eden_ProbePositionY", param1: int
-  Variable_13: "Eden_ProbePositionZ", param1: int
-  Variable_14: "Eden_AnomalyPositionX", param1: int
-  Variable_15: "Eden_AnomalyPositionY", param1: int
-  Variable_16: "Eden_AnomalyPositionZ", param1: int
-  Variable_17: "Eden_ProbeDifferenceX", param1: int
-  Variable_18: "Eden_ProbeDifferenceY", param1: int
-  Variable_19: "Eden_ProbeDifferenceZ", param1: int
-  Variable_20: "Eden_ProbeDifference", param1: int
-  Execute: "Eden_RewardCount = 1; Eden_ProbeType = 'Eden_ProbeSystemT3'; Eden_ProbeTypeLoc = Loc('Eden_ProbeSystemT3');<nl>Eden_SiteType = 'Class 4 Exploration Site'; Eden_ContainerID = 652; Eden_PlayfieldName = Player.PlayfieldName"
-  Next_1: Eden_ExplorationSite_Deny
-  NextIf_1: "Eden_Complete == 1"
-  Next_2: Eden_ExplorationSite_Randomize
-  NextIf_2: "Eden_SiteDifficulty == 0"
-  Next_3: Eden_ExplorationSite_Greet
+  Variable_9: "Eden_ProbeCount", param1: dbplayerpf_int
+  Variable_10: "Eden_ProbePositionX", param1: int
+  Variable_11: "Eden_ProbePositionY", param1: int
+  Variable_12: "Eden_ProbePositionZ", param1: int
+  Variable_13: "Eden_AnomalyPositionX", param1: int
+  Variable_14: "Eden_AnomalyPositionY", param1: int
+  Variable_15: "Eden_AnomalyPositionZ", param1: int
+  Variable_16: "Eden_ProbeDifferenceX", param1: int
+  Variable_17: "Eden_ProbeDifferenceY", param1: int
+  Variable_18: "Eden_ProbeDifferenceZ", param1: int
+  Variable_19: "Eden_ProbeDifference", param1: int
+  Variable_20: "Eden_AnomalyBonus", param1: dbplayerpf_int
+  Variable_21: "Eden_Score", param1: dbplayerpf_int
+  Variable_22: "Eden_DummyValue", param1: int
+  Variable_23: "Eden_TokenValue", param1: dbplayerpf_int
+  Execute: "Eden_RewardCount = 1; Eden_ProbeType = 'Eden_ProbeSystemT3'; Eden_ProbeTypeLoc = Loc('Eden_ProbeSystemT3');<nl>Eden_SiteType = 'Class 4 Exploration Site'; Eden_ContainerID = 652; Eden_DummyValue = 1"
+  Next_1: Eden_ExplorationSite_Bonus
+  NextIf_1: "Eden_AnomalyBonus >= 1 && Eden_ScanComplete == 1"
+  Next_2: Eden_ExplorationSite_Deny
+  NextIf_2: "Eden_ScanComplete == 1"
+  Next_3: Eden_ExplorationSite_Randomize
+  NextIf_3: "Eden_SiteDifficulty == 0"
+  Next_4: Eden_ExplorationSite_Greet
 }
 { +Dialogue Name: Eden_ExplorationSiteC5_Init
-  NPCName: eden_dialogue_eeC44ut
+  NPCName: eden_dialogue_Qm80Cue
   Variable_1: "Eden_RewardCount", param1: int
-  Variable_2: "Eden_Complete", param1: dbplayerpf_int
+  Variable_2: "Eden_ScanComplete", param1: dbplayerpf_int
   Variable_3: "Eden_ProbeType", param1: string
   Variable_4: "Eden_ProbeTypeLoc", param1: string
   Variable_5: "Eden_SiteDifficulty", param1: dbplayerpf_int
   Variable_6: "Eden_ScanDate", param1: dbplayerpf_int
   Variable_7: "Eden_SiteType", param1: string
   Variable_8: "Eden_ContainerID", param1: int
-  Variable_9: "Eden_PlayfieldName", param1: string
-  Variable_10: "Eden_ProbeCount", param1: dbplayerpf_int
-  Variable_11: "Eden_ProbePositionX", param1: int
-  Variable_12: "Eden_ProbePositionY", param1: int
-  Variable_13: "Eden_ProbePositionZ", param1: int
-  Variable_14: "Eden_AnomalyPositionX", param1: int
-  Variable_15: "Eden_AnomalyPositionY", param1: int
-  Variable_16: "Eden_AnomalyPositionZ", param1: int
-  Variable_17: "Eden_ProbeDifferenceX", param1: int
-  Variable_18: "Eden_ProbeDifferenceY", param1: int
-  Variable_19: "Eden_ProbeDifferenceZ", param1: int
-  Variable_20: "Eden_ProbeDifference", param1: int
-  Execute: "Eden_RewardCount = 2; Eden_ProbeType = 'Eden_ProbeSystemT3'; Eden_ProbeTypeLoc = Loc('Eden_ProbeSystemT3');<nl>Eden_SiteType = 'Class 5 Exploration Site'; Eden_ContainerID = 653; Eden_PlayfieldName = Player.PlayfieldName"
-  Next_1: Eden_ExplorationSite_Deny
-  NextIf_1: "Eden_Complete == 1"
-  Next_2: Eden_ExplorationSite_Randomize
-  NextIf_2: "Eden_SiteDifficulty == 0"
-  Next_3: Eden_ExplorationSite_Greet
+  Variable_9: "Eden_ProbeCount", param1: dbplayerpf_int
+  Variable_10: "Eden_ProbePositionX", param1: int
+  Variable_11: "Eden_ProbePositionY", param1: int
+  Variable_12: "Eden_ProbePositionZ", param1: int
+  Variable_13: "Eden_AnomalyPositionX", param1: int
+  Variable_14: "Eden_AnomalyPositionY", param1: int
+  Variable_15: "Eden_AnomalyPositionZ", param1: int
+  Variable_16: "Eden_ProbeDifferenceX", param1: int
+  Variable_17: "Eden_ProbeDifferenceY", param1: int
+  Variable_18: "Eden_ProbeDifferenceZ", param1: int
+  Variable_19: "Eden_ProbeDifference", param1: int
+  Variable_20: "Eden_AnomalyBonus", param1: dbplayerpf_int
+  Variable_21: "Eden_Score", param1: dbplayerpf_int
+  Variable_22: "Eden_DummyValue", param1: int
+  Variable_23: "Eden_TokenValue", param1: dbplayerpf_int
+  Execute: "Eden_RewardCount = 2; Eden_ProbeType = 'Eden_ProbeSystemT3'; Eden_ProbeTypeLoc = Loc('Eden_ProbeSystemT3');<nl>Eden_SiteType = 'Class 5 Exploration Site'; Eden_ContainerID = 653; Eden_DummyValue = 1"
+  Next_1: Eden_ExplorationSite_Bonus
+  NextIf_1: "Eden_AnomalyBonus >= 1 && Eden_ScanComplete == 1"
+  Next_2: Eden_ExplorationSite_Deny
+  NextIf_2: "Eden_ScanComplete == 1"
+  Next_3: Eden_ExplorationSite_Randomize
+  NextIf_3: "Eden_SiteDifficulty == 0"
+  Next_4: Eden_ExplorationSite_Greet
 }
 { +Dialogue Name: Eden_ExplorationSiteC6_Init
-  NPCName: eden_dialogue_SIKoCu8
+  NPCName: eden_dialogue_Qm80Cue
   Variable_1: "Eden_RewardCount", param1: int
-  Variable_2: "Eden_Complete", param1: dbplayerpf_int
+  Variable_2: "Eden_ScanComplete", param1: dbplayerpf_int
   Variable_3: "Eden_ProbeType", param1: string
   Variable_4: "Eden_ProbeTypeLoc", param1: string
   Variable_5: "Eden_SiteDifficulty", param1: dbplayerpf_int
   Variable_6: "Eden_ScanDate", param1: dbplayerpf_int
   Variable_7: "Eden_SiteType", param1: string
   Variable_8: "Eden_ContainerID", param1: int
-  Variable_9: "Eden_PlayfieldName", param1: string
-  Variable_10: "Eden_ProbeCount", param1: dbplayerpf_int
-  Variable_11: "Eden_ProbePositionX", param1: int
-  Variable_12: "Eden_ProbePositionY", param1: int
-  Variable_13: "Eden_ProbePositionZ", param1: int
-  Variable_14: "Eden_AnomalyPositionX", param1: int
-  Variable_15: "Eden_AnomalyPositionY", param1: int
-  Variable_16: "Eden_AnomalyPositionZ", param1: int
-  Variable_17: "Eden_ProbeDifferenceX", param1: int
-  Variable_18: "Eden_ProbeDifferenceY", param1: int
-  Variable_19: "Eden_ProbeDifferenceZ", param1: int
-  Variable_20: "Eden_ProbeDifference", param1: int
-  Execute: "Eden_RewardCount = 1; Eden_ProbeType = 'Eden_ProbeSystemT4'; Eden_ProbeTypeLoc = Loc('Eden_ProbeSystemT4');<nl>Eden_SiteType = 'Class 6 Exploration Site'; Eden_ContainerID = 654; Eden_PlayfieldName = Player.PlayfieldName"
-  Next_1: Eden_ExplorationSite_Deny
-  NextIf_1: "Eden_Complete == 1"
-  Next_2: Eden_ExplorationSite_Randomize
-  NextIf_2: "Eden_SiteDifficulty == 0"
-  Next_3: Eden_ExplorationSite_Greet
+  Variable_9: "Eden_ProbeCount", param1: dbplayerpf_int
+  Variable_10: "Eden_ProbePositionX", param1: int
+  Variable_11: "Eden_ProbePositionY", param1: int
+  Variable_12: "Eden_ProbePositionZ", param1: int
+  Variable_13: "Eden_AnomalyPositionX", param1: int
+  Variable_14: "Eden_AnomalyPositionY", param1: int
+  Variable_15: "Eden_AnomalyPositionZ", param1: int
+  Variable_16: "Eden_ProbeDifferenceX", param1: int
+  Variable_17: "Eden_ProbeDifferenceY", param1: int
+  Variable_18: "Eden_ProbeDifferenceZ", param1: int
+  Variable_19: "Eden_ProbeDifference", param1: int
+  Variable_20: "Eden_AnomalyBonus", param1: dbplayerpf_int
+  Variable_21: "Eden_Score", param1: dbplayerpf_int
+  Variable_22: "Eden_DummyValue", param1: int
+  Variable_23: "Eden_TokenValue", param1: dbplayerpf_int
+  Execute: "Eden_RewardCount = 1; Eden_ProbeType = 'Eden_ProbeSystemT4'; Eden_ProbeTypeLoc = Loc('Eden_ProbeSystemT4');<nl>Eden_SiteType = 'Class 6 Exploration Site'; Eden_ContainerID = 654; Eden_DummyValue = 1"
+  Next_1: Eden_ExplorationSite_Bonus
+  NextIf_1: "Eden_AnomalyBonus >= 1 && Eden_ScanComplete == 1"
+  Next_2: Eden_ExplorationSite_Deny
+  NextIf_2: "Eden_ScanComplete == 1"
+  Next_3: Eden_ExplorationSite_Randomize
+  NextIf_3: "Eden_SiteDifficulty == 0"
+  Next_4: Eden_ExplorationSite_Greet
+}
+{ +Dialogue Name: Eden_ExplorationSite_Bonus
+  Output: eden_dialogue_Gemh0qm
+  Option_1: eden_dialogue_OKCKWS8
+  OptionNext_1: Eden_ExplorationSite_Bonus2
+  Option_2: eden_dialogue_8uuOaCW
+  OptionNext_2: End
+}
+{ +Dialogue Name: Eden_ExplorationSite_Bonus2
+  Option_1: eden_dialogue_6euC14i
+  OptionNext_1: End
+  Output: eden_dialogue_mmK00C4
+  Execute: "Eden_AnomalyBonus -= 1; Eden_ScanComplete = 0; Eden_SiteDifficulty = 0"
 }
 { +Dialogue Name: Eden_ExplorationSite_Deny
   Output: eden_dialogue_SD4uu8M
   Option_1: eden_dialogue_SOqGKuq
   OptionNext_1: End
 }
+{ +Dialogue Name: Eden_ExplorationSite_Deny2
+  Option_1: eden_dialogue_We8gWSq
+  OptionNext_1: End
+  Output: eden_dialogue_KOSWG8K
+}
 { +Dialogue Name: Eden_ExplorationSite_Randomize
-  Execute: "Eden_SiteDifficulty = Random(1,4); Eden_RewardCount += (Eden_SiteDifficulty / 2); Eden_ProbeCount = 1 * Eden_SiteDifficulty + Random(0,2);"
+  Execute: "Eden_SiteDifficulty = Eden_Score + Random(1,4); Eden_RewardCount += (Eden_SiteDifficulty / 2); Eden_ProbeCount = 1 * Eden_SiteDifficulty + Random(0,2);"
   Next_1: Eden_ExplorationSite_Greet
 }
 { +Dialogue Name: Eden_ExplorationSite_Greet
@@ -21305,10 +24091,15 @@
   OptionNext_1: Eden_ExplorationSite_Scan
   Option_2: eden_dialogue_GO4wmae
   OptionIf_2: "!HasItem(Eden_ProbeType,Eden_ProbeCount)"
-  OptionNext_2: End
+  OptionNext_2: Eden_ExplorationSite_Probes
   Option_3: eden_dialogue_im4KC0d
   OptionIf_3: "HasItem(Eden_ProbeType,Eden_ProbeCount)"
   OptionNext_3: End
+}
+{ +Dialogue Name: Eden_ExplorationSite_Probes
+  Output: eden_dialogue_SqaiqSK
+  Option_1: eden_dialogue_mSquuhu
+  OptionNext_1: End
 }
 { +Dialogue Name: Eden_ExplorationSite_Scan
   Execute: "Eden_AnomalyPositionX = Random(-10,10) * Eden_ProbeCount; Eden_AnomalyPositionY = Random(-10,10) * Eden_ProbeCount; Eden_AnomalyPositionZ = Random(-10,10) * Eden_ProbeCount"
@@ -21317,41 +24108,72 @@
 { +Dialogue Name: Eden_ExplorationSite_ScanSelect
   Execute: "Eden_ProbeDifferenceX = Eden_ProbePositionX - Eden_AnomalyPositionX;<nl>Eden_ProbeDifferenceY = Eden_ProbePositionY - Eden_AnomalyPositionY;<nl>Eden_ProbeDifferenceZ = Eden_ProbePositionZ - Eden_AnomalyPositionZ;<nl>Eden_ProbeDifference = System.Math.Abs(Eden_ProbeDifferenceX) + System.Math.Abs(Eden_ProbeDifferenceY) + System.Math.Abs(Eden_ProbeDifferenceZ)"
   Output: eden_dialogue_8mCiCKS
-  Option_1: eden_dialogue_eamm8Ku
-  OptionIf_1: "Eden_ProbePositionX <= 360"
-  OptionNext_1: Eden_ExplorationSite_ScanSelect
-  OptionExecute_1: "Eden_ProbePositionX += 1"
-  Option_2: eden_dialogue_iOWCGmO
-  OptionIf_2: "Eden_ProbePositionX >= -360"
+  Option_1: eden_dialogue_iGmiWGe
+  OptionIf_1: "Eden_ProbePositionX != Eden_AnomalyPositionX || Eden_ProbePositionY != Eden_AnomalyPositionY || Eden_ProbePositionZ != Eden_AnomalyPositionZ"
+  OptionNext_1: Eden_ExplorationSite_ScanSelectX
+  Option_2: eden_dialogue_eamm8Ku
+  OptionIf_2: "Eden_ProbePositionX != Eden_AnomalyPositionX || Eden_ProbePositionY != Eden_AnomalyPositionY || Eden_ProbePositionZ != Eden_AnomalyPositionZ"
   OptionNext_2: Eden_ExplorationSite_ScanSelect
-  OptionExecute_2: "Eden_ProbePositionX -= 1"
-  Option_3: eden_dialogue_iGmiWGe
+  OptionExecute_2: "Eden_ProbePositionX += 1"
+  Option_3: eden_dialogue_iOWCGmO
+  OptionIf_3: "Eden_ProbePositionX != Eden_AnomalyPositionX || Eden_ProbePositionY != Eden_AnomalyPositionY || Eden_ProbePositionZ != Eden_AnomalyPositionZ"
   OptionNext_3: Eden_ExplorationSite_ScanSelect
-  Option_4: eden_dialogue_KS04GOq
-  OptionIf_4: "Eden_ProbePositionY <= 360"
-  OptionNext_4: Eden_ExplorationSite_ScanSelect
-  OptionExecute_4: "Eden_ProbePositionY += 1"
-  Option_5: eden_dialogue_YKGTs8W
-  OptionIf_5: "Eden_ProbePositionY >= -360"
+  OptionExecute_3: "Eden_ProbePositionX -= 1"
+  Option_4: eden_dialogue_q0mOWuF
+  OptionIf_4: "Eden_ProbePositionX != Eden_AnomalyPositionX || Eden_ProbePositionY != Eden_AnomalyPositionY || Eden_ProbePositionZ != Eden_AnomalyPositionZ"
+  OptionNext_4: Eden_ExplorationSite_ScanSelectY
+  Option_5: eden_dialogue_KS04GOq
+  OptionIf_5: "Eden_ProbePositionX != Eden_AnomalyPositionX || Eden_ProbePositionY != Eden_AnomalyPositionY || Eden_ProbePositionZ != Eden_AnomalyPositionZ"
   OptionNext_5: Eden_ExplorationSite_ScanSelect
-  OptionExecute_5: "Eden_ProbePositionY -= 1"
-  Option_6: eden_dialogue_q0mOWuF
+  OptionExecute_5: "Eden_ProbePositionY += 1"
+  Option_6: eden_dialogue_YKGTs8W
+  OptionIf_6: "Eden_ProbePositionX != Eden_AnomalyPositionX || Eden_ProbePositionY != Eden_AnomalyPositionY || Eden_ProbePositionZ != Eden_AnomalyPositionZ"
   OptionNext_6: Eden_ExplorationSite_ScanSelect
-  Option_7: eden_dialogue_amE8WOK
-  OptionIf_7: "Eden_ProbePositionZ <= 360"
-  OptionNext_7: Eden_ExplorationSite_ScanSelect
-  OptionExecute_7: "Eden_ProbePositionZ += 1"
-  Option_8: eden_dialogue_8SWu0C8
-  OptionIf_8: "Eden_ProbePositionZ >= -360"
+  OptionExecute_6: "Eden_ProbePositionY -= 1"
+  Option_7: eden_dialogue_egO0Kie
+  OptionIf_7: "Eden_ProbePositionX != Eden_AnomalyPositionX || Eden_ProbePositionY != Eden_AnomalyPositionY || Eden_ProbePositionZ != Eden_AnomalyPositionZ"
+  OptionNext_7: Eden_ExplorationSite_ScanSelectZ
+  Option_8: eden_dialogue_amE8WOK
+  OptionIf_8: "Eden_ProbePositionX != Eden_AnomalyPositionX || Eden_ProbePositionY != Eden_AnomalyPositionY || Eden_ProbePositionZ != Eden_AnomalyPositionZ"
   OptionNext_8: Eden_ExplorationSite_ScanSelect
-  OptionExecute_8: "Eden_ProbePositionZ -= 1"
-  Option_9: eden_dialogue_egO0Kie
+  OptionExecute_8: "Eden_ProbePositionZ += 1"
+  Option_9: eden_dialogue_8SWu0C8
+  OptionIf_9: "Eden_ProbePositionX != Eden_AnomalyPositionX || Eden_ProbePositionY != Eden_AnomalyPositionY || Eden_ProbePositionZ != Eden_AnomalyPositionZ"
   OptionNext_9: Eden_ExplorationSite_ScanSelect
+  OptionExecute_9: "Eden_ProbePositionZ -= 1"
   Option_10: eden_dialogue_CKA4Wme
   OptionIf_10: "Eden_ProbePositionX == Eden_AnomalyPositionX && Eden_ProbePositionY == Eden_AnomalyPositionY && Eden_ProbePositionZ == Eden_AnomalyPositionZ"
-  OptionNext_10: Eden_ExplorationSite_Complete
-  Option_11: eden_dialogue_8ueSBm8
-  OptionNext_11: End
+  OptionNext_10: Eden_ExplorationSite_Complete2
+  Option_11: eden_dialogue_Ceuqmi4
+  OptionIf_11: "Eden_ProbePositionX != Eden_AnomalyPositionX || Eden_ProbePositionY != Eden_AnomalyPositionY || Eden_ProbePositionZ != Eden_AnomalyPositionZ"
+  OptionNext_11: Eden_ExplorationSite_ScanSelect
+  OptionExecute_11: "Eden_ProbePositionX = 0; Eden_ProbePositionY = 0; Eden_ProbePositionZ = 0"
+  Option_12: eden_dialogue_8ueSBm8
+  OptionNext_12: End
+}
+{ +Dialogue Name: Eden_ExplorationSite_ScanSelectX
+  Input: eden_dialogue_GmeaKSu, param1: int;eden_dialogue_KOi0SO4;eden_dialogue_04O8u8a
+  Next_1: Eden_ExplorationSite_ScanSelect
+  NextIf_1: "IsInputOk()"
+  Next_2: Eden_ExplorationSite_ScanSelect
+  NextIf_2: "IsInputCancel()"
+  Execute: "if (IsInputOk()) Eden_ProbePositionX = InputResultAsInt()"
+}
+{ +Dialogue Name: Eden_ExplorationSite_ScanSelectY
+  Input: eden_dialogue_0a4SSuu, param1: int;eden_dialogue_LqC4eua;eden_dialogue_iss8iae
+  Next_1: Eden_ExplorationSite_ScanSelect
+  NextIf_1: "IsInputOk()"
+  Next_2: Eden_ExplorationSite_ScanSelect
+  NextIf_2: "IsInputCancel()"
+  Execute: "if (IsInputOk()) Eden_ProbePositionY = InputResultAsInt()"
+}
+{ +Dialogue Name: Eden_ExplorationSite_ScanSelectZ
+  Input: eden_dialogue_cai0SCi, param1: int;eden_dialogue_0uPOieO;eden_dialogue_KK4i44K
+  Next_1: Eden_ExplorationSite_ScanSelect
+  NextIf_1: "IsInputOk()"
+  Next_2: Eden_ExplorationSite_ScanSelect
+  NextIf_2: "IsInputCancel()"
+  Execute: "if (IsInputOk()) Eden_ProbePositionZ = InputResultAsInt()"
 }
 { +Dialogue Name: Eden_ExplorationSite_ScanCheck
   Execute: "Eden_ProbeDifferenceX = Eden_ProbePositionX - Eden_AnomalyPositionX;<nl>Eden_ProbeDifferenceY = Eden_ProbePositionY - Eden_AnomalyPositionY;<nl>Eden_ProbeDifferenceZ = Eden_ProbePositionZ - Eden_AnomalyPositionZ;<nl>Eden_ProbeDifference = System.Math.Abs(Eden_ProbeDifferenceX) + System.Math.Abs(Eden_ProbeDifferenceY) + System.Math.Abs(Eden_ProbeDifferenceZ)"
@@ -21360,10 +24182,124 @@
   Next_2: Eden_ExplorationSite_ScanSelect
 }
 { +Dialogue Name: Eden_ExplorationSite_Complete
-  Execute: "RemoveItem(Eden_ProbeType,Eden_ProbeCount); Eden_Complete = 1; AddItemsFromContainer(Eden_ContainerID, Eden_RewardCount); Player.UpgradePoints += Eden_RewardCount * 3; Eden_ScanDate = GetGameTimeInSec();"
+  Execute: "RemoveItem(Eden_ProbeType,Eden_ProbeCount); Eden_ScanComplete = 1; AddItemsFromContainer(Eden_ContainerID, Eden_RewardCount); Player.UpgradePoints += Eden_RewardCount * 3; Eden_ScanDate = GetGameTimeInSec(); Eden_Score += 1"
   Option_1: eden_dialogue_qmW8WrG
   OptionNext_1: End
+  Option_2: eden_dialogue_q8Wv00K
+  OptionIf_2: "Eden_AnomalyBonus >= 1 && Eden_SiteType != 'Sector' && Eden_ContainerID != 1"
+  OptionNext_2: Eden_ExplorationSite_Bonus2
+  Option_3: eden_dialogue_iG47wSC
+  OptionIf_3: "Eden_AnomalyBonus >= 2 && Eden_SiteType == 'Sector' && Eden_ContainerID != 1"
+  OptionNext_3: Eden_ExplorationSite_Bonus2
   Output: eden_dialogue_2iKeeC0
+}
+{ +Dialogue Name: Eden_ExplorationSite_Complete2
+  Next_1: Eden_ExplorationSite_Complete3
+  NextIf_1: "Eden_TokenValue >= 1"
+  Next_2: Eden_ExplorationSite_Complete
+}
+{ +Dialogue Name: Eden_ExplorationSite_Complete3
+  Next_1: Eden_ExplorationSite_Complete
+  Execute: "AddItem('Token', 1, Eden_TokenValue); Eden_ContainerID = 1"
+}
+{ +Dialogue Name: Eden_ScienceStation_Init
+  Next_1: Eden_ScienceStation_Greet
+  NPCName: eden_dialogue_4aiK8i0
+}
+{ +Dialogue Name: Eden_ScienceStation_Greet
+  Output: eden_dialogue_K4i4kiG
+  Option_1: eden_dialogue_qGmequO
+  OptionNext_1: Eden_LootCrate_Init, param1: GotoAndReset
+  Option_2: eden_dialogue_2a8KSOe
+  OptionNext_2: Eden_Bounty_Init, param1: GotoAndReset
+  Option_3: eden_dialogue_mO0GGcC
+  OptionNext_3: Eden_Science_Init, param1: GotoAndReset
+  Option_4: eden_dialogue_JC8aeMi
+  OptionNext_4: End
+  Option_5: eden_dialogue_emKCiWi
+  OptionNext_5: End
+  Option_6: eden_dialogue_riSmSK0
+  OptionNext_6: End
+}
+{ +Dialogue Name: Eden_LootCrate_Init
+  Next_1: Eden_LootCrate_Greet
+  NPCName: eden_dialogue_0YiaKgW
+}
+{ +Dialogue Name: Eden_LootCrate_Greet
+  Option_1: eden_dialogue_4mqWeSk
+  OptionNext_1: Eden_LootCrate_Mining
+  Option_2: eden_dialogue_O4iSO2E
+  OptionNext_2: Eden_LootCrate_Combat
+  Option_3: eden_dialogue_CKoG0Ki
+  OptionNext_3: Eden_ScienceStation_Init, param1: GotoAndReset
+  Output: eden_dialogue_8KGSaui
+}
+{ +Dialogue Name: Eden_LootCrate_Mining
+  Option_1: eden_dialogue_S0m0mWe
+  OptionIf_1: "HasItem('Token', 1, 6511)"
+  OptionNext_1: Eden_LootCrate_Mining
+  OptionExecute_1: "RemoveItem('Token', 1, 6511); AddItemsFromContainer(665, 8)"
+  Option_2: eden_dialogue_m0uugKS
+  OptionIf_2: "HasItem('Token', 1, 6512)"
+  OptionNext_2: Eden_LootCrate_Mining
+  OptionExecute_2: "RemoveItem('Token', 1, 6512); AddItemsFromContainer(666, 8)"
+  Option_3: eden_dialogue_sCWmq4c
+  OptionIf_3: "HasItem('Token', 1, 6513)"
+  OptionNext_3: Eden_LootCrate_Mining
+  OptionExecute_3: "RemoveItem('Token', 1, 6513); AddItemsFromContainer(667, 8)"
+  Option_4: eden_dialogue_C8auaC8
+  OptionIf_4: "HasItem('Token', 1, 6514)"
+  OptionNext_4: Eden_LootCrate_Mining
+  OptionExecute_4: "RemoveItem('Token', 1, 6514); AddItemsFromContainer(668, 8)"
+  Option_5: eden_dialogue_amSq0OS
+  OptionIf_5: "HasItem('Token', 1, 6515)"
+  OptionNext_5: Eden_LootCrate_Mining
+  OptionExecute_5: "RemoveItem('Token', 1, 6515); AddItemsFromContainer(669, 8)"
+  Option_6: eden_dialogue_28CeuCe
+  OptionIf_6: "HasItem('Token', 1, 6516)"
+  OptionNext_6: Eden_LootCrate_Mining
+  OptionExecute_6: "RemoveItem('Token', 1, 6516); AddItemsFromContainer(670, 8)"
+  Option_7: eden_dialogue_Zea0S4O
+  OptionNext_7: Eden_LootCrate_Greet
+  Output: eden_dialogue_00iG4GW
+}
+{ +Dialogue Name: Eden_LootCrate_Combat
+  Option_1: eden_dialogue_SumGaKu
+  OptionIf_1: "HasItem('Token', 1, 6521)"
+  OptionNext_1: Eden_LootCrate_Combat
+  OptionExecute_1: "RemoveItem('Token', 1, 6521); AddItemsFromContainer(659, 8); AddItemsFromContainer(39, 8); AddItemsFromContainer(40, Random(1,2))"
+  Option_2: eden_dialogue_WoPKqSO
+  OptionIf_2: "HasItem('Token', 1, 6522)"
+  OptionNext_2: Eden_LootCrate_Combat
+  OptionExecute_2: "RemoveItem('Token', 1, 6522); AddItemsFromContainer(660, 8); AddItemsFromContainer(39, 8); AddItemsFromContainer(40, 8)"
+  Option_3: eden_dialogue_0iueuiq
+  OptionIf_3: "HasItem('Token', 1, 6523)"
+  OptionNext_3: Eden_LootCrate_Combat
+  OptionExecute_3: "RemoveItem('Token', 1, 6523); AddItemsFromContainer(661, 8); AddItemsFromContainer(40, 8); AddItemsFromContainer(41, Random(1,2))"
+  Option_4: eden_dialogue_8aqWiaC
+  OptionIf_4: "HasItem('Token', 1, 6524)"
+  OptionNext_4: Eden_LootCrate_Combat
+  OptionExecute_4: "RemoveItem('Token', 1, 6524); AddItemsFromContainer(662, 8); AddItemsFromContainer(41, 8); AddItemsFromContainer(41, Random(1,2))"
+  Option_5: eden_dialogue_qSn4CeO
+  OptionIf_5: "HasItem('Token', 1, 6525)"
+  OptionNext_5: Eden_LootCrate_Combat
+  OptionExecute_5: "RemoveItem('Token', 1, 6525); AddItemsFromContainer(663, 8); AddItemsFromContainer(41, 8); AddItemsFromContainer(41, 8)"
+  Option_6: eden_dialogue_e4SLumi
+  OptionIf_6: "HasItem('Token', 1, 6526)"
+  OptionNext_6: Eden_LootCrate_Combat
+  OptionExecute_6: "RemoveItem('Token', 1, 6526); AddItemsFromContainer(664, 8); AddItemsFromContainer(41, 8); AddItemsFromContainer(41, 8)"
+  Option_7: eden_dialogue_2Hu89qu
+  OptionNext_7: Eden_LootCrate_Greet
+  Output: eden_dialogue_SmCCWTW
+}
+{ +Dialogue Name: Eden_Bounty_Init
+  NPCName: eden_dialogue_00O4CCW
+  Next_1: Eden_Bounty_Greet
+}
+{ +Dialogue Name: Eden_Bounty_Greet
+  Output: eden_dialogue_sai4iCW
+  Option_1: eden_dialogue_mWSSaaK
+  OptionNext_1: End
 }
 { +Dialogue Name: Eden_Science_Init
   Variable_1: "Eden_ExpeditionType", param1: dbplayer_int
@@ -22904,8 +25840,12 @@
   Option_4: eden_dialogue_Cs8uqGC
   OptionNext_4: End
 }
+{ +Dialogue Name: Eden_UCHLib_Init
+  Next_1: Eden_UCHLib_Start
+  NPCName: eden_dialogue_CKiOq0a
+  Variable_1: "Eden_UnlockName", param1: string
+}
 { +Dialogue Name: Eden_UCHLib_Start
-  NPCName: eden_dialogue_iiGC50S
   Output: eden_dialogue_KOKm8gK
   Option_1: eden_dialogue_80uE0a0
   OptionNext_1: Eden_UCHLib_Info
@@ -22923,6 +25863,7 @@
   OptionNext_7: Eden_UCHLib_Other
   Option_8: eden_dialogue_i0OGeiu
   OptionNext_8: End
+  Variable_1: "Eden_UnlockName", param1: string
 }
 { +Dialogue Name: Eden_UCHLib_UCH
   Option_1: eden_dialogue_CG84iCm
@@ -22930,27 +25871,27 @@
   Option_2: eden_dialogue_OamSi0e
   OptionIf_2: "HasItem('Token', 1, 6401) && !IsTechTreeItemUnlocked('Eden_TurretFlakClose') && Player.UpgradePoints >= 50"
   OptionNext_2: Eden_UCHLib_Unlocked
-  OptionExecute_2: "UnlockTechTreeItem('Eden_TurretFlakClose'); RemoveItem('Token', 1, 6401); Player.UpgradePoints -= 50"
+  OptionExecute_2: "UnlockTechTreeItem('Eden_TurretFlakClose'); RemoveItem('Token', 1, 6401); Player.UpgradePoints -= 50; Eden_UnlockName = Loc('Eden_TurretFlakClose')"
   Option_3: eden_dialogue_aGWa0uW
   OptionIf_3: "HasItem('Token', 1, 6402) && !IsTechTreeItemUnlocked('Eden_TurretVulcanSmall') && Player.UpgradePoints >= 75"
   OptionNext_3: Eden_UCHLib_Unlocked
-  OptionExecute_3: "UnlockTechTreeItem('Eden_TurretVulcanSmall'); RemoveItem('Token', 1, 6402); Player.UpgradePoints -= 75"
+  OptionExecute_3: "UnlockTechTreeItem('Eden_TurretVulcanSmall'); RemoveItem('Token', 1, 6402); Player.UpgradePoints -= 75; Eden_UnlockName = Loc('Eden_TurretVulcanSmall')"
   Option_4: eden_dialogue_Iei044i
   OptionIf_4: "HasItem('Token', 1, 6413) && !IsTechTreeItemUnlocked('Eden_TurretVulcanCV') && Player.UpgradePoints >= 75"
-  OptionNext_4: End
-  OptionExecute_4: "UnlockTechTreeItem('Eden_TurretVulcanCV'); UnlockTechTreeItem('Eden_TurretVulcanCV_Ammo'); RemoveItem('Token', 1, 6413); Player.UpgradePoints -= 75"
+  OptionNext_4: Eden_UCHLib_Unlocked
+  OptionExecute_4: "UnlockTechTreeItem('Eden_TurretVulcanCV'); UnlockTechTreeItem('Eden_TurretVulcanCV_Ammo'); RemoveItem('Token', 1, 6413); Player.UpgradePoints -= 75; ; Eden_UnlockName = Loc('Eden_TurretVulcanCV')"
   Option_5: eden_dialogue_Q2Y8eec
   OptionIf_5: "HasItem('Token', 1, 6407) && IsTechTreeItemUnlocked('Eden_TurretRailgun') && !IsTechTreeItemUnlocked('Eden_TurretRailgunHeavy') && Player.UpgradePoints >= 100"
   OptionNext_5: Eden_UCHLib_Unlocked
-  OptionExecute_5: "UnlockTechTreeItem('Eden_TurretRailgunHeavy'); RemoveItem('Token', 1, 6407); Player.UpgradePoints -= 100"
+  OptionExecute_5: "UnlockTechTreeItem('Eden_TurretRailgunHeavy'); RemoveItem('Token', 1, 6407); Player.UpgradePoints -= 100; Eden_UnlockName = Loc('Eden_TurretRailgunHeavy')"
   Option_6: eden_dialogue_WaWqHa8
   OptionIf_6: "HasItem('Token', 1, 6410) && !IsTechTreeItemUnlocked('Eden_CVTorpedoRapid') && Player.UpgradePoints >= 75"
   OptionNext_6: Eden_UCHLib_Unlocked
-  OptionExecute_6: "UnlockTechTreeItem('Eden_CVTorpedoRapid'); RemoveItem('Token', 1, 6410); Player.UpgradePoints -= 75"
+  OptionExecute_6: "UnlockTechTreeItem('Eden_CVTorpedoRapid'); RemoveItem('Token', 1, 6410); Player.UpgradePoints -= 75; Eden_UnlockName = Loc('Eden_CVTorpedoRapid')"
   Option_7: eden_dialogue_WSqumqq
   OptionIf_7: "HasItem('Token', 1, 6411) && !IsTechTreeItemUnlocked('Eden_RailgunCVSpinal_Kit') && Player.UpgradePoints >= 100"
   OptionNext_7: Eden_UCHLib_Unlocked
-  OptionExecute_7: "UnlockTechTreeItem('Eden_RailgunCVSpinal_Kit'); UnlockTechTreeItem('Eden_RailgunCVSpinal'); RemoveItem('Token', 1, 6411); Player.UpgradePoints -= 100"
+  OptionExecute_7: "UnlockTechTreeItem('Eden_RailgunCVSpinal_Kit'); UnlockTechTreeItem('Eden_RailgunCVSpinal'); RemoveItem('Token', 1, 6411); Player.UpgradePoints -= 100; ; Eden_UnlockName = Loc('Eden_RailgunCVSpinal')"
   Output: eden_dialogue_GSCG0mC
 }
 { +Dialogue Name: Eden_UCHLib_Civ
@@ -22959,19 +25900,23 @@
   Option_2: eden_dialogue_iq0iStm
   OptionIf_2: "HasItem('Token', 1, 6405) && !IsTechTreeItemUnlocked('Eden_WarpCoreMoonshine')"
   OptionNext_2: Eden_UCHLib_Unlocked
-  OptionExecute_2: "UnlockTechTreeItem('Eden_WarpCoreMoonshine'); UnlockTechTreeItem('Eden_PromethiumSlammers'); UnlockTechTreeItem('Eden_LiquidAssassin'); UnlockTechTreeItem('Eden_SpaceVodka'); RemoveItem('Token', 1, 6405)"
+  OptionExecute_2: "UnlockTechTreeItem('Eden_WarpCoreMoonshine'); UnlockTechTreeItem('Eden_PromethiumSlammers'); UnlockTechTreeItem('Eden_LiquidAssassin'); UnlockTechTreeItem('Eden_SpaceVodka'); RemoveItem('Token', 1, 6405); Eden_UnlockName = 'Appleseed Brews'"
   Option_3: eden_dialogue_ZaSqCim
   OptionIf_3: "HasItem('Token', 1, 6412) && !IsTechTreeItemUnlocked('Eden_AutoMiningDeviceT4')"
   OptionNext_3: Eden_UCHLib_Unlocked
-  OptionExecute_3: "UnlockTechTreeItem('Eden_AutoMiningDeviceT4'); UnlockTechTreeItem('Eden_IndustrialFuel'); RemoveItem('Token', 1, 6412)"
+  OptionExecute_3: "UnlockTechTreeItem('Eden_AutoMiningDeviceT4'); UnlockTechTreeItem('Eden_IndustrialFuel'); RemoveItem('Token', 1, 6412); Eden_UnlockName = Loc('Eden_AutoMiningDeviceT4')"
   Option_4: eden_dialogue_SEe4tOi
   OptionIf_4: "HasItem('Token', 1, 6414) && !IsTechTreeItemUnlocked('Eden_DrillIceCV')"
   OptionNext_4: Eden_UCHLib_Unlocked
-  OptionExecute_4: "UnlockTechTreeItem('Eden_DrillIceCV'); UnlockTechTreeItem('Eden_DrillIceTurretCV'); RemoveItem('Token', 1, 6414)"
+  OptionExecute_4: "UnlockTechTreeItem('Eden_DrillIceCV'); UnlockTechTreeItem('Eden_DrillIceTurretCV'); RemoveItem('Token', 1, 6414); Eden_UnlockName = 'Ice Mining Drills'"
   Option_5: eden_dialogue_808OC4m
   OptionIf_5: "HasItem('Token', 1, 6415) && !IsTechTreeItemUnlocked('Eden_DrillRichCV')"
   OptionNext_5: Eden_UCHLib_Unlocked
-  OptionExecute_5: "UnlockTechTreeItem('Eden_DrillRichCV'); UnlockTechTreeItem('Eden_DrillTurretAutoCV'); UnlockTechTreeItem('Eden_DrillTurretAutoCVT2'); RemoveItem('Token', 1, 6415)"
+  OptionExecute_5: "UnlockTechTreeItem('Eden_DrillRichCV'); UnlockTechTreeItem('Eden_DrillTurretAutoCV'); UnlockTechTreeItem('Eden_DrillTurretAutoCVT2'); RemoveItem('Token', 1, 6415); Eden_UnlockName = 'Rich Asteroid Mining Drills'"
+  Option_6: eden_dialogue_4Ou4W8q
+  OptionIf_6: "HasItem('Token', 1, 6416) && !IsTechTreeItemUnlocked('Eden_WindTurbineActiveT2') && Player.UpgradePoints >= 100"
+  OptionNext_6: Eden_UCHLib_Unlocked
+  OptionExecute_6: "UnlockTechTreeItem('Eden_WindTurbineActiveT2'); RemoveItem('Token', 1, 6416); Player.UpgradePoints -= 100; Eden_UnlockName = Loc('Eden_WindTurbineActiveT2')"
   Output: eden_dialogue_O8m4w8C
 }
 { +Dialogue Name: Eden_UCHLib_Pirate
@@ -22980,7 +25925,7 @@
   Option_2: eden_dialogue_8JO8umO
   OptionIf_2: "HasItem('Token', 1, 6409) && !IsTechTreeItemUnlocked('Eden_BlasterCV') && Player.UpgradePoints >= 100"
   OptionNext_2: Eden_UCHLib_Unlocked
-  OptionExecute_2: "UnlockTechTreeItem('Eden_BlasterCV'); RemoveItem('Token', 1, 6409); Player.UpgradePoints -= 100"
+  OptionExecute_2: "UnlockTechTreeItem('Eden_BlasterCV'); RemoveItem('Token', 1, 6409); Player.UpgradePoints -= 100; Eden_UnlockName= Loc('Eden_BlasterCV')"
   Output: eden_dialogue_iKWqW4e
 }
 { +Dialogue Name: Eden_UCHLib_Zirax
@@ -22994,19 +25939,19 @@
   Option_2: eden_dialogue_Obq0kCq
   OptionIf_2: "HasItem('Token', 1, 6403) && !IsTechTreeItemUnlocked('Eden_RegenKit')"
   OptionNext_2: Eden_UCHLib_Unlocked
-  OptionExecute_2: "UnlockTechTreeItem('Eden_RegenKit'); UnlockTechTreeItem('Eden_StaminaRegenKit'); UnlockTechTreeItem('Eden_RadiationRegenKit'); RemoveItem('Token', 1, 6403)"
+  OptionExecute_2: "UnlockTechTreeItem('Eden_RegenKit'); UnlockTechTreeItem('Eden_StaminaRegenKit'); UnlockTechTreeItem('Eden_RadiationRegenKit'); RemoveItem('Token', 1, 6403); Eden_UnlockName= Loc('Eden_TurretFlakClose'); Eden_UnlockName = 'Nanite Injectors'"
   Option_3: eden_dialogue_8KqqKSu
   OptionIf_3: "HasItem('Token', 1, 6404) && !IsTechTreeItemUnlocked('Eden_RegenKitT2')"
   OptionNext_3: Eden_UCHLib_Unlocked
-  OptionExecute_3: "UnlockTechTreeItem('Eden_RegenKitT2'); UnlockTechTreeItem('Eden_StaminaRegenKitT2'); RemoveItem('Token', 1, 6404)"
+  OptionExecute_3: "UnlockTechTreeItem('Eden_RegenKitT2'); UnlockTechTreeItem('Eden_StaminaRegenKitT2'); RemoveItem('Token', 1, 6404); Eden_UnlockName = 'Advanced Nanite Injectors'"
   Option_4: eden_dialogue_04qSGW0
   OptionIf_4: "HasItem('Token', 1, 6406) && !IsTechTreeItemUnlocked('Eden_BandagesT2')"
   OptionNext_4: Eden_UCHLib_Unlocked
-  OptionExecute_4: "UnlockTechTreeItem('Eden_BandagesT2'); RemoveItem('Token', 1, 6406)"
+  OptionExecute_4: "UnlockTechTreeItem('Eden_BandagesT2'); RemoveItem('Token', 1, 6406); Eden_UnlockName = Loc('Eden_TurretFlakClose')"
   Option_5: eden_dialogue_u00SGOC
   OptionIf_5: "HasItem('Token', 1, 6408) && !IsTechTreeItemUnlocked('Eden_MinigunIncendiary')"
   OptionNext_5: Eden_UCHLib_Unlocked
-  OptionExecute_5: "UnlockTechTreeItem('Eden_MinigunIncendiary'); RemoveItem('Token', 1, 6408)"
+  OptionExecute_5: "UnlockTechTreeItem('Eden_MinigunIncendiary'); RemoveItem('Token', 1, 6408); Eden_UnlockName = Loc('Eden_MinigunIncendiary')"
   Option_6: eden_dialogue_OGCueGK
   OptionNext_6: Eden_UCHLib_Alien2
   Output: eden_dialogue_WIuaKSO
@@ -23025,7 +25970,10 @@
 }
 { +Dialogue Name: Eden_UCHLib_Unlocked
   Output: eden_dialogue_O88i4ue
-  Next_1: Eden_UCHLib_Start
+  Option_1: eden_dialogue_uqqSWmi
+  OptionNext_1: Eden_UCHLib_Start
+  Option_2: eden_dialogue_CumKCe0
+  OptionNext_2: End
 }
 { +Dialogue Name: Eden_UCHLib_Info
   Output: eden_dialogue_4qCeKCS
@@ -23213,24 +26161,31 @@
   Variable_13: "Fail", param1: dbplayerpoi_int
   Variable_14: "Success", param1: dbplayerpoi_int
   Variable_15: "Progress", param1: dbplayerpoi_int
+  Variable_16: "FireStickGreen", param1: int
+  Variable_17: "FireStickBlue", param1: int
+  Variable_18: "FireStickRed", param1: int
   Next_1: Eden_HackFrequency2_Deny
-  NextIf_1: "Fail == 1"
+  NextIf_1: "IsBlockActive('Lockdown')"
   Next_2: Eden_HackFrequency2_Deny2
-  NextIf_2: "Success == 1"
-  Next_3: Eden_HackFrequency2_Init
+  NextIf_2: "IsSignalSet('Vault6')"
+  Next_3: Eden_HackFrequency2_Deny2
+  NextIf_3: "Success == 1 && IsBlockActive('Lockdown')"
+  Next_4: Eden_HackFrequency2_Init
 }
 { +Dialogue Name: Eden_HackFrequency2_Deny
   Output: eden_dialogue_u0a4CZm
   Option_1: eden_dialogue_7uoOOZC
   OptionNext_1: End
+  Execute: "Progress = 0; SetBlockActive('Lockdown', true)"
 }
 { +Dialogue Name: Eden_HackFrequency2_Deny2
   Output: eden_dialogue_0Kb0i4o
   Option_1: eden_dialogue_m6qaWKa
   OptionNext_1: End
+  Execute: "Progress = 0"
 }
 { +Dialogue Name: Eden_HackFrequency2_Init
-  Execute: "CodeMin = Random(1,50000); CodeMax = CodeMin + Random(12000,15000) - Eden_PlayerHackingSkill; Code = Random(CodeMin,CodeMax)"
+  Execute: "CodeMin = Random(1,50000); CodeMax = CodeMin + Random(12000,16000) - Eden_PlayerHackingSkill; Code = Random(CodeMin,CodeMax)"
   Next_1: Eden_HackFrequency2_Greet
   NextIf_1: "Tries >= 1 && Progress == 1"
   Next_2: Eden_HackFrequency2_Deny
@@ -23238,7 +26193,7 @@
   Next_3: Eden_HackFrequency2_Init2
 }
 { +Dialogue Name: Eden_HackFrequency2_Init2
-  Execute: "Tries = 15; Score = 0; Progress = 1"
+  Execute: "Tries = 16; Score = 0; Progress = 1"
   Next_1: Eden_HackFrequency2_Greet
 }
 { +Dialogue Name: Eden_HackFrequency2_Greet
@@ -23266,6 +26221,18 @@
   OptionIf_7: "Tries >= 1 && BonusMax >= 1 && CodeMax >= Code + 2000"
   OptionNext_7: Eden_HackFrequency2_Greet
   OptionExecute_7: "BonusMax -= 1; CodeMax = Code + Random(250,1500)"
+  Option_8: eden_dialogue_4la00OK
+  OptionIf_8: "HasItem('FireStickGreen', 1) && FireStickGreen == 0"
+  OptionNext_8: Eden_HackFrequency2_Firestick
+  OptionExecute_8: "RemoveItem('FireStickGreen', 1); FireStickGreen += 1"
+  Option_9: eden_dialogue_iK44SKq
+  OptionIf_9: "HasItem('FireStickBlue', 1) && FireStickBlue == 0"
+  OptionNext_9: Eden_HackFrequency2_Firestick
+  OptionExecute_9: "RemoveItem('FireStickBlue', 1); FireStickBlue += 1"
+  Option_10: eden_dialogue_qSGm0ea
+  OptionIf_10: "HasItem('FireStickRed', 1) && FireStickRed == 0"
+  OptionNext_10: Eden_HackFrequency2_Firestick
+  OptionExecute_10: "RemoveItem('FireStickRed', 1); FireStickRed += 1"
 }
 { +Dialogue Name: Eden_HackFrequency2_Hack1
   Input: eden_dialogue_iaOKuiq, param1: int;eden_dialogue_mSSaCi4;eden_dialogue_mSqGSiS
@@ -23273,7 +26240,7 @@
   NextIf_1: "IsInputOk()"
   Next_2: Eden_HackFrequency2_Greet
   NextIf_2: "IsInputCancel()"
-  Execute: "if (IsInputOk()) Guess = InputResultAsInt();"
+  Execute: "if (IsInputOk()) Guess = InputResultAsInt()"
 }
 { +Dialogue Name: Eden_HackFrequency2_Check
   Next_1: Eden_HackFrequency2_Succeed
@@ -23289,14 +26256,27 @@
 { +Dialogue Name: Eden_HackFrequency2_Check2
   Execute: "Randomize = Random(1,100)"
   Next_1: Eden_HackFrequency2_BonusTry
-  NextIf_1: "Randomize >= 1 && Randomize <= 4"
+  NextIf_1: "Randomize >= 1 && Randomize <= 5"
   Next_2: Eden_HackFrequency2_BonusComplete
   NextIf_2: "Randomize >= 5 && Randomize <= 10"
   Next_3: Eden_HackFrequency2_BonusMin
-  NextIf_3: "Randomize >= 11 && Randomize <= 18"
+  NextIf_3: "Randomize >= 11 && Randomize <= 16"
   Next_4: Eden_HackFrequency2_BonusMax
-  NextIf_4: "Randomize >= 19 && Randomize <= 26"
+  NextIf_4: "Randomize >= 19 && Randomize <= 22"
   Next_5: Eden_HackFrequency2_Greet
+}
+{ +Dialogue Name: Eden_HackFrequency2_Firestick
+  Execute: "Randomize = Random(1,22)"
+  Next_1: Eden_HackFrequency2_BonusTry
+  NextIf_1: "Randomize >= 1 && Randomize <= 5"
+  Next_2: Eden_HackFrequency2_BonusComplete
+  NextIf_2: "Randomize >= 5 && Randomize <= 10"
+  Next_3: Eden_HackFrequency2_BonusMin
+  NextIf_3: "Randomize >= 11 && Randomize <= 16"
+  Next_4: Eden_HackFrequency2_BonusMax
+  NextIf_4: "Randomize >= 19 && Randomize <= 22"
+  Next_5: Eden_HackFrequency2_Greet
+  Output: eden_dialogue_uceaSqC
 }
 { +Dialogue Name: Eden_HackFrequency2_CheckLow
   Execute: "CodeMin = Guess + 1; Tries -= 1"
@@ -23319,7 +26299,7 @@
 }
 { +Dialogue Name: Eden_HackFrequency2_Fail
   Output: eden_dialogue_GmqueeO
-  Execute: "Fail = 1"
+  Execute: "Fail = 1; SetBlockActive('Lockdown', true); Progress = 0"
   Option_1: eden_dialogue_MEWae4K
   OptionNext_1: End
 }
@@ -23380,9 +26360,10 @@
   Output: eden_dialogue_iq4OqK8
   Option_1: eden_dialogue_S0O80Ca
   OptionNext_1: End
+  Execute: "Progress = 0"
 }
 { +Dialogue Name: Eden_HackFrequency2_Succeed
-  Execute: "Score += 1; Tries += Random(11,13); Tries -= Score; Tries -= Score"
+  Execute: "Score += 1; Tries += Random(11,13); Tries -= (Score * Random(1,2))"
   Output: eden_dialogue_Yeim4e8
   Next_1: Eden_HackFrequency2_Vault1
   NextIf_1: "Score == 1"
@@ -23426,8 +26407,29 @@
 }
 { +Dialogue Name: Eden_HackFrequency2_Info
   Output: eden_dialogue_qSGa0xK
-  Option_1: eden_dialogue_d88484G
-  OptionNext_1: Eden_HackFrequency2_Greet
+  Option_1: eden_dialogue_KHWque0
+  OptionNext_1: Eden_HackFrequency2_Info2
+  Option_2: eden_dialogue_iaGCqeq
+  OptionNext_2: Eden_HackFrequency2_Info3
+  Option_3: eden_dialogue_G80GaGA
+  OptionNext_3: Eden_HackFrequency2_Info4
+  Option_4: eden_dialogue_d88484G
+  OptionNext_4: Eden_HackFrequency2_Greet
+}
+{ +Dialogue Name: Eden_HackFrequency2_Info2
+  Output: eden_dialogue_8OiGa8q
+  Option_1: eden_dialogue_0AGieKu
+  OptionNext_1: Eden_HackFrequency2_Info
+}
+{ +Dialogue Name: Eden_HackFrequency2_Info3
+  Option_1: eden_dialogue_COCqmC6
+  OptionNext_1: Eden_HackFrequency2_Info
+  Output: eden_dialogue_sii8Va0
+}
+{ +Dialogue Name: Eden_HackFrequency2_Info4
+  Option_1: eden_dialogue_M4K0uui
+  OptionNext_1: Eden_HackFrequency2_Info
+  Output: eden_dialogue_W8WieVq
 }
 { +Dialogue Name: Eden_HackFrequency2_Exit
   Output: eden_dialogue_eW4KC08
@@ -23435,6 +26437,286 @@
   OptionNext_1: Eden_HackFrequency2_Greet
   Option_2: eden_dialogue_iKgqWmm
   OptionNext_2: End
+  OptionExecute_2: "Tries -= 1"
+}
+{ +Dialogue Name: Eden_HackLightsT3_Init
+  Variable_1: "Eden_Digit1", param1: int
+  Variable_2: "Eden_Digit2", param1: int
+  Variable_3: "Eden_Digit3", param1: int
+  Variable_4: "Eden_Digit4", param1: int
+  Variable_5: "Eden_Virus", param1: dbplayerpoi_int
+  Variable_6: "Eden_Complete", param1: dbplayerpoi_int
+  Variable_7: "Eden_DigitLoc", param1: string
+  Variable_8: "Eden_Code1", param1: int
+  Variable_9: "Eden_Code2", param1: int
+  Variable_10: "Eden_Code3", param1: int
+  Variable_11: "Eden_Code4", param1: int
+  Variable_12: "Eden_Firewall", param1: dbplayerpoi_int
+  Variable_13: "Eden_ContainerID", param1: dbplayerpoi_int
+  Variable_14: "Eden_ContainerID2", param1: dbplayerpoi_int
+  Variable_15: "Eden_ContainerID3", param1: dbplayerpoi_int
+  Variable_16: "Eden_Fallback", param1: int
+  Variable_17: "Eden_Event1", param1: int
+  Variable_18: "Eden_Event2", param1: int
+  Variable_19: "Eden_Event3", param1: int
+  Variable_20: "Eden_Guess", param1: int
+  Variable_21: "Eden_EventVirus", param1: int
+  Variable_22: "Eden_EventCode", param1: int
+  Variable_23: "Eden_Randomize", param1: int
+  Variable_24: "Eden_HackQuantity", param1: dbplayerpf_int
+  Variable_25: "Eden_SoftwareOverclock", param1: dbplayerpoi_int
+  Variable_26: "Eden_SoftwareSpam", param1: dbplayerpoi_int
+  Next_1: Eden_HackLightsT3_Randomize
+  NextIf_1: "Eden_Complete == 0"
+  Next_2: Eden_HackLights_Init, param1: GotoAndReset
+  NextIf_2: "Eden_Complete == 2"
+  Next_3: Eden_HackLights_Deny
+}
+{ +Dialogue Name: Eden_HackLightsT3_Randomize
+  Next_1: Eden_HackLights_Init, param1: GotoAndReset
+  Execute: "Eden_Firewall = 3; Eden_Virus = 80; Eden_ContainerID = 603; Eden_ContainerID2 = 603; Eden_ContainerID3 = 1; Eden_SoftwareOverclock = 0; Eden_SoftwareSpam = 0"
+}
+{ +Dialogue Name: Eden_HackLightsT4_Init
+  Variable_1: "Eden_Digit1", param1: int
+  Variable_2: "Eden_Digit2", param1: int
+  Variable_3: "Eden_Digit3", param1: int
+  Variable_4: "Eden_Digit4", param1: int
+  Variable_5: "Eden_Virus", param1: dbplayerpoi_int
+  Variable_6: "Eden_Complete", param1: dbplayerpoi_int
+  Variable_7: "Eden_DigitLoc", param1: string
+  Variable_8: "Eden_Code1", param1: int
+  Variable_9: "Eden_Code2", param1: int
+  Variable_10: "Eden_Code3", param1: int
+  Variable_11: "Eden_Code4", param1: int
+  Variable_12: "Eden_Firewall", param1: dbplayerpoi_int
+  Variable_13: "Eden_ContainerID", param1: dbplayerpoi_int
+  Variable_14: "Eden_ContainerID2", param1: dbplayerpoi_int
+  Variable_15: "Eden_ContainerID3", param1: dbplayerpoi_int
+  Variable_16: "Eden_Fallback", param1: int
+  Variable_17: "Eden_Event1", param1: int
+  Variable_18: "Eden_Event2", param1: int
+  Variable_19: "Eden_Event3", param1: int
+  Variable_20: "Eden_Guess", param1: int
+  Variable_21: "Eden_EventVirus", param1: int
+  Variable_22: "Eden_EventCode", param1: int
+  Variable_23: "Eden_Randomize", param1: int
+  Variable_24: "Eden_HackQuantity", param1: dbplayerpf_int
+  Variable_25: "Eden_SoftwareOverclock", param1: dbplayerpoi_int
+  Variable_26: "Eden_SoftwareSpam", param1: dbplayerpoi_int
+  Next_1: Eden_HackLightsT4_Randomize
+  NextIf_1: "Eden_Complete == 0"
+  Next_2: Eden_HackLights_Init, param1: GotoAndReset
+  NextIf_2: "Eden_Complete == 2"
+  Next_3: Eden_HackLights_Deny
+}
+{ +Dialogue Name: Eden_HackLightsT4_Randomize
+  Next_1: Eden_HackLights_Init, param1: GotoAndReset
+  Execute: "Eden_Firewall = 4; Eden_Virus = 100; Eden_ContainerID = 604; Eden_ContainerID2 = 603; Eden_ContainerID3 = 1; Eden_SoftwareOverclock = 0; Eden_SoftwareSpam = 0"
+}
+{ +Dialogue Name: Eden_HackLights_Init
+  Variable_1: "Eden_Digit1", param1: int
+  Variable_2: "Eden_Digit2", param1: int
+  Variable_3: "Eden_Digit3", param1: int
+  Variable_4: "Eden_Digit4", param1: int
+  Variable_5: "Eden_Virus", param1: dbplayerpoi_int
+  Variable_6: "Eden_Complete", param1: dbplayerpoi_int
+  Variable_7: "Eden_DigitLoc", param1: string
+  Variable_8: "Eden_Code1", param1: int
+  Variable_9: "Eden_Code2", param1: int
+  Variable_10: "Eden_Code3", param1: int
+  Variable_11: "Eden_Code4", param1: int
+  Variable_12: "Eden_Firewall", param1: dbplayerpoi_int
+  Variable_13: "Eden_ContainerID", param1: dbplayerpoi_int
+  Variable_14: "Eden_ContainerID2", param1: dbplayerpoi_int
+  Variable_15: "Eden_ContainerID3", param1: dbplayerpoi_int
+  Variable_16: "Eden_Fallback", param1: int
+  Variable_17: "Eden_Event1", param1: int
+  Variable_18: "Eden_Event2", param1: int
+  Variable_19: "Eden_Event3", param1: int
+  Variable_20: "Eden_Guess", param1: int
+  Variable_21: "Eden_EventVirus", param1: int
+  Variable_22: "Eden_EventCode", param1: int
+  Variable_23: "Eden_Randomize", param1: int
+  Variable_24: "Eden_HackQuantity", param1: dbplayerpf_int
+  Variable_25: "Eden_SoftwareOverclock", param1: dbplayerpoi_int
+  Variable_26: "Eden_SoftwareSpam", param1: dbplayerpoi_int
+  Next_1: Eden_HackLights_Deny
+  NextIf_1: "Eden_Complete == 1 || Eden_Virus <= 0"
+  Next_2: Eden_HackLights_Randomize
+  Execute: "Eden_Fallback = 5"
+}
+{ +Dialogue Name: Eden_HackLights_Deny
+  Output: eden_dialogue_uiKKOqO
+  Option_1: eden_dialogue_i8O2SSq
+  OptionNext_1: End
+  Option_2: eden_dialogue_WeGei0C
+  OptionIf_2: "HasItem('Token', 1, 6000)"
+  OptionNext_2: End
+  OptionExecute_2: "Eden_Complete = 0"
+}
+{ +Dialogue Name: Eden_HackLights_Randomize
+  Execute: "Eden_DigitLoc = 'Eden_HackLightsLoc'; Eden_Code1 = Random(0,1); Eden_Code2 = Random(0,1); Eden_Code3 = Random(0,1); Eden_Code4 = Random(0,1); Eden_Complete = 2;<nl>Eden_Digit1 = 0; Eden_Digit2 = 0; Eden_Digit3 = 0; Eden_Digit4 = 0; Eden_Fallback -= 1"
+  Next_1: Eden_HackLights_Randomize
+  NextIf_1: "Eden_Code1 + Eden_Code2 + Eden_Code3 + Eden_Code4 == 0 && Eden_Fallback >= 0"
+  Next_2: Eden_HackLights_Greet
+}
+{ +Dialogue Name: Eden_HackLights_Greet
+  Output: eden_dialogue_muiuKNB
+  Option_1: eden_dialogue_OSmSiO4
+  OptionIf_1: "Eden_Digit1 != 1"
+  OptionNext_1: Eden_HackLights_Check
+  OptionExecute_1: "Eden_Digit1 = 1"
+  Option_2: eden_dialogue_eeCia4m
+  OptionIf_2: "Eden_Digit1 == 1"
+  OptionNext_2: Eden_HackLights_Check
+  OptionExecute_2: "Eden_Digit1 = 0"
+  Option_3: eden_dialogue_uaaS4mO
+  OptionIf_3: "Eden_Digit2 != 1"
+  OptionNext_3: Eden_HackLights_Check
+  OptionExecute_3: "Eden_Digit2 = 1"
+  Option_4: eden_dialogue_ieG4CpW
+  OptionIf_4: "Eden_Digit2 == 1"
+  OptionNext_4: Eden_HackLights_Check
+  OptionExecute_4: "Eden_Digit2 = 0"
+  Option_5: eden_dialogue_aua0qeO
+  OptionIf_5: "Eden_Digit3 != 1"
+  OptionNext_5: Eden_HackLights_Check
+  OptionExecute_5: "Eden_Digit3 = 1"
+  Option_6: eden_dialogue_0CamSCG
+  OptionIf_6: "Eden_Digit3 == 1"
+  OptionNext_6: Eden_HackLights_Check
+  OptionExecute_6: "Eden_Digit3 = 0"
+  Option_7: eden_dialogue_eGm0mWK
+  OptionIf_7: "Eden_Digit4 != 1"
+  OptionNext_7: Eden_HackLights_Check
+  OptionExecute_7: "Eden_Digit4 = 1"
+  Option_8: eden_dialogue_4OuEWqG
+  OptionIf_8: "Eden_Digit4 == 1"
+  OptionNext_8: Eden_HackLights_Check
+  OptionExecute_8: "Eden_Digit4 = 0"
+  Option_9: eden_dialogue_mGWW4u8
+  OptionNext_9: Eden_HackLights_Software
+  Option_10: eden_dialogue_CO328u4
+  OptionNext_10: End
+}
+{ +Dialogue Name: Eden_HackLights_Software
+  Output: eden_dialogue_0G8aGGC
+  Option_1: eden_dialogue_S0v4GeK
+  OptionIf_1: "HasItem('FireStickRed', 1) && Eden_SoftwareSpam == 0"
+  OptionNext_1: Eden_HackLights_Spam
+  Option_2: eden_dialogue_CKIeGeK
+  OptionIf_2: "HasItem('FireStickGreen', 1) && Eden_SoftwareOverclock == 0"
+  OptionNext_2: Eden_HackLights_Overclock
+  Option_3: eden_dialogue_WOSCWm0
+  OptionNext_3: Eden_HackLights_Greet
+}
+{ +Dialogue Name: Eden_HackLights_Spam
+  Execute: "RemoveItem('FireStickRed', 1); Eden_SoftwareSpam = 1"
+  Output: eden_dialogue_G0qGOQC
+  Next_1: Eden_HackLights_Greet
+}
+{ +Dialogue Name: Eden_HackLights_Overclock
+  Execute: "RemoveItem('FireStickGreen', 1); Eden_SoftwareOverclock = 1"
+  Output: eden_dialogue_qqKemW4
+  Next_1: Eden_HackLights_Success
+}
+{ +Dialogue Name: Eden_HackLights_Check
+  Next_1: Eden_HackLights_Success
+  NextIf_1: "Eden_Digit1 == Eden_Code1 && Eden_Digit2 == Eden_Code2 && Eden_Digit3 == Eden_Code3 && Eden_Digit4 == Eden_Code4"
+  Next_2: Eden_HackLights_Deny
+  NextIf_2: "Eden_Virus <= 0"
+  Next_3: Eden_HackLights_EventSetup
+  NextIf_3: "Random(1,100) >= 98 && Eden_SoftwareSpam == 0"
+  Next_4: Eden_HackLights_EventSpam
+  NextIf_4: "Random(1,100) >= 98 && Eden_SoftwareSpam == 1"
+  Next_5: Eden_HackLights_Greet
+  Execute: "Eden_Virus -= 1"
+}
+{ +Dialogue Name: Eden_HackLights_EventSpam
+  Execute: "Eden_Virus += 4"
+  Output: eden_dialogue_naZiKQ4
+  Next_1: Eden_HackLights_Greet
+}
+{ +Dialogue Name: Eden_HackLights_EventSetup
+  Output: eden_dialogue_8GWeapa
+  Option_1: eden_dialogue_mcmOeuO
+  OptionNext_1: Eden_HackLights_EventRandom
+  Execute: "Eden_EventVirus = Random(5,10); Eden_Virus -= (Eden_EventVirus - 2)"
+}
+{ +Dialogue Name: Eden_HackLights_EventRandom
+  Next_1: Eden_HackLights_Event2
+  NextIf_1: "Eden_Randomize >= 65"
+  Next_2: Eden_HackLights_Event3
+  NextIf_2: "Eden_Randomize >= 35"
+  Next_3: Eden_HackLights_Event4
+  Execute: "Eden_Randomize = Random(1,100)"
+}
+{ +Dialogue Name: Eden_HackLights_Event2
+  Output: eden_dialogue_0i4u0uq
+  Execute: "Eden_Event1 = Random(5,25); Eden_Event2 = Random(5,25); Eden_Event3 = 2; Eden_EventCode = (Eden_Event1 + (Eden_Event2 * 4))"
+  Next_1: Eden_HackLights_Event2I
+}
+{ +Dialogue Name: Eden_HackLights_Event3
+  Output: eden_dialogue_CwqSmGS
+  Execute: "Eden_Event1 = Random(2,5); Eden_Event2 = Random(2,5); Eden_Event3 = Random(2,3); Eden_EventCode = (Eden_Event1 + (Eden_Event3 * 4)) + (Eden_Event2 + (Eden_Event3 * 4))"
+  Next_1: Eden_HackLights_Event2I
+}
+{ +Dialogue Name: Eden_HackLights_Event4
+  Output: eden_dialogue_eOSW8qi
+  Execute: "Eden_Event1 = Random(2,6); Eden_Event2 = Random(2,6); Eden_Event3 = Random(2,5); Eden_EventCode = (Eden_Event1 + Eden_Event2 + (Eden_Event3 + 6 * 4))"
+  Next_1: Eden_HackLights_Event2I
+}
+{ +Dialogue Name: Eden_HackLights_Event2I
+  Input: eden_dialogue_wOWiWau, param1: int;eden_dialogue_0ma0Iei;eden_dialogue_8S44aiS
+  Execute: "if (IsInputOk()) Eden_Guess = InputResultAsInt()"
+  Next_1: Eden_HackLights_Event2Check
+  NextIf_1: "IsInputOk()"
+  Next_2: Eden_HackLights_Event2Cancel
+  NextIf_2: "IsInputCancel()"
+}
+{ +Dialogue Name: Eden_HackLights_Event2Check
+  Next_1: Eden_HackLights_Event2Success
+  NextIf_1: "Eden_Guess == Eden_EventCode"
+  Next_2: Eden_HackLights_Event2Cancel
+}
+{ +Dialogue Name: Eden_HackLights_Event2Cancel
+  Option_1: eden_dialogue_q4C400C
+  OptionNext_1: Eden_HackLights_Init
+  Output: eden_dialogue_0a0K08u
+}
+{ +Dialogue Name: Eden_HackLights_Event2Success
+  Execute: "Eden_Virus += (Eden_EventVirus + 3)"
+  Output: eden_dialogue_mG4S44e
+  Option_1: eden_dialogue_W4W84OC
+  OptionNext_1: Eden_HackLights_Greet
+}
+{ +Dialogue Name: Eden_HackLights_Success
+  Output: eden_dialogue_GmeYea0
+  Option_1: eden_dialogue_i0SOKK0
+  OptionIf_1: "Eden_Firewall >= 1 && Eden_Virus >= 0"
+  OptionNext_1: Eden_HackLights_Randomize
+  Option_2: eden_dialogue_ueOKu0i
+  OptionIf_2: "Eden_Firewall <= 0 && !IsBlockActive('Doors')"
+  OptionNext_2: Eden_HackLights_Reward
+  Option_3: eden_dialogue_ISaqeMG
+  OptionIf_3: "Eden_Firewall <= 0 && IsBlockActive('Doors')"
+  OptionNext_3: End
+  Option_4: eden_dialogue_O50SCqC
+  OptionIf_4: "Eden_Firewall >= 1 && Eden_Virus <= 0"
+  OptionNext_4: End
+  Execute: "Eden_Firewall -= 1; Eden_Fallback = 5"
+}
+{ +Dialogue Name: Eden_HackLights_Reward
+  Output: eden_dialogue_C4mu4mi
+  Option_1: eden_dialogue_a8eaaKO
+  OptionNext_1: End
+  Execute: "Eden_Complete = 1; AddItemsFromContainer(Eden_ContainerID, 8); ; AddItemsFromContainer(Eden_ContainerID2, 8); AddItemsFromContainer(Eden_ContainerID3, 8); Eden_HackQuantity += 1"
+}
+{ +Dialogue Name: Eden_HackLights_RewardDoors
+  Output: eden_dialogue_WieKu0O
+  Option_1: eden_dialogue_E8C0aea
+  OptionNext_1: End
+  Execute: "Eden_Complete = 1; Eden_HackQuantity += 1; SetSignal('Success', true)"
 }
 { +Dialogue Name: Eden_PolarisDistCenter_Start
   NPCName: eden_dialogue_OIqKKW0

@@ -2462,8 +2462,6 @@
   }
 }
 
-
-
 # ============================================================================================================================================================================
 # ========================================================================================================================== Project Eden Custom Containers
 # ============================================================================================================================================================================
@@ -3300,7 +3298,7 @@
     Name_12: TitanPlates, param1: 0.1, param2: "4000,8000"
     Name_13: SteelPlateArmored, param1: 0.1, param2: "3000,6000"
     Group_0: Eden_SalvageUniqueT2, param1: 0.75
-    Group_1: Eden_RecipesWeapon, param1: 0.05
+    Group_1: Eden_RecipesAll, param1: 0.05
   }
 }
 
@@ -3327,7 +3325,7 @@
     Name_12: TitanPlates, param1: 0.1, param2: "4000,8000"
     Name_13: SteelPlateArmored, param1: 0.1, param2: "3000,6000"
     Group_0: Eden_SalvageUniqueT3, param1: 1
-    Group_1: Eden_RecipesWeapon, param1: 0.2
+    Group_1: Eden_RecipesAll, param1: 0.2
   }
 }
 
@@ -3391,7 +3389,7 @@
     Name_7: PentaxidCrystal, param1: 0.3, param2: "15,45"
     Name_8: EnergyCellLarge, param1: 0.15, param2: "5,15"
     Group_0: Eden_SalvageUniqueT0, param1: 0.25
-    Group_1: Eden_RecipesWeapon, param1: 0.1
+    Group_1: Eden_RecipesAll, param1: 0.1
   }
 }
 
@@ -3413,7 +3411,7 @@
     Name_7: PentaxidCrystal, param1: 0.3, param2: "15,45"
     Name_8: EnergyCellLarge, param1: 0.15, param2: "5,15"
     Group_0: Eden_SalvageUniqueT0, param1: 0.25
-    Group_1: Eden_RecipesWeapon, param1: 0.05
+    Group_1: Eden_RecipesAll, param1: 0.05
   }
 }
 
@@ -3593,6 +3591,21 @@
   }
 }
 
+# Bulk Munitions
+{ +Container Id: 658
+  Count: "1,2"
+  Size: "8,8"
+  SfxOpen: UseActions/ContainerOpen
+  SfxClose: UseActions/ContainerClose
+  { Child Items
+    Name_0: Eden_TokenCargo40k, param1: 0.1, param2: "meta=6736"
+    Group_0: Eden_AmmoSmallBulkT1, param1: 0.35
+    Group_1: Eden_AmmoLargeBulkT1, param1: 0.35
+    Group_2: Eden_AmmoSmallBulkT2, param1: 0.5
+    Group_3: Eden_AmmoLargeBulkT2, param1: 0.5
+  }
+}
+
 # Test
 # { +Container Id: 649
   # Count: 1
@@ -3605,7 +3618,222 @@
   # }
 # }
 
-# Bandit
+# Combat Site Loot
+
+# Class 1 Combat Site
+{ +Container Id: 659
+  Count: "2,3"
+  Size: "8,8"
+  SfxOpen: UseActions/ContainerOpen
+  SfxClose: UseActions/ContainerClose
+  { Child Items
+    Name_0: Token, param1: 1, param2: "meta=6506"
+    Name_1: Token, param1: 0.5, param2: "meta=6506"
+    Name_2: MoneyCard, param1: 0.5, param2: "15000,45000"
+  }
+}
+
+# Class 2 Combat Site
+{ +Container Id: 660
+  Count: "2,3"
+  Size: "8,8"
+  SfxOpen: UseActions/ContainerOpen
+  SfxClose: UseActions/ContainerClose
+  { Child Items
+    Name_0: Token, param1: 1, param2: "meta=6506"
+    Name_1: Token, param1: 1, param2: "meta=6506"
+    Name_2: MoneyCard, param1: 0.5, param2: "30000,65000"
+  }
+}
+
+# Class 3 Combat Site
+{ +Container Id: 661
+  Count: "1,2"
+  Size: "8,8"
+  SfxOpen: UseActions/ContainerOpen
+  SfxClose: UseActions/ContainerClose
+  { Child Items
+    Name_0: Token, param1: 1, param2: "meta=6506"
+  }
+}
+
+# Class 4 Combat Site
+{ +Container Id: 662
+  Count: "1,2"
+  Size: "8,8"
+  SfxOpen: UseActions/ContainerOpen
+  SfxClose: UseActions/ContainerClose
+  { Child Items
+    Name_0: Token, param1: 1, param2: "meta=6506"
+  }
+}
+
+# Class 5 Combat Site
+{ +Container Id: 663
+  Count: "1,2"
+  Size: "8,8"
+  SfxOpen: UseActions/ContainerOpen
+  SfxClose: UseActions/ContainerClose
+  { Child Items
+    Name_0: Token, param1: 1, param2: "meta=6506"
+  }
+}
+
+# Class 6 Combat Site
+{ +Container Id: 664
+  Count: "1,2"
+  Size: "8,8"
+  SfxOpen: UseActions/ContainerOpen
+  SfxClose: UseActions/ContainerClose
+  { Child Items
+    Name_0: Token, param1: 1, param2: "meta=6506"
+  }
+}
+
+
+# Mining Site Loot
+
+# Tier 1 Mining Loot
+{ +Container Id: 665
+  Count: "1,1"
+  Size: "8,8"
+  SfxOpen: UseActions/ContainerOpen
+  SfxClose: UseActions/ContainerClose
+  { Child Items
+    Group_0: Eden_MiningSiteT1, param1: 0.05
+    Group_1: Eden_OresUncommonL, param1: 0.25
+    Group_2: Eden_OresCommonL, param1: 1
+  }
+}
+
+# Tier 2 Mining Loot
+{ +Container Id: 666
+  Count: "1,1"
+  Size: "8,8"
+  SfxOpen: UseActions/ContainerOpen
+  SfxClose: UseActions/ContainerClose
+  { Child Items
+    Group_0: Eden_MiningSiteT1, param1: 0.05
+    Group_1: Eden_OresExotic, param1: 0.1
+    Group_2: Eden_OresRareL, param1: 0.25
+    Group_3: Eden_OresUncommonL, param1: 0.5
+    Group_4: Eden_OresCommonXL, param1: 0.25
+    Group_5: Eden_OresCommonL, param1: 1
+  }
+}
+
+# Tier 3 Mining Loot
+{ +Container Id: 667
+  Count: "1,2"
+  Size: "8,8"
+  SfxOpen: UseActions/ContainerOpen
+  SfxClose: UseActions/ContainerClose
+  { Child Items
+    Group_0: Eden_MiningSiteT1, param1: 0.05
+    Group_1: Eden_OresExoticL, param1: 0.5
+    Group_2: Eden_OresRareL, param1: 0.5
+    Group_3: Eden_OresUncommonL, param1: 0.5
+    Group_4: Eden_OresUncommonXL, param1: 0.2
+    Group_5: Eden_OresCommonXL, param1: 0.3
+    Group_6: Eden_OresCommonL, param1: 1
+  }
+}
+
+# Tier 4 Mining Loot
+{ +Container Id: 668
+  Count: "2,3"
+  Size: "8,8"
+  SfxOpen: UseActions/ContainerOpen
+  SfxClose: UseActions/ContainerClose
+  { Child Items
+    Group_0: Eden_MiningSiteT1, param1: 0.05
+    Group_1: Eden_OresExoticL, param1: 0.5
+    Group_2: Eden_OresRareL, param1: 0.5
+    Group_3: Eden_OresRareXL, param1: 0.25
+    Group_4: Eden_OresUncommonXL, param1: 0.5
+    Group_5: Eden_OresCommonXL, param1: 1
+  }
+}
+
+# Tier 5 Mining Loot
+{ +Container Id: 669
+  Count: "1,3"
+  Size: "8,8"
+  SfxOpen: UseActions/ContainerOpen
+  SfxClose: UseActions/ContainerClose
+  { Child Items
+    Group_0: Eden_MiningSiteT1, param1: 0.1
+    Group_1: Eden_OresExoticL, param1: 0.5
+    Group_2: Eden_OresExoticXL, param1: 0.35
+    Group_3: Eden_OresRareXL, param1: 1
+  }
+}
+
+# Tier 6 Mining Loot
+{ +Container Id: 670
+  Count: "1,3"
+  Size: "8,8"
+  SfxOpen: UseActions/ContainerOpen
+  SfxClose: UseActions/ContainerClose
+  { Child Items
+    Group_0: Eden_MiningSiteT1, param1: 0.1
+    Group_1: Eden_OresUncommonXL, param1: 0.25
+    Group_2: Eden_OresCommonXL, param1: 0.25
+    Group_3: Eden_OresExoticXL, param1: 0.75
+    Group_4: Eden_OresRareXL, param1: 0.75
+  }
+}
+
+# Money Small
+{ +Container Id: 671
+  Count: "1,1"
+  Size: "8,8"
+  SfxOpen: UseActions/KEYUnlockingMetalDoor(mono)
+  SfxClose: UseActions/KEYUnlockingMetalDoor(mono)
+
+  { Child Items
+    Name_0: MoneyCard, param1: 1, param2: "250,1500"
+  }
+}
+
+# Money Medium
+{ +Container Id: 672
+  Count: "1,1"
+  Size: "8,8"
+  SfxOpen: UseActions/KEYUnlockingMetalDoor(mono)
+  SfxClose: UseActions/KEYUnlockingMetalDoor(mono)
+
+  { Child Items
+    Name_0: PlatinumCard, param1: 0.05, param2: "5,10"
+    Name_1: MoneyCard, param1: 1, param2: "2000,5000"
+  }
+}
+
+# Money Large
+{ +Container Id: 673
+  Count: "1,1"
+  Size: "8,8"
+  SfxOpen: UseActions/KEYUnlockingMetalDoor(mono)
+  SfxClose: UseActions/KEYUnlockingMetalDoor(mono)
+
+  { Child Items
+    Name_0: PlatinumCard, param1: 0.05, param2: "10,25"
+    Name_1: MoneyCard, param1: 1, param2: "10000,20000"
+  }
+}
+
+# # Narrow Band Scan Report T1
+# { +Container Id: 674
+  # Count: "3,5"
+  # Size: "8,8"
+  # SfxOpen: UseActions/ContainerOpen
+  # SfxClose: UseActions/ContainerClose
+  # { Child Items
+    # Name_0: Token, param1: 1, param2: "meta=6123"
+  # }
+# }
+
+# Bandit - OLD
 { +Container Id: 698
   Count: "1,1"
   Size: "8,8"
@@ -3617,7 +3845,7 @@
   }
 }
 
-# Raider
+# Raider - OLD
 { +Container Id: 699
   Count: "1,1"
   Size: "8,8"
@@ -3629,7 +3857,7 @@
   }
 }
 
-# Death's Hand
+# Death's Hand - OLD
 { +Container Id: 700
   Count: "1,1"
   Size: "8,8"
@@ -4195,6 +4423,83 @@
   }
 }
 
+# Bandit insignias
+# Bandit
+{ +Container Id: 751
+  Count: "1,1"
+  Size: "8,8"
+  SfxOpen: UseActions/drone_open
+  SfxClose: UseActions/drone_close
+
+  { Child Items
+    Name_0: Token, param1: 1, param2: "meta=6505"
+  }
+}
+
+# Raider
+{ +Container Id: 752
+  Count: "1,1"
+  Size: "8,8"
+  SfxOpen: UseActions/drone_open
+  SfxClose: UseActions/drone_close
+
+  { Child Items
+    Name_0: Token, param1: 1, param2: "meta=6506"
+  }
+}
+
+# Reaver
+{ +Container Id: 753
+  Count: "1,1"
+  Size: "8,8"
+  SfxOpen: UseActions/drone_open
+  SfxClose: UseActions/drone_close
+
+  { Child Items
+    Name_0: Token, param1: 1, param2: "meta=6507"
+  }
+}
+
+# Bounty Insignias
+# T1
+{ +Container Id: 754
+  Count: "1,1"
+  Size: "8,8"
+  SfxOpen: UseActions/drone_open
+  SfxClose: UseActions/drone_close
+
+  { Child Items
+    Name_0: Token, param1: 1, param2: "meta=6508"
+  }
+}
+
+# T2
+{ +Container Id: 755
+  Count: "1,1"
+  Size: "8,8"
+  SfxOpen: UseActions/drone_open
+  SfxClose: UseActions/drone_close
+
+  { Child Items
+    Name_0: Token, param1: 1, param2: "meta=6509"
+  }
+}
+
+# T3
+{ +Container Id: 756
+  Count: "1,1"
+  Size: "8,8"
+  SfxOpen: UseActions/drone_open
+  SfxClose: UseActions/drone_close
+
+  { Child Items
+    Name_0: Token, param1: 1, param2: "meta=6510"
+  }
+}
+
+
+
+
 
 # Empty
 { +Container Id: 800
@@ -4217,7 +4522,6 @@
   SfxClose: UseActions/BarrelClose
 
   { Child Items
-    Group_0: Eden_RecipesMedical, param1: 0.5
-    Group_1: Eden_RecipesWeapon, param1: 0.5
+    Group_0: Eden_RecipesAll, param1: 1
   }
 }

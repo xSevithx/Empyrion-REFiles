@@ -466,7 +466,7 @@ POIs:
               Value: 720
 
         - GroupName: Eden_NecroAuxT1
-          Faction: Zirax  
+          Faction: Alien
           NoShieldReload: True
           CountMinMax: [ 0, 2 ]
           IsScalingCount: True
@@ -485,7 +485,8 @@ POIs:
 
 # Abandoned sites
         - GroupName: FarrAbandonedRG
-          Faction: Farr
+          Faction: Alien
+          FactionTerritory: [Farr]
           NoShieldReload: True
           IsImportant: True
           CountMinMax: [ 1, 2 ]

@@ -15,8 +15,8 @@ UseFixed: True
 # Habitable Star
 Radiation: [5,10]
 TemperatureDay: [-200,-100]
-# Music: [moonstone, space, DistantWorlds, Migration, Artefact, ColdDivide]
-Music: [Sanctuary, Vanguard, Helios, ColdDivide, AlteredPhase] # POI
+# Mysterious Music
+Music: [alien2, AnAridPlace, Anomalous, ColdSpace, desert2, Dusk, EnergyMatrix, FirstHours, Goliath, JumpingTheRift, moonstone, MorningLight, Obelisk, TidalLock, Voyage]
 
 PlayfieldType: Space
 LandClaimZone: Device

@@ -559,8 +559,8 @@ POIs:
               Value: 0
             - Key: HudDistance
               Value: 0
-            - Key: MapMarker 
-              Value: Neutral  
+            - Key: MapMarker
+              Value: Neutral
             - Key: RegenAfter
               Value: 720
     

@@ -378,7 +378,7 @@ RandomResources:
         # #YVariance: 10
 
     - Name: PromethiumResource
-      Biome: [ Jungle, ungleDense, JungleOasis, RainForest, Oasis, Flowers ]
+      Biome: [ Jungle, JungleDense, JungleOasis, RainForest, Oasis, Flowers ]
       IsScalingCount: True
       CountMinMax: [ 1, 3 ]
       SizeMinMax: [ 5, 6 ]

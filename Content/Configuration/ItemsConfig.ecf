@@ -5148,7 +5148,14 @@
     PfxMuzzle: PlasmaMuzzleFlashMediumPrefab
     TracerPerBullet: 1
     Tracer: @rg_projectiles/RG_ProjectileRailgunSV
-	TracerSpeed: 670
+    # Tracer: @rg_projectiles/RG_ProjectileRailgunSVNew3
+    TracerSpeed: 670
+    # TracerSpeed: 0
+    # Tracer: @rg_projectiles/RG_ProjectileRailgunHand
+    # Tracer: @rg_projectiles/RG_ProjectileRailgunCV
+    # Tracer: @rg_projectiles/RG_ProjectileRailgunSVNew2 # new
+    # TracerPerBullet: 1
+    # TracerSpeed: 0
     Buff: "FractureOpen,BrokenLeg,OpenWound,Mutilation"
     Buff_chance: "0.3,0.5,0.7,0.2"
 	
@@ -21207,10 +21214,114 @@
   }
 }
 
-
 # ============================================================================================================================================================================
 # ========================================================================================================================== Project Eden Custom Items
 # ============================================================================================================================================================================
+# Dummy items for Reforged Galaxy compatibility. Remove these entries when merging configs into Reforged Galaxy.
+# { +Item Id: 1600, Name: Eden_DummyRE
+  # CustomIcon: Eden_DummyRE
+  # Meshfile: Entities/Misc/DummyPrefab
+  # DropMeshfile: Entities/Misc/BagSmallNewPrefab   #Available variants: BagSmallChristmasPrefab
+  # Material: metalitem
+  # Canhold: false
+  # HoldType: 0
+  # Mass: 0.1, type: float, display: true, formatter: Kilogram
+  # Volume: 0.1, type: float, display: true, formatter: Liter
+  # StackSize: 4000
+  # Info: Eden_DummyREinfo, display: true
+  # Category: Components
+  # MarketPrice: 1, display: true
+  # FoodDecayTime: 0, display: true, type: int
+  # # FoodDecayedItem: RottenFood
+  # # FoodDecayedItem: ""
+  # LifetimeOnDrop: 0
+  # ShowUser: NoButCSV
+# }
+
+# { +Item Id: 1601, Name: SVBomb, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1602, Name: LightRocketCV, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1620, Name: 40mmBullet, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1621, Name: 20mmBullet, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1622, Name: HeavyRocketMS, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1623, Name: FlakRocketMST2, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1624, Name: PulseLaserChargeMST2, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1625, Name: TurretMSPlasmaChargeT2, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1626, Name: ArtilleryShellCVT2, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1627, Name: FlakRocketBAT2, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1628, Name: PulseLaserChargeBAT2, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1629, Name: TurretBAPlasmaChargeT2, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1630, Name: ArtilleryShellBAT2, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1631, Name: SwarmRocketHV, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1632, Name: TurretGVPlasmaChargeT2, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1633, Name: ArtilleryShellHVT2, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1634, Name: PulseLaserChargeSST2, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1635, Name: PlasmaArtilleryCharge, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1637, Name: HeavyRocketBA, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1640, Name: TorpedoSV, Ref: Eden_DummyRE
+# }
+
+# { +Item Id: 1899, Name: PlatinumCard, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1900, Name: Superconductor, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1901, Name: RadiationShielding, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1902, Name: SolarCell, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1903, Name: ThrusterComponents, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1904, Name: Graphite, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1905, Name: Sulfur, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1906, Name: PrefabHousing, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1907, Name: ReactorCore, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1908, Name: QuantumProcessor, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1909, Name: HeatExchanger, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1910, Name: Salt, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1911, Name: MiningEquipment, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1912, Name: HeliumBottle, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1913, Name: NitrogenBottle, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1914, Name: XenonBottle, Ref: Eden_DummyRE
+# }
+# { +Item Id: 1915, Name: CommunicationEquipment, Ref: Eden_DummyRE
+# }
+
+
+# - - - DELETE THE ABOVE FOR REFORGED GALAXY MERGING
+
+
+
+
+
+
 # These are the new items included with Project Eden.
 
 # Project Eden requires these items to function correctly.
@@ -21505,6 +21616,7 @@
     Ballistic: false
 
     DamageMultiplier_1: 0, param1: dirt|stone
+    DamageMultiplier_2: 0.5, param1: Player
     BlastDamageMultiplier_1: 0.05, param1: dirt|stone
   }
 }
@@ -21620,6 +21732,7 @@
     DamageMultiplier_1: 4.5, param1: head, display: DmgMultiplierHead 
     DamageMultiplier_2: 0, param1: dirt|stone|rock|wood|hullarmored|hullcombat
     DamageMultiplier_3: 0.2, param1: shield
+    DamageMultiplier_4: 0.5, param1: Player
   }
   { Child 1
     Class: Zoom
@@ -21895,13 +22008,23 @@
     # SfxNoAmmo: Weapons/Misc/weapon_outofammo_001
     SfxReload: Weapons/Player/Misc/Reload/RifleBoltActionCock04_reload
     PfxMuzzle: turretMuzzleFire
+    
+    # Tracer: @rg_projectiles/RG_ProjectileVulcanSpray1
+    # TracerPerBullet: 1
+    # # TracerSpeed: 750
+    # TracerSpeed: 0
+    # # TracerPerBullet: 1
+    # # Tracer: @rg_projectiles/RG_ProjectileBulletMinigunStream2
+    # TracerIsBeam: true
+    
   }
 }
 
 { +Item Id: 3010, Name: Eden_TurretFlakClose_Ammo
   # Meshfile: Entities/Items/Weapons/Projectiles/rocket01Prefab
   # Meshfile: @eden_projectiles/Eden_ProjectileFlakOrangeL
-  Meshfile: @rg_projectiles/RG_ProjectileDummy
+  # Meshfile: @rg_projectiles/RG_ProjectileDummy
+  Meshfile: @rg_projectiles/RG_ProjectileFlakSpray1
   DropMeshfile: Entities/Misc/BagSmallPrefab
   CustomIcon: FlakRocketMS
   Material: metalweapon
@@ -22042,12 +22165,16 @@
     SfxReload: Weapons/Player/Misc/Reload/RifleBoltActionCock04_reload
     PfxMuzzle: PlasmaMuzzleFlashLargePrefab
     TracerPerBullet: 1
-    TracerSpeed: 1400
-    # Tracer: @eden_projectiles/Eden_ProjectileRailgunLight
-    Tracer: @eden_projectiles/Eden_ProjectileRailgunL
-    # Tracer: @eden_projectiles/Eden_ProjectileRailgunBeamT1
-    # TracerIsBeam: true
+    Tracer: @rg_projectiles/RG_ProjectileRailgunBeam
+    TracerIsBeam: true
+    # # Tracer: @eden_projectiles/Eden_ProjectileRailgunL
+    # Tracer: @rg_projectiles/RG_ProjectileRailgunBeamTest2
+    # Tracer: @rg_projectiles/RG_ProjectileRailgunTest1
+    # Tracer: @rg_projectiles/RG_ProjectileRailgunTest1
 
+    # TracerPerBullet: 1
+    # TracerSpeed: 0
+    # Tracer: @rg_projectiles/RG_ProjectileRailgunCV
     DamageMultiplier_1: 0.2, param1: head|body
     DamageMultiplier_2: 0.01, param1: stone|dirt
     DamageMultiplier_3: 2, param1: metallight|metal|metalhard
@@ -22484,7 +22611,8 @@
     DamageMultiplier_3: 0, param1: dirt|stone|rock|hullarmored|hullcombat 
     DamageMultiplier_4: 0, param1: metal       # able to destroy door
     DamageMultiplier_5: 0, param1: metalhard  # able to destroy door
-    DamageMultiplier_6: 0, param1: shield 
+    DamageMultiplier_6: 0, param1: shield
+    DamageMultiplier_7: 0.5, param1: Player
   }
 }
 
@@ -22655,6 +22783,7 @@
     DamageMultiplier_1: 2, param1: head, display: DmgMultiplierHead  
     DamageMultiplier_2: 0, param1: dirt|stone|rock|wood|hullarmored|hullcombat
     DamageMultiplier_3: 0, param1: shield
+    DamageMultiplier_4: 0.5, param1: Player
   }
 }
 
@@ -22774,6 +22903,7 @@
 
     DamageMultiplier_1: 0, param1: wood|stone|dirt 
     DamageMultiplier_2: 5, param1: metal|metalhard
+    DamageMultiplier_3: 0.5, param1: Player
   }
 }
 
@@ -23251,10 +23381,12 @@
     PfxMuzzle: MuzzleFlash1
 
     # Tracer: @rg_projectiles/RG_ProjectileVulcanNewv4x3
-    Tracer: @rg_projectiles/RG_ProjectileVulcanNewv4x3Blue
+    # Tracer: @rg_projectiles/RG_ProjectileVulcanNewv4x3Blue
+    Tracer: @rg_projectiles/RG_ProjectileVulcanSprayBlue
     # Tracer: @rg_projectiles/RG_ProjectileVulcanNewv4x3Orange
     TracerPerBullet: 1
-    TracerSpeed: 750
+    # TracerSpeed: 750
+    TracerIsBeam: true
 
     DamageMultiplier_1: 0.5, param1: head|body|
     DamageMultiplier_2: 0.01, param1: wood|rock
@@ -23469,9 +23601,16 @@
     SfxReload: Weapons/Player/Misc/Reload/RifleBoltActionCock04_reload
     PfxMuzzle: PlasmaMuzzleFlashLargePrefab
     TracerPerBullet: 1
-    TracerSpeed: 1875
+    # TracerSpeed: 1875
     # Tracer: @eden_projectiles/Eden_ProjectileRailgunHeavy
-    Tracer: @eden_projectiles/Eden_ProjectileRailgunLT2
+    # Tracer: @eden_projectiles/Eden_ProjectileRailgunLT2
+    Tracer: @rg_projectiles/RG_ProjectileRailgunBeamT2
+    # Tracer: @rg_projectiles/RG_ProjectileRailgunTest1
+    # Tracer: @rg_projectiles/RG_ProjectileRailgunTest1
+    
+    # Tracer: @eden_projectiles/Eden_ProjectileRailgunLT2 # Original
+    
+    TracerIsBeam: true
 
     DamageMultiplier_1: 0.2, param1: head|body
     DamageMultiplier_2: 0.01, param1: stone|dirt
@@ -24068,7 +24207,7 @@
     # ROF: 1.2, type: float, display: true, formatter: ROF
     ROF: 0.5, type: float, display: true, formatter: ROF
     Range: 1000, display: false
-    RangeSpace: 1500, display: false
+    RangeSpace: 2000, display: false
     AmmoUnlimited: true
     Automatic: true
     Damage: 5, display: true
@@ -24208,6 +24347,7 @@
     Buff_chance: "0.01,0.01"
 
     DamageMultiplier_1: 0, param1: dirt|stone
+    DamageMultiplier_2: 0.5, param1: Player
     BlastDamageMultiplier_1: 0.05, param1: dirt|stone
   }
 }
@@ -24271,6 +24411,7 @@
     DamageMultiplier_6: 0.001, param1: hullarmored
     DamageMultiplier_7: 0.001, param1: hullcombat
     DamageMultiplier_8: 0.01, param1: shield
+    DamageMultiplier_9: 0.5, param1: Player
   }
 
   UnlockCost: 0
@@ -24288,16 +24429,18 @@
   Mass: 12, type: float, display: false, formatter: Kilogram
   { Child 0
     Class: LauncherSS
-    ROF: 0, type: float
+    ROF: 2, type: float
     Range: 80, display: false
     IgnoreAtmo: true     # Ground NPC must ignore atmo - otherwise no particle is visible
     Damage: 75, display: true
     AmmoCapacity: 250, display: true
     AmmoUnlimited: true
     AmmoType: Eden_SpiderSmallRanged_Ammo, display: true
-    ReloadDelay: 0.0, display: true
+    ReloadDelay: 1, display: true
     # SfxBegin: Enemies/CaveWorm/CritterSFX-Short_3
     SfxBegin: Enemies/Spiders/Spiders_SfxAttack
+    
+    DamageMultiplier_1: 0.5, param1: Player
   }
 }
 
@@ -24378,6 +24521,7 @@
     
     DamageMultiplier_1: 0, param1: wood|stone|dirt 
     DamageMultiplier_2: 0.2, param1: metal|metalhard
+    DamageMultiplier_3: 0.5, param1: Player
   }
 }
 
@@ -24426,7 +24570,8 @@
 
     DamageMultiplier_1: 3.5, param1: head, display: DmgMultiplierHead 
     DamageMultiplier_2: 0, param1: dirt|stone|rock|wood|hullarmored|hullcombat
-    DamageMultiplier_3: 0, param1: shield 
+    DamageMultiplier_3: 0, param1: shield
+    DamageMultiplier_4: 0.5, param1: Player
   }
   { Child 1
     Class: Zoom
@@ -24497,6 +24642,7 @@
 
     DamageMultiplier_1: 0, param1: stone|dirt|rock
     DamageMultiplier_2: 0.05, param1: shield
+    DamageMultiplier_3: 0.5, param1: Player
     BlastDamageMultiplier_1: 0, param1: stone|dirt|rock
   }
 
@@ -24546,6 +24692,7 @@
     DamageMultiplier_2: 0.5, param1: metallight|metal|metalhard
     DamageMultiplier_3: 0.02, param1: stone|dirt|rock
     DamageMultiplier_4: 0.1,   param1: shield
+    DamageMultiplier_5: 0.5, param1: Player
   }
 }
 
@@ -24618,8 +24765,28 @@
     
     DamageMultiplier_1: 0, param1: wood|stone|dirt 
     DamageMultiplier_2: 0.2, param1: metal|metalhard
+    DamageMultiplier_3: 0.5, param1: Player
   }
 }
+
+{ +Item Id: 3092, Name: Eden_TestDamage_Weapon, Ref: ZiraxMinigunWeapon
+  Meshfile: Entities/Items/Weapons/Enemies/ZiraxSniperPrefab
+  { Child 0
+    ROF: 2, type: float
+    Range: 110, display: false
+    Damage: 100, display: true
+    Automatic: false
+    SfxBegin: Weapons/Player/Sniper/Resistance-SniperRifle-02-Single_Shot-01
+    SfxLoop: Weapons/Enemies/Zirax/mute     # define new Zirax and not extend from MinigunZirax
+    SfxStop: Weapons/Enemies/Zirax/mute
+    ParticleTransform:     # Particle1 contains the destroy blocks effect
+    TracerPerBullet: 1
+    BulletSpread: 0, display: true
+    TracerSpeed: 200
+    # MaxFireAngle: 20  #(default is 5) 
+  }
+}
+
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------------------------------- Player Weapons and Ammo 3100-3199
@@ -24940,13 +25107,12 @@
     NoiseStrength: 100, display: false   
     Ballistic: false
 
-    DamageMultiplier_1: 1.5, param1: head, display: DmgMultiplierHead 
-    DamageMultiplier_2: 0.2, param1: dirt|stone|rock|wood|hullarmored|hullcombat
-    DamageMultiplier_3: 0.2, param1: shield
+    DamageMultiplier_1: 1.5, param1: head, display: DmgMultiplierHead
+    DamageMultiplier_2: 0.2, param1: dirt|stone|rock|wood|hullarmored|hullcombat, display: DmgMultiplierArmor
+    DamageMultiplier_3: 0.2, param1: shield, display: DmgMultiplierShield
     BlastDamageMultiplier_1: 0, param1: wood|plants
-    BlastDamageMultiplier_2: 0, param1: concrete|hull|hullarmored|hullcombat|metal|metalhard
-    BlastDamageMultiplier_3: 0, param1: dirt|stone|rock   
-    BlastDamageMultiplier_4: 0, param1: shield   
+    BlastDamageMultiplier_2: 0, param1: concrete|hull|hullarmored|hullcombat|metal|metalhard, display: DmgBlastMultiplierHullDevice
+    BlastDamageMultiplier_3: 0, param1: dirt|stone|rock
   }
 
   UnlockLevel: 1
@@ -25209,11 +25375,11 @@
 
     DamageMultiplier_1: 0.04, param1: wood|plants     # be able to remove trees and plants
     DamageMultiplier_2: 0, param1: hullarmored|hullcombat|dirt|stone|rock
-    DamageMultiplier_3: 0, param1: shield
+    DamageMultiplier_3: 0, param1: shield, display: DmgMultiplierShield
     BlastDamageMultiplier_1: 0, param1: wood|plants|dirt|stone|rock
-    BlastDamageMultiplier_2: 0, param1: concrete|hull|hullarmored|hullcombat|metal|metalhard
-    BlastDamageMultiplier_3: 0, param1: shield
-    BlastDamageMultiplier_4: 1.5, param1: CreatureSoft|CreatureHard|HumanLight
+    BlastDamageMultiplier_2: 0, param1: concrete|hull|hullarmored|hullcombat|metal|metalhard, display: DmgMultiplierHullArmorDevice
+    BlastDamageMultiplier_3: 0, param1: shield, display: DmgMultiplierShield
+    BlastDamageMultiplier_4: 1.5, param1: CreatureSoft|CreatureHard|HumanLight, display: DmgMultiplierSoftHard
   }
 }
 
@@ -25270,7 +25436,7 @@
 
     DamageMultiplier_1: 4.5, param1: head, display: DmgMultiplierHead 
     DamageMultiplier_2: 0, param1: dirt|stone|rock|wood|hullarmored|hullcombat
-    DamageMultiplier_3: 0.2, param1: shield
+    DamageMultiplier_3: 0.2, param1: shield, display: DmgMultiplierShield
     
 	Mod.Damage: "Damage + Player.Skills['LaserRifleDamage']"
 	Mod.ReloadDelay: "Math.Max(0.01, ReloadDelay - Player.Skills['LaserRifleReload']/100)"
@@ -25325,12 +25491,12 @@
     TracerPerBullet: 1
     TracerSpeed: 150
 
-    DamageMultiplier_1: 2, param1: head, display: DmgMultiplierHead 
+    DamageMultiplier_1: 2, param1: head, display: DmgMultiplierHead
     DamageMultiplier_2: 0.015, param1: wood       # able to destroy trees 
-    DamageMultiplier_3: 0, param1: dirt|stone|rock|hullarmored|hullcombat 
-    DamageMultiplier_4: 0.4, param1: metal       # able to destroy door
-    DamageMultiplier_5: 0.05, param1: metalhard  # able to destroy door
-    DamageMultiplier_6: 0, param1: shield
+    DamageMultiplier_3: 0, param1: dirt|stone|rock|hullarmored|hullcombat, display: DmgMultiplierArmor
+    DamageMultiplier_4: 0.4, param1: metal, display: DmgMultiplierDevice
+    DamageMultiplier_5: 0.05, param1: metalhard, display: DmgMultiplierDevice
+    DamageMultiplier_6: 0, param1: shield, display: DmgMultiplierShield
     
     Mod.Damage: "Damage + Player.Skills['ShotgunDamage']"
     Mod.BulletSpread: "Math.Max(0.01, BulletSpread - Player.Skills['ShotgunSpread']/1000)"
@@ -25380,14 +25546,14 @@
     AllowRemote: false   
     ROF: 0.1, type: float, display: true, formatter: ROF
     Range: 50, display: false
-    NoiseStrength: 80, display: false   
+    NoiseStrength: 80, display: false
     CameraShake: 3
     Automatic: true
-    BulletsPerShot: 16
+    BulletsPerShot: 12
     BulletSpread: 0
-    RaySpread: 2.8, display: true
+    RaySpread: 1.5, display: true
     Recoil: 2.5, display: true
-    Damage: 115, display: true
+    Damage: 153, display: true
     AmmoCapacity: 2, display: true
     AmmoType: ShotgunShells, display: true
     ReloadDelay: 1.63, display: true
@@ -25400,9 +25566,9 @@
 	
     DamageMultiplier_1: 2, param1: head, display: DmgMultiplierHead 
     DamageMultiplier_2: 0.015, param1: wood       # able to destroy trees 
-    DamageMultiplier_3: 0, param1: dirt|stone|rock|hullarmored|hullcombat 
-    DamageMultiplier_4: 0.4, param1: metal       # able to destroy door
-    DamageMultiplier_5: 0.05, param1: metalhard  # able to destroy door
+    DamageMultiplier_3: 0, param1: dirt|stone|rock|hullarmored|hullcombat
+    DamageMultiplier_4: 0.4, param1: metal, display: DmgMultiplierMetal
+    DamageMultiplier_5: 0.05, param1: metalhard, display: DmgMultiplierDevice
     DamageMultiplier_6: 0, param1: shield
     
     Mod.Damage: "Damage + Player.Skills['ShotgunDamage']"
@@ -25459,8 +25625,8 @@
 	
     DamageMultiplier_1: 6, param1: head, display: DmgMultiplierHead
     DamageMultiplier_2: 0, param1: dirt|stone|rock|wood
-    DamageMultiplier_3: 0, param1: hullarmored|hullcombat
-    DamageMultiplier_4: 0, param1: shield
+    DamageMultiplier_3: 0, param1: hullarmored|hullcombat, display: DmgMultiplierArmor
+    DamageMultiplier_4: 0, param1: shield, display: DmgMultiplierShield
     
     Mod.Damage: "Damage + Player.Skills['RifleDamage'] * 1.75"
     Mod.BulletSpread: "Math.Max(0.01, BulletSpread - Player.Skills['RifleSpread']/1000)"
@@ -25526,10 +25692,10 @@
     Buff_chance: 1
 	
     DamageMultiplier_1: 1, param1: head, display: DmgMultiplierHead 
-    DamageMultiplier_2: 0, param1: wood|metallight|metal|metalhard
-    DamageMultiplier_3: 0, param1: dirt|stone|rock|hullarmored|hullcombat 
-    DamageMultiplier_4: 0, param1: shield
-    DamageMultiplier_5: 0.2, param1: MechLight|MechArmored|DroneLight|DroneArmored
+    DamageMultiplier_2: 0, param1: wood|metallight|metal|metalhard, display: DmgMultiplierDevice
+    DamageMultiplier_3: 0, param1: dirt|stone|rock|hullarmored|hullcombat, display: DmgMultiplierArmor
+    DamageMultiplier_4: 0, param1: shield, display: DmgMultiplierShield
+    DamageMultiplier_5: 0.2, param1: MechLight|MechArmored|DroneLight|DroneArmored, display: DmgMultiplierMechanical
     
     Mod.Damage: "Damage + Player.Skills['FlamethrowerDamage']"
     Mod.ReloadDelay: "Math.Max(0.01, ReloadDelay - Player.Skills['FlamethrowerReload']/100)"
@@ -25920,8 +26086,10 @@
 }
 
 { +Item Id: 3130, Name: Eden_LightRailgunRifle
-  CustomIcon: LaserRifleEpic
-  Meshfile: Entities/Items/Weapons/Rifles/ScifiRifle4EpicPrefab
+  # CustomIcon: LaserRifleEpic
+  # Meshfile: Entities/Items/Weapons/Rifles/ScifiRifle4EpicPrefab
+  # Meshfile: Entities/Items/Weapons/Rifles/AssaultRifle1Prefab # White assault rifle
+  Meshfile: Entities/Items/Weapons/Enemies/ZiraxMinigunPlyPrefab
   PickupToToolbar: true
   Material: metalweapon
   HoldType: 15
@@ -25931,7 +26099,7 @@
   Info: An experimental light railgun rifle capable of inflicting massive damage to soft targets or light damage to structures. \n\nHas an enhanced targeting system allowing for night vision while helmet is equipped. Toggle with suit light hot key. \n\n1500 damage per shot before resistance modifiers., display: true
   Mass: 25, type: float, display: true, formatter: Kilogram
   Volume: 4, type: float, display: true, formatter: Liter
-  Durability: 500, display: true
+  Durability: 500, display: false
   DegradationProb: 0.5, type: float, display: false
   RepairDisabled: true, display: true
   SfxJammed: Weapons/Player/Reload/WeaponJammedSingleShot
@@ -25940,14 +26108,14 @@
   { Child 0
     Class: Ranged
     AllowRemote: false  
-    ROF: 4, type: float, display: true, formatter: ROF
+    ROF: 3, type: float, display: true, formatter: ROF
     Range: 225, display: false
     NoiseStrength: 80, display: false 
     CameraShake: 0
     BulletSpread: 0, display: true
     Recoil: 3, display: true
-    IgnoreAtmo: false, display: true
-    Automatic: false, display: true 
+    IgnoreAtmo: false, display: false
+    Automatic: true, display: true 
     Damage: 1500, display: true
     PenetrationDepth: 3, display: true
     AmmoCapacity: 5, display: true
@@ -25959,15 +26127,25 @@
     SfxReload: Weapons/Player/Reload/RifleReloadNormal
     PfxMuzzle: PlasmaMuzzleFlashPrefab
     # Tracer: Weapons/Projectiles/TracerLaserShotBlueSV
-    Tracer: @rg_projectiles/RG_ProjectileRailgunHand1
+    
+    
+    
+    # Tracer: @rg_projectiles/RG_ProjectileBulletMinigunRedx8
+    # Tracer: @rg_projectiles/RG_ProjectileRailgunHand1
+    # Tracer: @rg_projectiles/RG_ProjectileRailgunHand2
+    # Tracer: @rg_projectiles/RG_ProjectileRailgunBeamTest2
+    Tracer: @rg_projectiles/RG_ProjectileRailgunHand
     TracerPerBullet: 1
-    TracerSpeed: 175
+    # TracerSpeed: 175
+    TracerSpeed: 0
+    # TracerIsBeam: true
 
     DamageMultiplier_1: 1.25, param1: head, display: DmgMultiplierHead
     DamageMultiplier_2: 1, param1: dirt|stone|rock|wood
-    DamageMultiplier_3: 2, param1: hull|hullarmored|hullcombat|metalhard
-    DamageMultiplier_4: 0.1, param1: shield
-    DamageMultiplier_5: 1.5, param1: MechArmored|DroneLight|DroneArmored
+    # DamageMultiplier_3: 1.5, param1: hull|hullarmored|hullcombat|metalhard, display: DmgMultiplierHull
+    DamageMultiplier_3: 1.5, param1: hull|hullarmored|hullcombat|metalhard, display: DmgMultiplierHullDevice
+    DamageMultiplier_4: 0.05, param1: shield, display: DmgMultiplierShield
+    DamageMultiplier_5: 1.5, param1: MechArmored|DroneLight|DroneArmored, display: DmgMultiplierMechanical
     
     Mod.Damage: "Damage + Player.Skills['SniperDamage'] * 3"
     Mod.ReloadDelay: "Math.Max(0.01, ReloadDelay - Player.Skills['SniperReload']/100)"
@@ -26558,6 +26736,7 @@
   # Meshfile: @eden_projectiles/Eden_ProjectileBulletYellowSx6
   Meshfile: @eden_projectiles/Eden_ProjectileBulletYellowSx10
   DropMeshfile: Entities/Misc/BagSmallPrefab
+  ShowUser: NoButCSV  # reported by HWS
   Material: metalweapon
   AllowPlacingAt: Base, display: false
   HoldType: 0
@@ -27449,6 +27628,7 @@
     DamageMultiplier_1: 1.25, param1: head, display: DmgMultiplierHead
     DamageMultiplier_2: 0, param1: dirt|stone|rock|wood|hullarmored|hullcombat
     DamageMultiplier_3: 0.2, param1: shield, display: DmgMultiplierShield
+    DamageMultiplier_4: 0.5, param1: Player
     BlastDamageMultiplier_1: 0, param1: wood|plants
     BlastDamageMultiplier_2: 0, param1: concrete|hull|hullarmored|hullcombat|metal|metalhard
     BlastDamageMultiplier_3: 0, param1: dirt|stone|rock
@@ -27696,7 +27876,7 @@
   { Child 0
     Class: Ranged
     # IsShootThroughCrosshair: true
-    IsShootThroughCrosshair: true
+    # IsShootThroughCrosshair: true
     # ForceMuzzleAiming: true
     AllowAt: Space
     ROF: 2.25, type: float, display: true, formatter: ROF
@@ -27710,17 +27890,20 @@
     AmmoType: Eden_TurretRailgun_Ammo, display: true
     NoiseStrength: 120, display: false
     CameraShake: 20
-    ReloadDelay: 6, display: true # adapt sound
-    SfxBegin: Weapons/SS/LaserSS/weapon_blaster_003
+    ReloadDelay: 5, display: true # adapt sound
+    # SfxBegin: Weapons/SS/LaserSS/weapon_blaster_003
+    SfxBegin: Weapons/ProjectileWeapons/weapon_railgun_004
     # SfxNoAmmo: Weapons/Misc/weapon_outofammo_003
     SfxReload: Weapons/Player/Misc/Reload/RifleBoltActionCock04_reload
-    PfxMuzzle: PlasmaMuzzleFlashLargePrefab
+    # PfxMuzzle: PlasmaMuzzleFlashLargePrefab
     TracerPerBullet: 1
-    TracerSpeed: 1200
+    # TracerSpeed: 1200
+    TracerSpeed: 0
     # Tracer: @eden_projectiles/Eden_ProjectileRailgunLight
     # Tracer: @eden_projectiles/Eden_ProjectileRailgunL
     # Tracer: @eden_projectiles/Eden_ProjectileRailgunCVSpinalT2
-    Tracer: @eden_projectiles/Eden_ProjectileRailgunCVSpinalT2New
+    # Tracer: @eden_projectiles/Eden_ProjectileRailgunCVSpinalT2New
+    Tracer: @rg_projectiles/RG_ProjectileRailgunCV
     
 
     DamageMultiplier_1: 0.1, param1: head|body
@@ -27946,13 +28129,17 @@
     # Tracer: @eden_projectiles/Eden_ProjectileBulletVulcanSmall
     # Tracer: @rg_projectiles/RG_ProjectileVulcanNewx3
     # Tracer: @rg_projectiles/RG_ProjectileVulcanNewv2x3
-    Tracer: @rg_projectiles/RG_ProjectileVulcanNewv4x3
+    
+    
+    # Tracer: @rg_projectiles/RG_ProjectileVulcanNewv4x3
+    Tracer: @rg_projectiles/RG_ProjectileVulcanSprayYellow
     TracerPerBullet: 1
-    TracerSpeed: 750
+    # TracerSpeed: 750
+    # TracerSpeed: 0
 
     # TracerPerBullet: 1
     # Tracer: @rg_projectiles/RG_ProjectileBulletMinigunStream2
-    # TracerIsBeam: true
+    TracerIsBeam: true
 
     DamageMultiplier_1: 0.5, param1: head|body|
     DamageMultiplier_2: 0.01, param1: wood|rock
@@ -28604,8 +28791,8 @@
     HarvestSupport: true
     AllowAt: "UnderWater, Planet, Space"
     ROF: 0.5, type: float
-    Damage: 600
-    Radius: 1
+    Damage: 6000
+    Radius: 3
     Range: 20, display: false
     NoiseStrength: 40, display: false 
     CameraShake: 0 
@@ -29320,6 +29507,7 @@
     DamageMultiplier_1: 1.25, param1: head, display: DmgMultiplierHead
     DamageMultiplier_2: 0, param1: dirt|stone|rock|wood|hullarmored|hullcombat
     DamageMultiplier_3: 0.2, param1: shield, display: DmgMultiplierShield
+    DamageMultiplier_4: 0.5, param1: Player
     BlastDamageMultiplier_1: 0, param1: wood|plants
     BlastDamageMultiplier_2: 0, param1: concrete|hull|hullarmored|hullcombat|metal|metalhard
     BlastDamageMultiplier_3: 0, param1: dirt|stone|rock
@@ -29335,7 +29523,54 @@
   # ShowUser: Yes
 # }
 
+{ +Item Id: 3193, Name: Eden_TurretAlarm_Weapon
+  Meshfile: Entities/Misc/DummyPrefab
+  # Meshfile: Entities/Blocks/Turrets/TurretsEnemy/TurretEnemyLaserPrefab
+  DropMeshfile: Entities/Misc/BagSmallPrefab
+  Material: metalweapon
+  Canhold: false
+  HoldType: 0
+  StackSize: 1
+  Category: Weapons/Items
+  ShowUser: No
+  { Child 0
+    Class: Ranged
+    IsShootThroughCrosshair: true
+    AllowAt: "UnderWater,Space,Planet"
+    ROF: 40, type: float, display: true, formatter: ROF
+    Range: 1200, display: true
+    RangeSpace: 3000, display: true
+    Automatic: true
+    Damage: 0, display: true
+    IgnoreAtmo: true
+    AmmoCapacity: 50, display: false
+    BulletSpread: 30, display: false
+    AutoReload: true
+    AmmoUnlimited: true
+    AmmoType: Eden_TurretRaiderLaser_Ammo, display: false
+    ReloadDelay: 1.5, display: false
+    # SfxBegin: Weapons/Player/Misc/Single/M16GAU5AinHeavySingle
+#    SfxBegin: Weapons/Enemies/Zirax/AWDS_AK47Krinkov_Begin
+#    SfxLoop: Weapons/Enemies/Zirax/AWDS_AK47Krinkov_Loop
+#    SfxStop: Weapons/Enemies/Zirax/AWDS_AK47Krinkov_Stop
+#	SfxBegin: Weapons/Player/Pistol/AWDS_AR_ HK53_Heavy_Single
+    # SfxBegin: Weapons/ProjectileWeapons/Automatic/M14_Heavy_loop
+    # SfxLoop: Weapons/ProjectileWeapons/Automatic/M14_Heavy_loop
+    # SfxStop: Weapons/ProjectileWeapons/Automatic/M14_Heavy_end
+    # SfxNoAmmo: Weapons/DryFireFromManuallyCockedHammer
+    # SfxReload: Weapons/weapon_reload_standard
+    # PfxMuzzle: MuzzleFlash3
+    # Tracer: Weapons/Projectiles/TracerOrange1
+    TracerPerBullet: 1
+    # Tracer: @rg_projectiles/RG_ProjectileVulcanNew
+    Tracer: @rg_projectiles/RG_ProjectileWarning
+    TracerSpeed: 0
 
+    # DamageMultiplier_1: 0, param1: dirt|stone|rock|wood
+    # DamageMultiplier_2: 0.04, param1: shield 
+    # DamageMultiplier_3: 2.0, param1: head, display: DmgMultiplierHead
+  }
+}
 
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -29756,7 +29991,7 @@
   CustomIcon: Eden_HematiteOre
   Category: Deco Blocks
   Mass: 40000, type: float, display: true, formatter: Kilogram
-  Volume: 300, type: float, display: true, formatter: Liter
+  Volume: 50, type: float, display: true, formatter: Liter
   ShowUser: Yes
   MarketPrice: 50000, display: true
   StackSize: 4000
@@ -29778,7 +30013,7 @@
   CustomIcon: Eden_IlmeniteOre
   Category: Deco Blocks
   Mass: 456000, type: float, display: true, formatter: Kilogram
-  Volume: 300, type: float, display: true, formatter: Liter
+  Volume: 50, type: float, display: true, formatter: Liter
   ShowUser: Yes
   MarketPrice: 100000, display: true
   StackSize: 4000
@@ -29800,7 +30035,7 @@
   CustomIcon: Eden_PyrolusiteOre
   Category: Deco Blocks
   Mass: 1500000, type: float, display: true, formatter: Kilogram
-  Volume: 300, type: float, display: true, formatter: Liter
+  Volume: 50, type: float, display: true, formatter: Liter
   ShowUser: Yes
   MarketPrice: 100000, display: true
   StackSize: 4000
@@ -29810,8 +30045,8 @@
 { +Item Id: 3242, Name: Eden_ChromiteOre, Ref: OreTemplate
   Meshfile: Entities/Items/Ores/CopperOrePrefab
   Info: Eden_ChromiteOreinfo, display: true
-  Mass: 0.5, type: float, display: true, formatter: Kilogram
-  Volume: 0.05, type: float, display: true, formatter: Liter
+  Mass: 50, type: float, display: true, formatter: Kilogram
+  Volume: 20, type: float, display: true, formatter: Liter
   MarketPrice: 100, display: true
   XpFactor: 25
   ShowUser: Yes
@@ -29821,9 +30056,9 @@
 { +Item Id: 3243, Name: Eden_ChromiteShipment, Ref: ComponentsTemplate
   CustomIcon: Eden_ChromiteOre
   Category: Deco Blocks
-  Mass: 6.71, type: float, display: true, formatter: Kilogram
-  Volume: 0.75, type: float, display: true, formatter: Liter
-  MarketPrice: 6.5, display: true
+  Mass: 1500000, type: float, display: true, formatter: Kilogram
+  Volume: 50, type: float, display: true, formatter: Liter
+  MarketPrice: 250000, display: true
   ShowUser: Yes
 }
 
@@ -30121,6 +30356,207 @@
     SfxBegin: UseActions/playerEatingSoft
   }
 }
+
+
+# Bulk trading goods for Project Eden factories.
+
+{ +Item Id: 3282, Name: Eden_ShipmentAdvComponent, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentAdvComponentinfo, display: true
+  GlobalRef: Eden_Shipment320k
+}
+
+{ +Item Id: 3283, Name: Eden_ShipmentComponent, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentComponentinfo, display: true
+  GlobalRef: Eden_Shipment160k
+}
+
+{ +Item Id: 3284, Name: Eden_ShipmentCrop, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentCropinfo, display: true
+  GlobalRef: Eden_Shipment80k
+}
+
+{ +Item Id: 3285, Name: Eden_ShipmentFarm, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentFarminfo, display: true
+  GlobalRef: Eden_Shipment160k
+}
+
+{ +Item Id: 3286, Name: Eden_ShipmentFertilizer, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentFertilizerinfo, display: true
+  GlobalRef: Eden_Shipment80k
+}
+
+{ +Item Id: 3287, Name: Eden_ShipmentFood, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentFoodinfo, display: true
+  GlobalRef: Eden_Shipment160k
+}
+
+{ +Item Id: 3288, Name: Eden_ShipmentFuel, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentFuelinfo, display: true
+  GlobalRef: Eden_Shipment160k
+}
+
+{ +Item Id: 3289, Name: Eden_ShipmentHydrogen, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentHydrogeninfo, display: true
+  GlobalRef: Eden_Shipment40k
+}
+
+{ +Item Id: 3290, Name: Eden_ShipmentHydroponics, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentHydroponicsinfo, display: true
+  GlobalRef: Eden_Shipment320k
+}
+
+{ +Item Id: 3291, Name: Eden_ShipmentIndustrial, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentIndustrialinfo, display: true
+  GlobalRef: Eden_Shipment320k
+}
+
+{ +Item Id: 3292, Name: Eden_ShipmentIngot, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentIngot, display: true
+  GlobalRef: Eden_Shipment160k
+}
+
+{ +Item Id: 3293, Name: Eden_ShipmentJewelry, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentJewelryinfo, display: true
+  GlobalRef: Eden_Shipment8k
+}
+
+{ +Item Id: 3294, Name: Eden_ShipmentLeather, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentLeatherinfo, display: true
+  GlobalRef: Eden_Shipment80k
+}
+
+{ +Item Id: 3295, Name: Eden_ShipmentLiquor, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentLiquorinfo, display: true
+  GlobalRef: Eden_Shipment160k
+}
+
+{ +Item Id: 3296, Name: Eden_ShipmentFeed, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentFeedinfo, display: true
+  GlobalRef: Eden_Shipment160k
+}
+
+{ +Item Id: 3297, Name: Eden_ShipmentMeat, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentMeatinfo, display: true
+  GlobalRef: Eden_Shipment80k
+}
+
+{ +Item Id: 3298, Name: Eden_ShipmentMining, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentMininginfo, display: true
+  GlobalRef: Eden_Shipment320k
+}
+
+{ +Item Id: 3299, Name: Eden_ShipmentOptronics, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentOptronicsinfo, display: true
+  GlobalRef: Eden_Shipment320k
+}
+
+{ +Item Id: 3301, Name: Eden_ShipmentOre, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentOreinfo, display: true
+  GlobalRef: Eden_Shipment160k
+}
+
+{ +Item Id: 3302, Name: Eden_ShipmentOxygen, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentOxygeninfo, display: true
+  GlobalRef: Eden_Shipment40k
+}
+
+{ +Item Id: 3303, Name: Eden_ShipmentMetal, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentMetalinfo, display: true
+  GlobalRef: Eden_Shipment320k
+}
+
+{ +Item Id: 3304, Name: Eden_ShipmentRobotics, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentRoboticsinfo, display: true
+  GlobalRef: Eden_Shipment320k
+}
+
+{ +Item Id: 3305, Name: Eden_ShipmentWaste, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentWasteinfo, display: true
+  GlobalRef: Eden_Shipment40k
+}
+
+{ +Item Id: 3306, Name: Eden_ShipmentWater, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentWaterinfo, display: true
+  GlobalRef: Eden_Shipment20k
+}
+
+{ +Item Id: 3307, Name: Eden_ShipmentMilitary, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentMilitaryinfo, display: true
+  GlobalRef: Eden_Shipment40k
+}
+
+{ +Item Id: 3308, Name: Eden_ShipmentWorker, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentWorkerinfo, display: true
+  Mass: 240000, type: float, display: true, formatter: Kilogram
+  Volume: 40000, type: float, display: true, formatter: Liter
+  MarketPrice: 50000, display: true
+}
+
+{ +Item Id: 3309, Name: Eden_ShipmentOfficer, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentOfficerinfo, display: true
+  Mass: 480000, type: float, display: true, formatter: Kilogram
+  Volume: 80000, type: float, display: true, formatter: Liter
+  MarketPrice: 75000, display: true
+}
+
+{ +Item Id: 3310, Name: Eden_ShipmentVIP, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_ShipmentVIPinfo, display: true
+  Mass: 96000, type: float, display: true, formatter: Kilogram
+  Volume: 160000, type: float, display: true, formatter: Liter
+  MarketPrice: 100000, display: true
+}
+
+{ +Item Id: 3311, Name: Eden_Polymer, Ref: TradingGoodsTemplate
+  ShowUser: Yes
+  Info: Eden_Polymerinfo, display: true
+  Mass: 50, type: float, display: true, formatter: Kilogram
+  Volume: 500, type: float, display: true, formatter: Liter
+  MarketPrice: 500, display: true
+}
+
+{ +Item Id: 3312, Name: Eden_LootMiningT1, Ref: TradingGoodsTemplate
+  CustomIcon: AlienContainerRare
+  ShowUser: Yes
+  Info: Eden_LootMiningT1, display: true
+  Mass: 1, type: float, display: true, formatter: Kilogram
+  Volume: 1, type: float, display: true, formatter: Liter
+  MarketPrice: 10000, display: true
+  { Child 0
+    Class: Eat
+    ROF: 7, type: float 
+  }
+}
+
+
+
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------------------------------- Conmsumables and Medical 3350-3399
@@ -30512,28 +30948,28 @@
   Volume: 8000, type: float, display: true, formatter: Liter
 }
 
-{ +Item Id: 3408, Name: Eden_TokenCargo16k, Ref: Token
+{ +Item Id: 3408, Name: Eden_TokenCargo20k, Ref: Token
   CustomIcon: ScifiContainer1Small
   Mass: 40000, type: float, display: true, formatter: Kilogram
-  Volume: 16000, type: float, display: true, formatter: Liter
+  Volume: 20000, type: float, display: true, formatter: Liter
 }
 
-{ +Item Id: 3409, Name: Eden_TokenCargo32k, Ref: Token
+{ +Item Id: 3409, Name: Eden_TokenCargo40k, Ref: Token
   CustomIcon: ContainerMS05Large
   Mass: 80000, type: float, display: true, formatter: Kilogram
-  Volume: 32000, type: float, display: true, formatter: Liter
+  Volume: 40000, type: float, display: true, formatter: Liter
 }
 
-{ +Item Id: 3410, Name: Eden_TokenCargo64k, Ref: Token
+{ +Item Id: 3410, Name: Eden_TokenCargo80k, Ref: Token
   CustomIcon: ContainerMS03Large
   Mass: 160000, type: float, display: true, formatter: Kilogram
-  Volume: 64000, type: float, display: true, formatter: Liter
+  Volume: 80000, type: float, display: true, formatter: Liter
 }
 
-{ +Item Id: 3411, Name: Eden_TokenCargo128k, Ref: Token
+{ +Item Id: 3411, Name: Eden_TokenCargo160k, Ref: Token
   CustomIcon: ScifiContainer1Large
   Mass: 320000, type: float, display: true, formatter: Kilogram
-  Volume: 128000, type: float, display: true, formatter: Liter
+  Volume: 160000, type: float, display: true, formatter: Liter
 }
 
 { +Item Id: 3412, Name: Eden_TokenCargo256k, Ref: Token
@@ -30852,6 +31288,20 @@
   MarketPrice: 20000, display: true
 }
 
+{ +Item Id: 3447, Name: Eden_CoreSample, Ref: ComponentsTemplate
+  # DropMeshfile: Entities/Misc/BagSmallNewPrefab
+  DropMeshfile: @eden_blockmodels/Eden_ModelNull
+  ShowUser: No
+  Info: Eden_CoreSampleinfo, display: true
+  Mass: 1000000000, type: float, display: true, formatter: Kilogram
+  Volume: 32000, type: float, display: true, formatter: Liter
+  StackSize: 1
+  FoodDecayTime: 1, display: true, type: int
+  FoodDecayedItem: CrushedStone
+  LifetimeOnDrop: 0
+  MarketPrice: 500, display: true
+}
+
 # { +Item Id: 3438, Name: Eden_ExploreDataT1, Ref: TradingGoodsTemplate
   # CustomIcon: KeyCardBlue
   # Mass: 0.1, type: float, display: true, formatter: Kilogram
@@ -30910,3 +31360,31 @@
     # DamageMultiplier_2: 0, param1: shield
   # }
 # }
+
+
+  # { Child 1 # "Repair"
+    # Class: Repair
+    # AllowAt: "UnderWater, Planet, Space"
+    # Range: 5
+    # # Recoil: 0.2, display: true
+    # NoiseStrength: 10, display: false  
+    # CameraShake: 0    
+    # IgnoreAtmo: true
+    # ROF: 0.4, type: float
+    # RepairPoints: 10
+    # Automatic: true
+    # AmmoCapacity: 250
+    # AmmoType: MultiCharge
+    # UseSingleMagazine: true
+    # ReloadDelay: 3.0
+    # ParticleTransform: Muzzle/Particle2  # particle effect shown at muzzle    
+    # SfxBegin: Weapons/Player/Tools/WeaponLightning02_start
+    # SfxLoop: Weapons/Player/Tools/WeaponLightning02_loop
+    # SfxReload: Weapons/Player/Reload/RifleReloadNormal
+    # SfxUpgrade: UseActions/UpgradeBlock2
+    # SfxUpgradeErr: UseActions/UpgradeBlockError
+    # AllowUpgrade: false
+    # RadialText: rdlRepair
+    # RadialDesc: rdlRepairTxt
+    # RadialIcon: Radial_Repair
+  # }

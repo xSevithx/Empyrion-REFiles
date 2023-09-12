@@ -161,9 +161,9 @@ SpecialEffectsGlobal:
 # 4=160        9=1800     14=6800     19=17200    24=34700
 # 5=314        10=2500    15=8400     20=20100    25=39200
 # ======================================================================================================
-      # #DistTypeCylinder
-        # #MaxRadius 13
-        # #YVariance 8
+      # #DistTypeCylinder:
+        # #MaxRadius: 13
+        # #YVariance: 8
 # ======================================================================================================
       # DistTypeWorm:
         # FreqDirChange: 0.2
@@ -181,9 +181,9 @@ RandomResources:
       DepthMinMax: [ 4, 8 ]
       DroneProb: 0.2
       MaxDroneCount: 1
-      #DistTypeCylinder
-        #MaxRadius 13
-        #YVariance 5
+      #DistTypeCylinder:
+        #MaxRadius: 13
+        #YVariance: 5
 
     - Name: CopperResource
       IsScalingCount: True
@@ -192,9 +192,9 @@ RandomResources:
       DepthMinMax: [ 5, 10 ]
       DroneProb: 0.3
       MaxDroneCount: 5
-      #DistTypeCylinder
-        #MaxRadius 13
-        #YVariance 5
+      #DistTypeCylinder:
+        #MaxRadius: 13
+        #YVariance: 5
 
     - Name: SiliconResource
       IsScalingCount: True
@@ -203,9 +203,9 @@ RandomResources:
       DepthMinMax: [ 5, 10 ]
       DroneProb: 0.3
       MaxDroneCount: 5
-      #DistTypeCylinder
-        #MaxRadius 13
-        #YVariance 5
+      #DistTypeCylinder:
+        #MaxRadius: 13
+        #YVariance: 5
 
     - Name: CobaltResource
       IsScalingCount: True
@@ -213,9 +213,9 @@ RandomResources:
       SizeMinMax: [ 7, 8 ]
       DepthMinMax: [ 4, 9 ]
       DroneProb: 0.2
-      #DistTypeCylinder
-        #MaxRadius 13
-        #YVariance 5
+      #DistTypeCylinder:
+        #MaxRadius: 13
+        #YVariance: 5
 
     - Name: PromethiumResource
       IsScalingCount: True
@@ -223,9 +223,9 @@ RandomResources:
       SizeMinMax: [ 5, 6 ]
       DepthMinMax: [ 4, 8 ]
       DroneProb: 0.4
-      #DistTypeCylinder
-        #MaxRadius 8
-        #YVariance 15
+      #DistTypeCylinder:
+        #MaxRadius: 8
+        #YVariance: 15
 
 
 ### Resource Asteroids
@@ -280,6 +280,28 @@ POIs:
             - Key: RegenAfter
               Value: 720
 
+        - GroupName: TalonFactoryRG 
+          Territory: False
+          Faction: Talon
+          NoShieldReload: True
+          CountMinMax: [ 1, 4 ]
+          SpawnPOINear: [TribalBazar]
+          SpawnPOINearRange: [100, 300] 
+          Properties:  
+            - Key: RegenAfter
+              Value: 720
+
+        - GroupName: MineBasicTalonRG 
+          Territory: False
+          Faction: Talon
+          NoShieldReload: True
+          CountMinMax: [ 1, 2 ]
+          SpawnPOINear: [TribalBazar]
+          SpawnPOINearRange: [200, 700] 
+          Properties:  
+            - Key: RegenAfter
+              Value: 720
+
 # Trader
 
         - GroupName: TraderMainRG 
@@ -327,6 +349,62 @@ POIs:
             - Key: RegenAfter
               Value: 720 
 
+        - GroupName: FactoryPolarisRG1
+          Faction: Trader
+          NoShieldReload: True
+          CountMinMax: [ 30, 30 ]
+          # SpawnPOINear: [TraderMainRG]
+          # SpawnPOINearRange: [300, 600] 
+          Properties:
+            - Key: RegenAfter
+              Value: 720
+
+        - GroupName: FactoryPolarisRG2
+          Faction: Trader
+          NoShieldReload: True
+          CountMinMax: [ 1, 1 ]
+          SpawnPOINear: [TraderMainRG]
+          SpawnPOINearRange: [300, 600] 
+          Properties:  
+            - Key: RegenAfter
+              Value: 720
+
+        - GroupName: FactoryPolarisRG3
+          Faction: Trader
+          NoShieldReload: True
+          CountMinMax: [ 1, 1 ]
+          SpawnPOINear: [TraderMainRG]
+          SpawnPOINearRange: [300, 600] 
+          Properties:  
+            - Key: RegenAfter
+              Value: 720
+
+        - GroupName: MineT2PolarisRG
+          Territory: False
+          Faction: Trader
+          NoShieldReload: True
+          CountMinMax: [ 1, 1 ]
+          SpawnPOINear: [TraderMainRG]
+          SpawnPOINearRange: [100, 200] 
+          Properties:  
+            - Key: RegenAfter
+              Value: 720
+
+        - GroupName: MineSaltPolarisRG
+          Territory: False
+          Faction: Trader    
+          NoShieldReload: True
+          SpawnPOIAvoid: [MineSaltPolarisRG]
+          SpawnPOIAvoidDistance: 1000
+          Biome: [ ShallowWater, OpenSea, DeepWater, Water ]
+          PlaceAt: OnWater
+          CountMinMax: [ 1, 2 ]
+          Properties: 
+            - Key: SI
+              Value: Off
+            - Key: RegenAfter
+              Value: 720 
+
 # Civilians
 
         - GroupName: CivilMainRG
@@ -347,6 +425,17 @@ POIs:
             - Key: RegenAfter
               Value: 720 
 
+        - GroupName: MineT1PolarisRG 
+          Territory: False
+          Faction: Colonists
+          NoShieldReload: True
+          CountMinMax: [ 1, 4 ]
+          SpawnPOINear: [CivilSettlementRG]
+          SpawnPOINearRange: [100, 200] 
+          Properties:  
+            - Key: RegenAfter
+              Value: 720
+
         # - GroupName: CivilSettlementRG 
           # Territory: False
           # Faction: Main                    #fill up territories when CIV faction is not placed
@@ -361,7 +450,8 @@ POIs:
 
 # Abandoned sites
         - GroupName: FarrAbandonedRG
-          Faction: Farr
+          Faction: Alien
+          FactionTerritory: [Farr]
           NoShieldReload: True
           IsImportant: True
           CountMinMax: [ 1, 2 ]
@@ -434,6 +524,29 @@ POIs:
           Properties: 
             - Key: RegenAfter
               Value: 720
+
+        - GroupName: MineT2PolarisRG 
+          Territory: False
+          Faction: Farr
+          NoShieldReload: True
+          CountMinMax: [ 1, 2 ]
+          SpawnPOINear: [FarrTradingT2RG]
+          SpawnPOINearRange: [100, 400] 
+          Properties:  
+            - Key: RegenAfter
+              Value: 720
+
+        - GroupName: MineGraphitePolarisRG 
+          Territory: False
+          Faction: Farr
+          NoShieldReload: True
+          CountMinMax: [ 0, 1 ]
+          SpawnPOINear: [FarrTradingT2RG]
+          SpawnPOINearRange: [100, 500] 
+          Properties:  
+            - Key: RegenAfter
+              Value: 720
+
 # -------------------------------------------------------------------------------------------------
 
 # Kriel
@@ -511,7 +624,62 @@ POIs:
           Properties: 
             - Key: RegenAfter
               Value: 720
- 
+
+        - GroupName: FactoryPolarisRG1
+          Faction: Polaris
+          NoShieldReload: True
+          IsImportant: True
+          CountMinMax: [ 1, 1 ]
+          SpawnPOINear: [TS_PlanetRG]
+          SpawnPOINearRange: [300, 600]
+          Properties:  
+            - Key: RegenAfter
+              Value: 720
+
+        - GroupName: FactoryPolarisRG2
+          Faction: Polaris
+          NoShieldReload: True
+          IsImportant: True
+          CountMinMax: [ 1, 1 ]
+          SpawnPOINear: [TS_PlanetRG]
+          SpawnPOINearRange: [300, 600]
+          Properties:  
+            - Key: RegenAfter
+              Value: 720
+
+        - GroupName: FactoryPolarisRG3
+          Faction: Polaris
+          NoShieldReload: True
+          IsImportant: True
+          CountMinMax: [ 1, 1 ]
+          SpawnPOINear: [TS_PlanetRG]
+          SpawnPOINearRange: [300, 600]
+          Properties:  
+            - Key: RegenAfter
+              Value: 720
+
+        - GroupName: MineT1PolarisRG 
+          Territory: False
+          Faction: Polaris
+          NoShieldReload: True
+          CountMinMax: [ 0, 2 ]
+          SpawnPOINear: [PolarisSettlementRG]
+          SpawnPOINearRange: [300, 600] 
+          Properties:  
+            - Key: RegenAfter
+              Value: 720
+
+        - GroupName: MineT2PolarisRG 
+          Territory: False
+          Faction: Polaris
+          NoShieldReload: True
+          CountMinMax: [ 1, 2 ]
+          SpawnPOINear: [PolarisSettlementRG]
+          SpawnPOINearRange: [100, 400] 
+          Properties:  
+            - Key: RegenAfter
+              Value: 720
+
        # ================================
         # POI complex with several structures around
         - GroupName: EpsilonBunkerRG
@@ -664,6 +832,51 @@ POIs:
             - Key: RegenAfter
               Value: 720
 
+# Black cult POIs
+        - GroupName: Eden_NecroAuxT1
+          Faction: Alien
+          FactionTerritory: [Warlord, Xenu]
+          NoShieldReload: True
+          IsImportant: True
+          CountMinMax: [ 0, 1 ]
+          DroneProb: 1
+          DronesMinMax: [ 2, 4 ]
+          ReserveCount: 4
+          TroopTransport: True
+          Properties: 
+            - Key: RegenAfter
+              Value: 720
+
+        - GroupName: Eden_NecroAuxT1
+          Faction: Alien
+          FactionTerritory: [Warlord, Xenu]
+          NoShieldReload: True
+          CountMinMax: [ 1, 2 ]
+          DroneProb: 0.8
+          DronesMinMax: [ 1, 2 ]
+          ReserveCount: 3
+          TroopTransport: True 
+          SpawnPOINear: [Eden_NecroAuxT1]
+          SpawnPOINearRange: [100, 250]
+          Properties: 
+            - Key: RegenAfter
+              Value: 720
+
+        - GroupName: Eden_NecroDefenseT1
+          Faction: Alien
+          FactionTerritory: [Warlord, Xenu]
+          NoShieldReload: True
+          CountMinMax: [ 2, 3 ]
+          DroneProb: 0.8
+          DronesMinMax: [ 1, 2 ]
+          ReserveCount: 3
+          TroopTransport: False
+          SpawnPOINear: [Eden_NecroAuxT1]
+          SpawnPOINearRange: [200, 350]
+          Properties: 
+            - Key: RegenAfter
+              Value: 720
+
         # Different POIs scattered around planet
         - GroupName: CrashedShip    
           Faction: None     
@@ -746,6 +959,28 @@ POIs:
               Value: 3000
             - Key: HudDistance
               Value: 3000
+            - Key: RegenAfter
+              Value: 720
+
+# Caves
+        - GroupName: Eden_CaveTemperate
+          Faction: Eden_Wreck
+          FactionTerritory: [All]
+          NoShieldReload: True
+          Biome: [ Forest, DeepForest, Oasis ]
+          CountMinMax: [ 1, 2 ]
+          IsScalingCount: True
+          DroneProb: 0
+          DronesMinMax: [ 1, 1 ]
+          ReserveCount: 0
+          TroopTransport: False
+          Properties:
+            - Key: MapDistance
+              Value: 3000
+            - Key: HudDistance
+              Value: 3000
+            - Key: SI
+              Value: Off
             - Key: RegenAfter
               Value: 720
 
