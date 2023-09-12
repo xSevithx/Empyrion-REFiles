@@ -17,15 +17,15 @@ Options:
     AutoMinerDepletion: False          # default value
     EnableUnlockCheckInBPF: True
     GroundedStructureSpawn: False
-    TurretUndergroundCheck: False     # default value
+    TurretUndergroundCheck: true     # default value
     OriginDefault: Neutral            # default value
     OriginAccessOthers: True          # default value
     OriginAutoAlliance: True          # default value
-    FriendlyFireInPvP: True           # default value
+    FriendlyFireInPvP: false           # default value
     MaxSpawnedEnemies: 60             # default value
-    DespawnEscapePod: False           # default value
-    RegeneratePOIs: False             # default value
-    FOWTransparency: 0                # default value
+    DespawnEscapePod: true           # default value
+    RegeneratePOIs: true             # default value
+    FOWTransparency: 20                # default value
     DSLUnloadSecs: 30                 # default value
     DSLDistancePlanet: 1200           # default value
     DSLDistanceSpace: 3000            # default value
@@ -38,10 +38,10 @@ Options:
 
     #### SPECIAL COOP SETTING ####
   - ValidFor: [ MP, Survival ]
-    DecayTime: 24                     # default value
-    WipeTime: 0                       # default value
+    DecayTime: 96                     # default value
+    WipeTime: 244                      # default value
     ProtectTime: 48                   # default value
-    ProtectDelay: 300                 # default value
+    ProtectDelay: 900                 # default value
     MaxStructures: 2000                # default value
     AntiGriefDistancePvE: 0
     AntiGriefDistancePvP: 0
@@ -60,8 +60,8 @@ Options:
     OriginAutoAlliance: True          # default value
     MaxSpawnedEnemies: 60             # default value
     DespawnEscapePod: True 
-    RegeneratePOIs: False               
-    FOWTransparency: 0                # default value
+    RegeneratePOIs: true               
+    FOWTransparency: 20                # default value
     DSLDistancePlanet: 1200           # default value
     DSLDistanceSpace: 3000            # default value
     ForcePvP: False
@@ -69,21 +69,21 @@ Options:
     CustomPlayerTab: "Scenario Change Log;https://steamcommunity.com/sharedfiles/filedetails/changelog/2550354956"
 
     ### In local Coop, following parameter are ignored since they are taken from Difficulty Settings window ###
-    FriendlyFireInPvP: True           # default value
+    FriendlyFireInPvP: false           # default value
     DiffEscapePodContent: Medium      # default value
-    DiffPlayerProgression: Normal     # default value
-    DiffDegradationSpeed: Normal      # default value
+    DiffPlayerProgression: Slower     # default value
+    DiffDegradationSpeed: Low      # default value
     DiffFoodConsumption: Normal       # default value
     DiffOxygenConsumption: Normal     # default value
     DiffRadiationTemperature: Normal  # default value
     DiffAmountOfOre: Normal           # default value
     DiffNumberOfDeposits: Normal      # default value
-    DiffAttackStrength: Easy        # default value
+    DiffAttackStrength: Hard        # default value
     DiffDronePresence: Normal         # default value
     DiffDroneBaseAttack: Normal       # default value
     DiffConstrCraftTime: Normal       # default value
     DiffBpProdTime: Instant            # default value
-
+    DiffPlayerBackpackDrop: DropBagOnly
 
   - ValidFor: [ SP, Creative ]
     DecayTime: 0
